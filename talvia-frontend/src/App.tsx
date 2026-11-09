@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import MainLayout from './layouts/MainLayout';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
@@ -16,7 +16,7 @@ function NotFound() {
       <div className="text-8xl font-black text-gray-200 mb-4">404</div>
       <h2 className="text-2xl font-bold text-[#172554] mb-3">Page Not Found</h2>
       <p className="text-slate-500 mb-6">The page you're looking for doesn't exist.</p>
-      <a href="/" className="bg-[#FF6633] hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-xl transition-colors">
+      <a href="#/" className="bg-[#FF6633] hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-xl transition-colors">
         Go Home
       </a>
     </div>
@@ -25,7 +25,7 @@ function NotFound() {
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route element={<MainLayout />}>
           <Route path="/"                       element={<HomePage />} />
@@ -40,6 +40,6 @@ export default function App() {
           <Route path="*"                       element={<NotFound />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }

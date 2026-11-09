@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Search, Filter, X } from 'lucide-react';
+import { Search, X } from 'lucide-react';
 import { courseService } from '../services';
 import type { Course, CourseCategory } from '../types';
 import CourseCard from '../components/CourseCard';
