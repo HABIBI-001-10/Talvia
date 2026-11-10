@@ -19,14 +19,14 @@ class Command(BaseCommand):
         self.stdout.write(self.style.SUCCESS('Database seeded successfully!'))
 
     def _seed_contact_info(self):
-        ContactInformation.objects.get_or_create(
+        ContactInformation.objects.update_or_create(
             pk=1,
             defaults={
-                'company_name': 'TALVIA',
-                'phone': '+91 9876543210',
-                'email': 'info@talvia.in',
-                'address': 'Kochi, Ernakulam, Kerala, India - 682001',
-                'whatsapp_number': '+91 9876543210',
+                'company_name': 'TALVIA Consultancy',
+                'phone': '+91 8943442479',
+                'email': 'talviaconsultancy@gmail.com',
+                'address': 'Pan-India Higher Education Consultancy | Central Support: Kochi, Kerala & Major National Hubs',
+                'whatsapp_number': '+91 8943442479',
                 'facebook_url': 'https://facebook.com/talvia',
                 'instagram_url': 'https://instagram.com/talvia',
                 'linkedin_url': 'https://linkedin.com/company/talvia',
@@ -35,43 +35,43 @@ class Command(BaseCommand):
         self.stdout.write('  Contact information seeded.')
 
     def _seed_site_settings(self):
-        SiteSettings.objects.get_or_create(
+        SiteSettings.objects.update_or_create(
             pk=1,
             defaults={
                 'tagline': 'Your Education. Your Future. Our Guidance.',
                 'hero_small_heading': 'YOUR FUTURE STARTS HERE',
-                'hero_heading': 'Find the Right College. Build the Right Future.',
+                'hero_heading': 'Find the Right College Across India. Build Your Future.',
                 'hero_description': (
-                    'Discover educational opportunities across Kerala with Talvia. '
-                    'We help students find the perfect college and course to shape their future careers.'
+                    'Discover premier educational opportunities across India with Talvia Consultancy. '
+                    'We help students find the perfect college and course with first-to-end guidance from first step to final admission.'
                 ),
-                'about_heading': 'About Talvia',
+                'about_heading': 'About Talvia Consultancy',
                 'about_description': (
-                    'Talvia is a leading education consultancy in Kerala, dedicated to helping students '
-                    'navigate their academic journey. We provide comprehensive guidance on college selection, '
-                    'course counselling, and admission assistance across all 14 districts of Kerala. '
+                    'Talvia Consultancy is a premier higher education consultancy in India, dedicated to helping students '
+                    'navigate their academic journey. We provide comprehensive guidance on university selection, '
+                    'course counselling, and admission assistance across 28+ states of India. '
                     'Our experienced team works closely with students and parents to ensure the best '
                     'educational outcomes.'
                 ),
                 'vision': (
-                    'To be Kerala\'s most trusted education partner, empowering every student '
+                    'To be India\'s most trusted education consultancy, empowering every student '
                     'to make informed decisions about their academic future.'
                 ),
                 'mission': (
                     'To provide accessible, transparent, and personalized education guidance '
-                    'to students across Kerala, bridging the gap between aspirations and opportunities.'
+                    'to students across India, bridging the gap between aspirations and opportunities.'
                 ),
                 'stat_colleges': '25+',
-                'stat_districts': '14',
-                'stat_courses': 'Multiple',
+                'stat_districts': '28+ States',
+                'stat_courses': '100+',
                 'stat_approach': 'Student-First',
                 'footer_description': (
-                    'Talvia Education Services - Your trusted partner for college admissions '
-                    'and education guidance across Kerala.'
+                    'Talvia Consultancy - Your trusted partner for college admissions '
+                    'and education guidance across India.'
                 ),
-                'meta_title': 'Talvia - Education Services | College Admissions in Kerala',
+                'meta_title': 'Talvia Consultancy | College Admissions Across India',
                 'meta_description': (
-                    'Find the best colleges and courses in Kerala with Talvia Education Services. '
+                    'Find the best colleges and courses across India with Talvia Consultancy. '
                     'Expert guidance for admissions, course selection, and career counselling.'
                 ),
                 'meta_keywords': (
@@ -201,10 +201,10 @@ class Command(BaseCommand):
             {
                 'title': 'Admission Assistance',
                 'slug': 'admission-assistance',
-                'short_description': 'End-to-end support for a smooth and successful college admission process.',
+                'short_description': 'First-to-end guidance for a smooth and successful college admission process.',
                 'description': (
                     'The admission process can be complex and stressful. Our Admission Assistance service provides '
-                    'end-to-end support from application to enrollment. We help with documentation, application '
+                    'first-to-end guidance from initial consultation to final enrollment. We help with documentation, application '
                     'filling, deadline tracking, entrance exam preparation guidance, and direct coordination with '
                     'college admission offices to ensure a smooth process.'
                 ),

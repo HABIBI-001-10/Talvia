@@ -5,6 +5,7 @@ import { serviceService } from '../services';
 import type { Service } from '../types';
 import { PageLoader, ErrorMessage } from '../components/ui';
 import EnquiryModal from '../components/EnquiryModal';
+import { ScrollReveal } from '../components/Animations';
 
 const ICON_MAP: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
   Compass, GraduationCap, BookOpen, FileCheck, ClipboardList, Heart,
@@ -13,17 +14,17 @@ const ICON_MAP: Record<string, React.ComponentType<{ size?: number; className?: 
 function FAQItem({ question, answer }: { question: string; answer: string }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className="border border-gray-200 rounded-xl overflow-hidden">
+    <div className="border border-zinc-200 rounded-xl overflow-hidden bg-white">
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between p-4 text-left hover:bg-gray-50 transition-colors"
+        className="w-full flex items-center justify-between p-4 text-left hover:bg-zinc-50 transition-colors"
       >
-        <span className="font-semibold text-[#172554] text-sm pr-4">{question}</span>
-        {open ? <ChevronUp size={18} className="text-[#2563EB] flex-shrink-0" /> : <ChevronDown size={18} className="text-slate-400 flex-shrink-0" />}
+        <span className="font-semibold text-black text-sm pr-4">{question}</span>
+        {open ? <ChevronUp size={18} className="text-black flex-shrink-0" /> : <ChevronDown size={18} className="text-zinc-400 flex-shrink-0" />}
       </button>
       {open && (
-        <div className="px-4 pb-4">
-          <p className="text-slate-600 text-sm leading-relaxed">{answer}</p>
+        <div className="px-4 pb-4 border-t border-zinc-100 pt-3">
+          <p className="text-zinc-600 text-sm leading-relaxed">{answer}</p>
         </div>
       )}
     </div>
@@ -51,7 +52,7 @@ export default function ServiceDetailPage() {
     <div className="max-w-7xl mx-auto px-4 py-20">
       <ErrorMessage message={error || 'Service not found.'} />
       <div className="text-center mt-4">
-        <Link to="/services" className="text-[#2563EB] hover:underline font-medium">← Back to Services</Link>
+        <Link to="/services" className="text-black hover:underline font-medium">← Back to Services</Link>
       </div>
     </div>
   );
@@ -61,127 +62,129 @@ export default function ServiceDetailPage() {
   return (
     <>
       {/* Header */}
-      <div className="bg-gradient-to-br from-[#172554] to-[#2563EB] text-white py-16">
+      <div className="bg-black text-white py-20 border-b border-zinc-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link to="/services" className="inline-flex items-center gap-2 text-blue-200 hover:text-white mb-6 text-sm transition-colors">
-            <ArrowLeft size={16} /> Back to Services
+          <Link to="/services" className="inline-flex items-center gap-2 text-zinc-400 hover:text-white mb-6 text-xs uppercase tracking-wider transition-colors">
+            <ArrowLeft size={14} /> Back to Services
           </Link>
           <div className="flex items-center gap-5">
-            <div className="w-16 h-16 bg-[#FF6633] rounded-2xl flex items-center justify-center flex-shrink-0">
-              <Icon size={30} className="text-white" />
+            <div className="w-16 h-16 bg-white text-black rounded-2xl flex items-center justify-center flex-shrink-0 border border-zinc-200">
+              <Icon size={30} className="text-black" />
             </div>
             <div>
-              <h1 className="text-3xl md:text-4xl font-black">{service.title}</h1>
-              <p className="text-blue-200 mt-1">{service.short_description}</p>
+              <span className="text-xs uppercase tracking-widest text-zinc-400 font-semibold block mb-1">
+                Admissions Consultancy
+              </span>
+              <h1 className="text-3xl md:text-4xl font-black tracking-tight">{service.title}</h1>
+              <p className="text-zinc-400 mt-1 text-sm font-light">{service.short_description}</p>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-        <div className="grid lg:grid-cols-3 gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid lg:grid-cols-3 gap-10">
           <div className="lg:col-span-2 space-y-8">
             {/* Description */}
-            <div className="bg-white rounded-2xl p-7 shadow-sm border border-gray-100">
-              <h2 className="text-xl font-bold text-[#172554] mb-4">About This Service</h2>
-              <p className="text-slate-600 leading-relaxed whitespace-pre-line">{service.description}</p>
-            </div>
+            <ScrollReveal direction="up">
+              <div className="bg-white rounded-2xl p-7 shadow-sm border border-zinc-200">
+                <h2 className="text-xs font-bold text-black uppercase tracking-wider mb-4 pb-3 border-b border-zinc-100">
+                  Service Scope & Details
+                </h2>
+                <p className="text-zinc-600 leading-relaxed text-sm md:text-base whitespace-pre-line">{service.description}</p>
+              </div>
+            </ScrollReveal>
 
             {/* Benefits */}
             {service.benefits && service.benefits.length > 0 && (
-              <div className="bg-white rounded-2xl p-7 shadow-sm border border-gray-100">
-                <h2 className="text-xl font-bold text-[#172554] mb-5">Key Benefits</h2>
-                <div className="grid sm:grid-cols-2 gap-3">
-                  {service.benefits.map((b, i) => (
-                    <div key={i} className="flex items-start gap-3 p-3 bg-green-50 rounded-xl">
-                      <CheckCircle2 size={18} className="text-green-500 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm text-slate-700">{b}</span>
-                    </div>
-                  ))}
+              <ScrollReveal direction="up">
+                <div className="bg-white rounded-2xl p-7 shadow-sm border border-zinc-200">
+                  <h2 className="text-xs font-bold text-black uppercase tracking-wider mb-5 pb-3 border-b border-zinc-100">
+                    What You Receive
+                  </h2>
+                  <div className="grid sm:grid-cols-2 gap-3">
+                    {service.benefits.map((b, i) => (
+                      <div key={i} className="flex items-start gap-3 p-3.5 bg-zinc-50 border border-zinc-200 rounded-xl">
+                        <CheckCircle2 size={16} className="text-black flex-shrink-0 mt-0.5" />
+                        <span className="text-xs text-zinc-700 font-medium leading-relaxed">{b}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              </ScrollReveal>
             )}
 
-            {/* Process */}
+            {/* Process steps */}
             {service.process_steps && service.process_steps.length > 0 && (
-              <div className="bg-white rounded-2xl p-7 shadow-sm border border-gray-100">
-                <h2 className="text-xl font-bold text-[#172554] mb-5">How the Process Works</h2>
-                <div className="space-y-4">
-                  {service.process_steps.map((step, i) => (
-                    <div key={i} className="flex items-start gap-4">
-                      <div className="w-8 h-8 bg-[#2563EB] rounded-full flex items-center justify-center flex-shrink-0 text-white text-sm font-bold">
-                        {i + 1}
+              <ScrollReveal direction="up">
+                <div className="bg-white rounded-2xl p-7 shadow-sm border border-zinc-200">
+                  <h2 className="text-xs font-bold text-black uppercase tracking-wider mb-5 pb-3 border-b border-zinc-100">
+                    How We Deliver This Service
+                  </h2>
+                  <div className="space-y-4">
+                    {service.process_steps.map((step, i) => (
+                      <div key={i} className="flex items-center gap-4 p-3.5 rounded-xl border border-zinc-200 bg-white">
+                        <div className="w-8 h-8 rounded-lg bg-black text-white text-xs font-bold flex items-center justify-center flex-shrink-0">
+                          {i + 1}
+                        </div>
+                        <span className="text-sm font-semibold text-black">{step}</span>
                       </div>
-                      <div className="flex-1 pt-1">
-                        <p className="text-slate-700 text-sm">{step}</p>
-                        {i < service.process_steps.length - 1 && (
-                          <div className="ml-[-28px] mt-3 w-0.5 h-4 bg-blue-200" />
-                        )}
-                      </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
-              </div>
+              </ScrollReveal>
             )}
 
             {/* FAQs */}
             {service.faqs && service.faqs.length > 0 && (
-              <div className="bg-white rounded-2xl p-7 shadow-sm border border-gray-100">
-                <h2 className="text-xl font-bold text-[#172554] mb-5">Frequently Asked Questions</h2>
-                <div className="space-y-3">
-                  {service.faqs.map((faq, i) => (
-                    <FAQItem key={i} question={faq.question} answer={faq.answer} />
-                  ))}
+              <ScrollReveal direction="up">
+                <div className="bg-white rounded-2xl p-7 shadow-sm border border-zinc-200">
+                  <h2 className="text-xs font-bold text-black uppercase tracking-wider mb-5 pb-3 border-b border-zinc-100">
+                    Frequently Asked Questions
+                  </h2>
+                  <div className="space-y-3">
+                    {service.faqs.map((faq, i) => (
+                      <FAQItem key={i} question={faq.question} answer={faq.answer} />
+                    ))}
+                  </div>
                 </div>
-              </div>
+              </ScrollReveal>
             )}
           </div>
 
           {/* Sidebar */}
-          <div className="space-y-5">
-            <div className="bg-gradient-to-br from-[#172554] to-[#2563EB] rounded-2xl p-6 text-white">
-              <h3 className="font-bold text-lg mb-2">Ready to get started?</h3>
-              <p className="text-blue-200 text-sm mb-5">Our experts are available to help you. All services are completely free.</p>
-              <button
-                onClick={() => setModalOpen(true)}
-                className="w-full bg-[#FF6633] hover:bg-orange-500 text-white font-bold py-3 rounded-xl transition-colors mb-3"
-              >
-                Get Free Counselling
-              </button>
-              <Link
-                to="/contact"
-                className="w-full border-2 border-white/30 hover:border-white/60 text-white font-semibold py-3 rounded-xl transition-colors flex items-center justify-center"
-              >
-                Contact Us
-              </Link>
-            </div>
-
-            {/* Other services */}
-            <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-              <h3 className="font-bold text-[#172554] mb-4">Other Services</h3>
-              {['career-guidance', 'college-selection', 'course-selection', 'admission-assistance', 'application-support', 'student-counselling']
-                .filter(s => s !== slug)
-                .slice(0, 4)
-                .map(s => (
-                  <Link
-                    key={s}
-                    to={`/services/${s}`}
-                    className="block py-2.5 text-sm text-slate-600 hover:text-[#2563EB] border-b border-gray-50 last:border-0 transition-colors capitalize"
-                  >
-                    {s.replace(/-/g, ' ')}
-                  </Link>
-                ))}
-            </div>
+          <div className="space-y-6">
+            <ScrollReveal direction="right">
+              <div className="bg-black text-white rounded-3xl p-7 shadow-xl border border-zinc-800">
+                <span className="text-[11px] uppercase tracking-widest text-zinc-400 font-semibold block mb-1">
+                  Admissions Consultation
+                </span>
+                <h3 className="text-xl font-black mb-2 tracking-tight">Need {service.title}?</h3>
+                <p className="text-zinc-400 text-xs mb-6 leading-relaxed">
+                  Our counsellors provide 100% free, personalized support from the first step to final admission.
+                </p>
+                <button
+                  onClick={() => setModalOpen(true)}
+                  className="btn-white w-full justify-center py-3"
+                >
+                  Book Free Consultation
+                </button>
+                <div className="mt-6 pt-5 border-t border-zinc-800 text-xs space-y-1.5 text-zinc-400">
+                  <div>Direct Admissions Desk:</div>
+                  <a href="tel:+918943442479" className="text-white font-bold block hover:underline">
+                    +91 8943442479
+                  </a>
+                  <a href="mailto:talviaconsultancy@gmail.com" className="text-zinc-400 block hover:underline">
+                    talviaconsultancy@gmail.com
+                  </a>
+                </div>
+              </div>
+            </ScrollReveal>
           </div>
         </div>
       </div>
 
-      <EnquiryModal
-        isOpen={modalOpen}
-        onClose={() => setModalOpen(false)}
-        sourcePage={`service-${service.slug}`}
-      />
+      <EnquiryModal isOpen={modalOpen} onClose={() => setModalOpen(false)} sourcePage={`service_${service.slug}`} />
     </>
   );
 }
-

@@ -1,6 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown, GraduationCap } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
+import TalviaLogo from './TalviaLogo';
 
 const NAV_LINKS = [
   { label: 'Home', to: '/' },
@@ -8,8 +9,8 @@ const NAV_LINKS = [
   {
     label: 'Colleges', to: '/colleges',
     children: [
-      { label: 'All Colleges', to: '/colleges' },
-      { label: 'Featured Colleges', to: '/colleges?featured=true' },
+      { label: 'All Partner Colleges', to: '/colleges' },
+      { label: 'Top Featured Colleges', to: '/colleges?featured=true' },
     ],
   },
   { label: 'Courses', to: '/courses' },
@@ -24,7 +25,7 @@ export default function Navbar() {
   const location = useLocation();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onScroll = () => setScrolled(window.scrollY > 15);
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
@@ -37,19 +38,16 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white shadow-lg' : 'bg-white/95 backdrop-blur-md'
+        scrolled
+          ? 'bg-white/95 backdrop-blur-md border-b border-zinc-200 shadow-sm'
+          : 'bg-white/90 backdrop-blur-md border-b border-zinc-100'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-9 h-9 rounded-lg bg-[#172554] flex items-center justify-center">
-              <GraduationCap size={20} className="text-[#FF6633]" />
-            </div>
-            <span className="text-2xl font-black tracking-tight text-[#172554]">
-              TAL<span className="text-[#FF6633]">VIA</span>
-            </span>
+          <Link to="/" className="flex items-center">
+            <TalviaLogo variant="dark" className="h-9 md:h-11" showTagline />
           </Link>
 
           {/* Desktop nav */}
@@ -58,20 +56,20 @@ export default function Navbar() {
               link.children ? (
                 <div key={link.label} className="relative group">
                   <button
-                    className={`flex items-center gap-1 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                    className={`flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm font-medium transition-colors ${
                       location.pathname.startsWith(link.to)
-                        ? 'text-[#2563EB]'
-                        : 'text-slate-700 hover:text-[#2563EB]'
+                        ? 'text-black bg-zinc-100'
+                        : 'text-zinc-600 hover:text-black hover:bg-zinc-50'
                     }`}
                     onMouseEnter={() => setDropdown(link.label)}
                     onMouseLeave={() => setDropdown(null)}
                   >
                     {link.label}
-                    <ChevronDown size={14} />
+                    <ChevronDown size={14} className="text-zinc-400 group-hover:text-black transition-transform duration-200" />
                   </button>
                   {dropdown === link.label && (
                     <div
-                      className="absolute top-full left-0 mt-1 w-48 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden"
+                      className="absolute top-full left-0 mt-1 w-52 bg-white rounded-xl shadow-xl border border-zinc-200 overflow-hidden py-1.5 animate-in fade-in slide-in-from-top-1 duration-150"
                       onMouseEnter={() => setDropdown(link.label)}
                       onMouseLeave={() => setDropdown(null)}
                     >
@@ -79,7 +77,7 @@ export default function Navbar() {
                         <Link
                           key={child.to}
                           to={child.to}
-                          className="block px-4 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-[#2563EB] transition-colors"
+                          className="block px-4 py-2.5 text-sm text-zinc-700 hover:bg-zinc-100 hover:text-black transition-colors"
                         >
                           {child.label}
                         </Link>
@@ -91,10 +89,10 @@ export default function Navbar() {
                 <Link
                   key={link.label}
                   to={link.to}
-                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                  className={`px-3.5 py-2 rounded-lg text-sm font-medium transition-colors ${
                     location.pathname === link.to
-                      ? 'text-[#2563EB]'
-                      : 'text-slate-700 hover:text-[#2563EB]'
+                      ? 'text-black bg-zinc-100 font-semibold'
+                      : 'text-zinc-600 hover:text-black hover:bg-zinc-50'
                   }`}
                 >
                   {link.label}
@@ -107,12 +105,12 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             <Link
               to="/contact?counselling=true"
-              className="hidden md:inline-flex items-center gap-2 bg-[#FF6633] hover:bg-orange-600 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg"
+              className="hidden md:inline-flex items-center gap-2 bg-black hover:bg-zinc-800 text-white text-sm font-medium px-5 py-2.5 rounded-xl transition-all duration-200 shadow-sm hover:shadow"
             >
               Get Free Counselling
             </Link>
             <button
-              className="lg:hidden p-2 rounded-md text-slate-700 hover:bg-gray-100"
+              className="lg:hidden p-2 rounded-lg text-zinc-800 hover:bg-zinc-100 transition-colors"
               onClick={() => setOpen(!open)}
               aria-label="Toggle menu"
             >
@@ -124,16 +122,16 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="lg:hidden bg-white border-t border-gray-100 shadow-lg">
+        <div className="lg:hidden bg-white border-t border-zinc-200 shadow-xl">
           <div className="px-4 py-4 space-y-1">
             {NAV_LINKS.map((link) => (
               <div key={link.label}>
                 <Link
                   to={link.to}
-                  className={`block px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
+                  className={`block px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
                     location.pathname === link.to
-                      ? 'bg-blue-50 text-[#2563EB]'
-                      : 'text-slate-700 hover:bg-gray-50'
+                      ? 'bg-zinc-100 text-black font-semibold'
+                      : 'text-zinc-700 hover:bg-zinc-50'
                   }`}
                 >
                   {link.label}
@@ -144,7 +142,7 @@ export default function Navbar() {
                       <Link
                         key={child.to}
                         to={child.to}
-                        className="block px-4 py-2 text-sm text-slate-600 hover:text-[#2563EB] hover:bg-blue-50 rounded-lg"
+                        className="block px-4 py-2 text-sm text-zinc-600 hover:text-black hover:bg-zinc-50 rounded-lg"
                       >
                         {child.label}
                       </Link>
@@ -153,10 +151,10 @@ export default function Navbar() {
                 )}
               </div>
             ))}
-            <div className="pt-3 border-t border-gray-100">
+            <div className="pt-3 border-t border-zinc-100">
               <Link
                 to="/contact?counselling=true"
-                className="block w-full text-center bg-[#FF6633] hover:bg-orange-600 text-white font-semibold px-5 py-3 rounded-lg transition-colors"
+                className="block w-full text-center bg-black hover:bg-zinc-800 text-white font-medium px-5 py-3 rounded-xl transition-colors shadow-sm"
               >
                 Get Free Counselling
               </Link>
@@ -167,4 +165,3 @@ export default function Navbar() {
     </nav>
   );
 }
-

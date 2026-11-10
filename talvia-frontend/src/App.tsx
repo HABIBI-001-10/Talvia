@@ -9,15 +9,16 @@ import CourseDetailPage from './pages/CourseDetailPage';
 import ServicesPage from './pages/ServicesPage';
 import ServiceDetailPage from './pages/ServiceDetailPage';
 import ContactPage from './pages/ContactPage';
+import { ScrollToTop } from './components/Animations';
 
 function NotFound() {
   return (
-    <div className="min-h-[60vh] flex flex-col items-center justify-center text-center px-4">
-      <div className="text-8xl font-black text-gray-200 mb-4">404</div>
-      <h2 className="text-2xl font-bold text-[#172554] mb-3">Page Not Found</h2>
-      <p className="text-slate-500 mb-6">The page you're looking for doesn't exist.</p>
-      <a href="#/" className="bg-[#FF6633] hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-xl transition-colors">
-        Go Home
+    <div className="min-h-[65vh] flex flex-col items-center justify-center text-center px-4">
+      <div className="text-8xl font-black text-zinc-200 mb-4 tracking-tighter">404</div>
+      <h2 className="text-2xl font-bold text-black mb-3">Page Not Found</h2>
+      <p className="text-zinc-500 mb-6 text-sm">The page you are looking for does not exist or has been relocated.</p>
+      <a href="#/" className="btn-primary">
+        Return Home
       </a>
     </div>
   );
@@ -26,6 +27,7 @@ function NotFound() {
 export default function App() {
   return (
     <HashRouter>
+      <ScrollToTop />
       <Routes>
         <Route element={<MainLayout />}>
           <Route path="/"                       element={<HomePage />} />

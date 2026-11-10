@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, BookOpen, Compass, GraduationCap, FileCheck, ClipboardList, Heart } from 'lucide-react';
+import { ArrowRight, BookOpen, Compass, GraduationCap, FileCheck, ClipboardList, Heart, CheckCircle2 } from 'lucide-react';
 import { serviceService } from '../services';
 import type { Service } from '../types';
 import { LoadingSpinner, ErrorMessage } from '../components/ui';
 import EnquiryModal from '../components/EnquiryModal';
+import { ScrollReveal, StaggerContainer, StaggerItem, HoverLiftCard } from '../components/Animations';
 
 const ICON_MAP: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
   Compass, GraduationCap, BookOpen, FileCheck, ClipboardList, Heart,
@@ -26,79 +27,85 @@ export default function ServicesPage() {
   return (
     <>
       {/* Header */}
-      <div className="bg-gradient-to-r from-[#172554] to-[#2563EB] text-white py-16">
+      <div className="bg-black text-white py-20 border-b border-zinc-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-[#FF6633] font-semibold text-sm uppercase tracking-widest mb-2">What We Offer</p>
-          <h1 className="text-4xl md:text-5xl font-black mb-3">Our Services</h1>
-          <p className="text-blue-200 max-w-xl">Comprehensive education guidance at every step of your academic journey — all free for students.</p>
+          <ScrollReveal direction="down">
+            <p className="text-zinc-400 font-semibold text-xs uppercase tracking-[0.25em] mb-2">Advisory Solutions</p>
+            <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-3">Our Consultancy Services</h1>
+            <p className="text-zinc-400 max-w-xl text-base font-light">
+              Comprehensive higher education guidance at every milestone — unbiased, professional, and 100% free for students.
+            </p>
+          </ScrollReveal>
         </div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {loading ? (
-          <LoadingSpinner text="Loading services..." />
+          <div className="py-20 flex justify-center">
+            <LoadingSpinner size="lg" text="Loading services..." />
+          </div>
         ) : error ? (
           <ErrorMessage message={error} />
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => {
               const Icon = ICON_MAP[service.icon] || BookOpen;
-              const colors = [
-                'from-blue-500 to-blue-600',
-                'from-indigo-500 to-indigo-600',
-                'from-purple-500 to-purple-600',
-                'from-orange-500 to-orange-600',
-                'from-green-500 to-green-600',
-                'from-pink-500 to-pink-600',
-              ];
               return (
-                <div key={service.id} className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group">
-                  {/* Card top */}
-                  <div className={`bg-gradient-to-br ${colors[index % colors.length]} p-8 flex items-center justify-between`}>
-                    <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center">
-                      <Icon size={30} className="text-white" />
-                    </div>
-                    <span className="text-white/60 text-5xl font-black">0{index + 1}</span>
-                  </div>
-                  {/* Card body */}
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-[#172554] mb-3">{service.title}</h3>
-                    <p className="text-slate-600 text-sm leading-relaxed mb-5">{service.short_description}</p>
-
-                    {/* Benefits preview */}
-                    {service.benefits && service.benefits.slice(0, 3).map(b => (
-                      <div key={b} className="flex items-start gap-2 mb-2">
-                        <div className="w-4 h-4 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <div className="w-1.5 h-1.5 bg-green-500 rounded-full" />
+                <StaggerItem key={service.id}>
+                  <HoverLiftCard className="h-full">
+                    <div className="bg-white rounded-2xl overflow-hidden border border-zinc-200 hover:border-black shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full group">
+                      {/* Top Bar */}
+                      <div className="bg-black p-8 flex items-center justify-between border-b border-zinc-800">
+                        <div className="w-14 h-14 bg-zinc-900 border border-zinc-800 rounded-2xl flex items-center justify-center group-hover:scale-105 transition-transform">
+                          <Icon size={26} className="text-white" />
                         </div>
-                        <span className="text-xs text-slate-500">{b}</span>
+                        <span className="text-zinc-600 font-mono text-4xl font-black">
+                          0{index + 1}
+                        </span>
                       </div>
-                    ))}
 
-                    <div className="flex gap-2 mt-5">
-                      <Link
-                        to={`/services/${service.slug}`}
-                        className="flex-1 text-center text-sm font-semibold text-[#2563EB] border-2 border-[#2563EB] rounded-xl py-2.5 hover:bg-blue-50 transition-colors inline-flex items-center justify-center gap-1"
-                      >
-                        Learn More <ArrowRight size={14} />
-                      </Link>
-                      <button
-                        onClick={() => setModalOpen(true)}
-                        className="flex-1 text-sm font-semibold bg-[#FF6633] hover:bg-orange-600 text-white rounded-xl py-2.5 transition-colors"
-                      >
-                        Get Help
-                      </button>
+                      {/* Content */}
+                      <div className="p-7 flex flex-col flex-1">
+                        <h3 className="text-xl font-bold text-black mb-3 group-hover:text-zinc-700 transition-colors">
+                          {service.title}
+                        </h3>
+                        <p className="text-zinc-600 text-sm leading-relaxed mb-6 flex-1">
+                          {service.short_description}
+                        </p>
+
+                        {/* Benefits list */}
+                        {service.benefits && service.benefits.slice(0, 3).map(b => (
+                          <div key={b} className="flex items-start gap-2 mb-2">
+                            <CheckCircle2 size={14} className="text-black flex-shrink-0 mt-0.5" />
+                            <span className="text-xs text-zinc-600 font-medium">{b}</span>
+                          </div>
+                        ))}
+
+                        <div className="flex gap-2.5 mt-6 pt-4 border-t border-zinc-100">
+                          <Link
+                            to={`/services/${service.slug}`}
+                            className="flex-1 text-center text-xs font-semibold text-black border border-zinc-300 rounded-xl py-2.5 hover:bg-zinc-50 hover:border-black transition-colors inline-flex items-center justify-center gap-1 uppercase tracking-wider"
+                          >
+                            Learn More <ArrowRight size={13} />
+                          </Link>
+                          <button
+                            onClick={() => setModalOpen(true)}
+                            className="flex-1 text-xs font-semibold bg-black hover:bg-zinc-800 text-white rounded-xl py-2.5 transition-colors uppercase tracking-wider"
+                          >
+                            Get Free Help
+                          </button>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
+                  </HoverLiftCard>
+                </StaggerItem>
               );
             })}
-          </div>
+          </StaggerContainer>
         )}
       </div>
 
-      <EnquiryModal isOpen={modalOpen} onClose={() => setModalOpen(false)} sourcePage="services-list" />
+      <EnquiryModal isOpen={modalOpen} onClose={() => setModalOpen(false)} sourcePage="services_list" />
     </>
   );
 }
-

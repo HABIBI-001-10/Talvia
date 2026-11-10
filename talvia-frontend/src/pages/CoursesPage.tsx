@@ -6,6 +6,7 @@ import type { Course, CourseCategory } from '../types';
 import CourseCard from '../components/CourseCard';
 import EnquiryModal from '../components/EnquiryModal';
 import { LoadingSpinner, ErrorMessage, EmptyState } from '../components/ui';
+import { ScrollReveal, StaggerContainer, StaggerItem } from '../components/Animations';
 
 export default function CoursesPage() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -49,71 +50,92 @@ export default function CoursesPage() {
   return (
     <>
       {/* Header */}
-      <div className="bg-gradient-to-r from-[#172554] to-[#2563EB] text-white py-16">
+      <div className="bg-black text-white py-20 border-b border-zinc-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-[#FF6633] font-semibold text-sm uppercase tracking-widest mb-2">Academic Programmes</p>
-          <h1 className="text-4xl md:text-5xl font-black mb-3">Available Courses</h1>
-          <p className="text-blue-200 max-w-xl">Explore a wide range of undergraduate, postgraduate, and professional courses offered by our partner colleges across Kerala.</p>
+          <ScrollReveal direction="down">
+            <p className="text-zinc-400 font-semibold text-xs uppercase tracking-[0.25em] mb-2">Curriculum Directory</p>
+            <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-3">Academic Programs & Degrees</h1>
+            <p className="text-zinc-400 max-w-xl text-base font-light">
+              Explore in-demand undergraduate, postgraduate, and professional disciplines offered by partner colleges across India.
+            </p>
+          </ScrollReveal>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Category pills */}
-        <div className="flex flex-wrap gap-2 mb-6">
-          <button
-            onClick={() => setParam('category', '')}
-            className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${!category ? 'bg-[#2563EB] text-white shadow-md' : 'bg-white text-slate-600 border border-gray-200 hover:border-[#2563EB] hover:text-[#2563EB]'}`}
-          >
-            All Courses
-          </button>
-          {categories.filter(c => c.count > 0).map(cat => (
+        <ScrollReveal direction="up">
+          <div className="flex flex-wrap gap-2 mb-6">
             <button
-              key={cat.code}
-              onClick={() => setParam('category', cat.code)}
-              className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${category === cat.code ? 'bg-[#2563EB] text-white shadow-md' : 'bg-white text-slate-600 border border-gray-200 hover:border-[#2563EB] hover:text-[#2563EB]'}`}
+              onClick={() => setParam('category', '')}
+              className={`px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider transition-all ${
+                !category
+                  ? 'bg-black text-white shadow-sm'
+                  : 'bg-white text-zinc-700 border border-zinc-200 hover:border-black'
+              }`}
             >
-              {cat.name} <span className="ml-1 opacity-70">({cat.count})</span>
+              All Programs
             </button>
-          ))}
-        </div>
+            {categories.filter(c => c.count > 0).map(cat => (
+              <button
+                key={cat.code}
+                onClick={() => setParam('category', cat.code)}
+                className={`px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider transition-all ${
+                  category === cat.code
+                    ? 'bg-black text-white shadow-sm'
+                    : 'bg-white text-zinc-700 border border-zinc-200 hover:border-black'
+                }`}
+              >
+                {cat.name} <span className="ml-1 opacity-70">({cat.count})</span>
+              </button>
+            ))}
+          </div>
 
-        {/* Search & filter row */}
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 mb-8 flex flex-col md:flex-row gap-4">
-          <div className="flex-1 relative">
-            <Search size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+          {/* Search bar */}
+          <div className="bg-white rounded-2xl shadow-sm border border-zinc-200 p-4 mb-8 flex items-center gap-3">
+            <Search size={18} className="text-zinc-400 ml-2" />
             <input
               value={search}
               onChange={e => setParam('search', e.target.value)}
-              placeholder="Search courses..."
-              className="w-full pl-10 pr-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Search courses by keyword, stream, eligibility..."
+              className="flex-1 py-1 text-sm focus:outline-none bg-transparent"
             />
+            {search && (
+              <button onClick={() => setParam('search', '')} className="text-zinc-400 hover:text-black">
+                <X size={16} />
+              </button>
+            )}
           </div>
-          {(search || category) && (
-            <button
-              onClick={() => setSearchParams({})}
-              className="flex items-center gap-1.5 text-sm text-slate-500 hover:text-red-500 border border-gray-200 rounded-xl px-4 py-2.5 transition-colors"
-            >
-              <X size={14} /> Clear Filters
-            </button>
-          )}
-        </div>
+        </ScrollReveal>
 
-        <p className="text-slate-500 text-sm mb-6">
-          {loading ? 'Searching...' : `${total} course${total !== 1 ? 's' : ''} found`}
-        </p>
+        {/* Results summary */}
+        {!loading && (
+          <div className="text-xs uppercase tracking-wider text-zinc-500 font-semibold mb-6">
+            Showing {courses.length} of {total} Available Courses
+          </div>
+        )}
 
+        {/* Course Grid */}
         {loading ? (
-          <LoadingSpinner text="Loading courses..." />
-        ) : error ? (
-          <ErrorMessage message={error} />
-        ) : courses.length === 0 ? (
-          <EmptyState title="No courses found" description="Try adjusting your search or category filter." icon="📚" />
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {courses.map(course => (
-              <CourseCard key={course.id} course={course} onEnquire={handleEnquire} />
-            ))}
+          <div className="py-20 flex justify-center">
+            <LoadingSpinner size="lg" />
           </div>
+        ) : error ? (
+          <ErrorMessage message={error} onRetry={() => setParam('page', '1')} />
+        ) : courses.length === 0 ? (
+          <EmptyState
+            title="No Courses Found"
+            description="Try modifying your search or select a different academic category."
+            action={{ label: 'View All Courses', onClick: () => setSearchParams({}) }}
+          />
+        ) : (
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {courses.map(course => (
+              <StaggerItem key={course.id}>
+                <CourseCard course={course} onEnquire={handleEnquire} />
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
         )}
       </div>
 
@@ -121,9 +143,8 @@ export default function CoursesPage() {
         isOpen={modalOpen}
         onClose={() => { setModalOpen(false); setSelectedCourse(''); }}
         prefillCourse={selectedCourse}
-        sourcePage="courses-list"
+        sourcePage="courses_list"
       />
     </>
   );
 }
-

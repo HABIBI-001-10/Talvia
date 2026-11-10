@@ -6,6 +6,7 @@ import type { Course } from '../types';
 import { PageLoader, ErrorMessage } from '../components/ui';
 import CollegeCard from '../components/CollegeCard';
 import EnquiryModal from '../components/EnquiryModal';
+import { ScrollReveal } from '../components/Animations';
 
 export default function CourseDetailPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -28,7 +29,7 @@ export default function CourseDetailPage() {
     <div className="max-w-7xl mx-auto px-4 py-20">
       <ErrorMessage message={error || 'Course not found.'} />
       <div className="text-center mt-4">
-        <Link to="/courses" className="text-[#2563EB] hover:underline font-medium">← Back to Courses</Link>
+        <Link to="/courses" className="text-black hover:underline font-medium">← Back to Courses</Link>
       </div>
     </div>
   );
@@ -36,104 +37,108 @@ export default function CourseDetailPage() {
   return (
     <>
       {/* Header */}
-      <div className="bg-gradient-to-br from-[#172554] to-[#2563EB] text-white py-16">
+      <div className="bg-black text-white py-20 border-b border-zinc-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link to="/courses" className="inline-flex items-center gap-2 text-blue-200 hover:text-white mb-6 text-sm transition-colors">
-            <ArrowLeft size={16} /> Back to Courses
+          <Link to="/courses" className="inline-flex items-center gap-2 text-zinc-400 hover:text-white mb-6 text-xs uppercase tracking-wider transition-colors">
+            <ArrowLeft size={14} /> Back to Courses
           </Link>
           <div className="flex items-center gap-3 mb-3">
-            <span className="bg-[#FF6633]/20 border border-[#FF6633]/30 text-[#FF6633] text-xs font-semibold px-3 py-1 rounded-full">
+            <span className="bg-zinc-800 text-zinc-300 border border-zinc-700 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">
               {course.category_display}
             </span>
             {course.degree_type_display && (
-              <span className="bg-white/10 text-blue-200 text-xs px-3 py-1 rounded-full">
+              <span className="bg-zinc-900 text-zinc-400 text-xs px-3 py-1 rounded-full border border-zinc-800">
                 {course.degree_type_display}
               </span>
             )}
           </div>
-          <h1 className="text-3xl md:text-4xl font-black mb-4">{course.name}</h1>
-          <div className="flex flex-wrap gap-5 text-blue-200 text-sm">
+          <h1 className="text-3xl md:text-5xl font-black mb-4 tracking-tight">{course.name}</h1>
+          <div className="flex flex-wrap gap-5 text-zinc-400 text-sm">
             {course.duration && (
               <span className="flex items-center gap-1.5">
-                <Clock size={15} className="text-[#FF6633]" /> Duration: {course.duration}
+                <Clock size={15} className="text-white" /> Duration: {course.duration}
               </span>
             )}
             {course.available_colleges && (
               <span className="flex items-center gap-1.5">
-                <Users size={15} className="text-[#FF6633]" /> {course.available_colleges.length} colleges offering this
+                <Users size={15} className="text-white" /> {course.available_colleges.length} Partner Institutions
               </span>
             )}
           </div>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-        <div className="grid lg:grid-cols-3 gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid lg:grid-cols-3 gap-10">
           {/* Main */}
           <div className="lg:col-span-2 space-y-8">
-            {/* Description */}
-            <div className="bg-white rounded-2xl p-7 shadow-sm border border-gray-100">
-              <h2 className="text-xl font-bold text-[#172554] mb-4 flex items-center gap-2">
-                <BookOpen size={20} className="text-[#2563EB]" /> Course Overview
-              </h2>
-              <p className="text-slate-600 leading-relaxed whitespace-pre-line">{course.description}</p>
-            </div>
+            {/* Overview */}
+            <ScrollReveal direction="up">
+              <div className="bg-white rounded-2xl p-7 shadow-sm border border-zinc-200">
+                <h2 className="text-sm font-bold text-black uppercase tracking-wider mb-4 pb-3 border-b border-zinc-100 flex items-center gap-2">
+                  <BookOpen size={16} /> Course Curriculum Overview
+                </h2>
+                <p className="text-zinc-600 leading-relaxed text-sm md:text-base whitespace-pre-line">{course.description}</p>
+              </div>
+            </ScrollReveal>
 
             {/* Eligibility */}
             {course.eligibility && (
-              <div className="bg-white rounded-2xl p-7 shadow-sm border border-gray-100">
-                <h2 className="text-xl font-bold text-[#172554] mb-4 flex items-center gap-2">
-                  <CheckCircle2 size={20} className="text-[#2563EB]" /> Eligibility Criteria
-                </h2>
-                <p className="text-slate-600 leading-relaxed">{course.eligibility}</p>
-              </div>
+              <ScrollReveal direction="up">
+                <div className="bg-white rounded-2xl p-7 shadow-sm border border-zinc-200">
+                  <h2 className="text-sm font-bold text-black uppercase tracking-wider mb-4 pb-3 border-b border-zinc-100 flex items-center gap-2">
+                    <CheckCircle2 size={16} /> Eligibility Criteria
+                  </h2>
+                  <p className="text-zinc-600 leading-relaxed text-sm md:text-base">{course.eligibility}</p>
+                </div>
+              </ScrollReveal>
             )}
 
             {/* Colleges offering this */}
             {course.available_colleges && course.available_colleges.length > 0 && (
-              <div>
-                <h2 className="text-xl font-bold text-[#172554] mb-5 flex items-center gap-2">
-                  <GraduationCap size={20} className="text-[#2563EB]" /> Colleges Offering This Course
-                </h2>
-                <div className="grid sm:grid-cols-2 gap-5">
-                  {course.available_colleges.map(college => (
-                    <CollegeCard key={college.id} college={college} onEnquire={() => setModalOpen(true)} />
-                  ))}
+              <ScrollReveal direction="up">
+                <div>
+                  <h2 className="text-sm font-bold text-black uppercase tracking-wider mb-5 flex items-center gap-2">
+                    <GraduationCap size={18} /> Partner Colleges Offering This Program
+                  </h2>
+                  <div className="grid sm:grid-cols-2 gap-5">
+                    {course.available_colleges.map(college => (
+                      <CollegeCard key={college.id} college={college} onEnquire={() => setModalOpen(true)} />
+                    ))}
+                  </div>
                 </div>
-              </div>
+              </ScrollReveal>
             )}
           </div>
 
           {/* Sidebar */}
-          <div className="space-y-5">
-            {/* Quick facts */}
-            <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-              <h3 className="font-bold text-[#172554] mb-4">Course Details</h3>
-              <div className="space-y-3">
-                {[
-                  { label: 'Category', value: course.category_display },
-                  { label: 'Degree Type', value: course.degree_type_display },
-                  { label: 'Duration', value: course.duration },
-                ].filter(i => i.value).map(({ label, value }) => (
-                  <div key={label} className="flex justify-between text-sm py-2 border-b border-gray-50 last:border-0">
-                    <span className="text-slate-500">{label}</span>
-                    <span className="font-semibold text-[#172554]">{value}</span>
-                  </div>
-                ))}
+          <div className="space-y-6">
+            <ScrollReveal direction="right">
+              <div className="bg-black text-white rounded-3xl p-7 shadow-xl border border-zinc-800">
+                <span className="text-[11px] uppercase tracking-widest text-zinc-400 font-semibold block mb-1">
+                  Admissions Advisory
+                </span>
+                <h3 className="text-xl font-black mb-2 tracking-tight">Need Help Choosing a College?</h3>
+                <p className="text-zinc-400 text-xs mb-6 leading-relaxed">
+                  Our counsellors match your marks, location preference, and budget with top colleges offering {course.name}.
+                </p>
+                <button
+                  onClick={() => setModalOpen(true)}
+                  className="btn-white w-full justify-center py-3"
+                >
+                  Apply for Counselling
+                </button>
+                <div className="mt-6 pt-5 border-t border-zinc-800 text-xs space-y-1.5 text-zinc-400">
+                  <div>Direct Helpline:</div>
+                  <a href="tel:+918943442479" className="text-white font-bold block hover:underline">
+                    +91 8943442479
+                  </a>
+                  <a href="mailto:talviaconsultancy@gmail.com" className="text-zinc-400 block hover:underline">
+                    talviaconsultancy@gmail.com
+                  </a>
+                </div>
               </div>
-            </div>
-
-            {/* CTA */}
-            <div className="bg-gradient-to-br from-[#172554] to-[#2563EB] rounded-2xl p-6 text-white">
-              <h3 className="font-bold text-lg mb-2">Interested in this course?</h3>
-              <p className="text-blue-200 text-sm mb-5">Get guidance on eligibility, colleges, and admission process.</p>
-              <button
-                onClick={() => setModalOpen(true)}
-                className="w-full bg-[#FF6633] hover:bg-orange-500 text-white font-bold py-3 rounded-xl transition-colors"
-              >
-                Get Free Counselling
-              </button>
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </div>
@@ -142,9 +147,8 @@ export default function CourseDetailPage() {
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
         prefillCourse={course.name}
-        sourcePage="course-detail"
+        sourcePage={`course_${course.slug}`}
       />
     </>
   );
 }
-
