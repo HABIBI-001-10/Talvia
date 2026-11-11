@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronRight, Star, Users, Building2, BookOpen, Compass, GraduationCap, FileCheck, ClipboardList, Heart, CheckCircle2, Phone, Send } from 'lucide-react';
-import { collegeService, serviceService, enquiryService } from '../services';
-import type { College, Service } from '../types';
-import CollegeCard from '../components/CollegeCard';
+import { serviceService, enquiryService } from '../services';
+import type { Service } from '../types';
 import EnquiryModal, { INDIAN_STATES } from '../components/EnquiryModal';
 import { ScrollReveal, StaggerContainer, StaggerItem, AnimatedNumber, HoverLiftCard } from '../components/Animations';
 
@@ -14,10 +13,8 @@ const ICON_MAP: Record<string, React.ComponentType<{ size?: number; className?: 
 
 // ─── Home Page ─────────────────────────────────────────────────────────────
 export default function HomePage() {
-  const [featuredColleges, setFeaturedColleges] = useState<College[]>([]);
   const [services, setServices] = useState<Service[]>([]);
   const [modalOpen, setModalOpen] = useState(false);
-  const [selectedCollege, setSelectedCollege] = useState('');
   const [loading, setLoading] = useState(true);
 
   // Quick Enquiry form state
@@ -26,16 +23,8 @@ export default function HomePage() {
   const [formErrors, setFormErrors] = useState<Record<string, string>>({});
 
   useEffect(() => {
-    Promise.all([
-      collegeService.featured().then(r => setFeaturedColleges(r.data.slice(0, 6))),
-      serviceService.list().then(r => setServices(r.data)),
-    ]).finally(() => setLoading(false));
+    serviceService.list().then(r => setServices(r.data)).finally(() => setLoading(false));
   }, []);
-
-  const handleEnquire = (college: College) => {
-    setSelectedCollege(college.name);
-    setModalOpen(true);
-  };
 
   const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
@@ -302,58 +291,6 @@ export default function HomePage() {
               })}
             </StaggerContainer>
           )}
-        </div>
-      </section>
-
-      {/* ── FEATURED INSTITUTIONS ────────────────────────────────────── */}
-      <section className="py-24 bg-[#FAFAFA]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollReveal direction="up">
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-14">
-              <div>
-                <p className="section-subtitle mb-2">Academic Network</p>
-                <h2 className="section-title">Featured Institutions</h2>
-                <p className="text-zinc-600 text-sm mt-2">
-                  Premier universities and colleges across Karnataka, Kerala, Tamil Nadu, Maharashtra, and Delhi NCR.
-                </p>
-              </div>
-              <Link
-                to="/colleges"
-                className="inline-flex items-center gap-2 text-black font-semibold hover:gap-3 transition-all whitespace-nowrap text-sm uppercase tracking-wider"
-              >
-                View All Colleges <ArrowRight size={16} />
-              </Link>
-            </div>
-          </ScrollReveal>
-
-          {loading ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[...Array(6)].map((_, i) => (
-                <div key={i} className="bg-zinc-100 rounded-2xl h-80 animate-pulse" />
-              ))}
-            </div>
-          ) : featuredColleges.length > 0 ? (
-            <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {featuredColleges.map((college) => (
-                <StaggerItem key={college.id}>
-                  <CollegeCard college={college} onEnquire={handleEnquire} />
-                </StaggerItem>
-              ))}
-            </StaggerContainer>
-          ) : (
-            <div className="text-center py-16 text-zinc-500">
-              <Building2 size={48} className="mx-auto mb-4 text-zinc-300" />
-              <p>Institution data will appear here.</p>
-            </div>
-          )}
-
-          <ScrollReveal direction="up">
-            <div className="text-center mt-12">
-              <Link to="/colleges" className="btn-primary py-3.5 px-8">
-                Explore All Colleges <ArrowRight size={18} />
-              </Link>
-            </div>
-          </ScrollReveal>
         </div>
       </section>
 
@@ -630,8 +567,7 @@ export default function HomePage() {
       {/* ── ENQUIRY MODAL ─────────────────────────────────────────────── */}
       <EnquiryModal
         isOpen={modalOpen}
-        onClose={() => { setModalOpen(false); setSelectedCollege(''); }}
-        prefillCollege={selectedCollege}
+        onClose={() => setModalOpen(false)}
         sourcePage="homepage"
       />
     </>
