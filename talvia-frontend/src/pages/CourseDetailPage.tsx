@@ -61,7 +61,7 @@ export default function CourseDetailPage() {
             )}
             {course.available_colleges && (
               <span className="flex items-center gap-1.5">
-                <Users size={15} className="text-white" /> {course.available_colleges.length} Partner Institutions
+                <Users size={15} className="text-white" /> {course.available_colleges.length} Institutions
               </span>
             )}
           </div>
@@ -99,7 +99,7 @@ export default function CourseDetailPage() {
               <ScrollReveal direction="up">
                 <div>
                   <h2 className="text-sm font-bold text-black uppercase tracking-wider mb-5 flex items-center gap-2">
-                    <GraduationCap size={18} /> Partner Colleges Offering This Program
+                    <GraduationCap size={18} /> Colleges Offering This Program
                   </h2>
                   <div className="grid sm:grid-cols-2 gap-5">
                     {course.available_colleges.map(college => (

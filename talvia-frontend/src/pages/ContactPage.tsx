@@ -56,12 +56,12 @@ export default function ContactPage() {
           <ScrollReveal direction="down">
             <p className="text-zinc-400 font-semibold text-xs uppercase tracking-[0.25em] mb-2">Central Admissions Office</p>
             <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-3">
-              {isCounselling ? 'Get Free Admissions Counselling' : 'Contact Talvia Consultancy'}
+              {isCounselling ? 'Get Admissions Counselling' : 'Contact Talvia Consultancy'}
             </h1>
             <p className="text-zinc-400 max-w-xl text-base font-light">
               {isCounselling
-                ? 'Fill in your details and our senior admissions counsellor will contact you within 24 hours — 100% free of charge.'
-                : 'Connect with our education advisors across India for institutional partnerships, queries, or student guidance.'}
+                ? 'Fill in your details and our senior admissions counsellor will contact you within 24 hours with dedicated guidance.'
+                : 'Connect with our education advisors across India for institutional queries or student guidance.'}
             </p>
           </ScrollReveal>
         </div>
@@ -152,7 +152,7 @@ export default function ContactPage() {
                   Admissions Enquiry
                 </span>
                 <h3 className="text-2xl font-black text-black mb-2 tracking-tight">
-                  {isCounselling ? 'Book Your Free Counselling Session' : 'Send Us an Admissions Message'}
+                  {isCounselling ? 'Book Your Counselling Session' : 'Send Us an Admissions Message'}
                 </h3>
                 <p className="text-zinc-500 text-sm mb-8">
                   Fill in your details below and an education expert will reach out to you within 24 hours.
@@ -295,7 +295,7 @@ export default function ContactPage() {
                         'Submitting Enquiry...'
                       ) : (
                         <>
-                          <Send size={16} /> Submit Free Admissions Enquiry
+                          <Send size={16} /> Submit Admissions Enquiry
                         </>
                       )}
                     </button>

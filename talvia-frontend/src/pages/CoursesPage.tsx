@@ -56,7 +56,7 @@ export default function CoursesPage() {
             <p className="text-zinc-400 font-semibold text-xs uppercase tracking-[0.25em] mb-2">Curriculum Directory</p>
             <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-3">Academic Programs & Degrees</h1>
             <p className="text-zinc-400 max-w-xl text-base font-light">
-              Explore in-demand undergraduate, postgraduate, and professional disciplines offered by partner colleges across India.
+              Explore in-demand undergraduate, postgraduate, and professional disciplines offered by premier colleges and universities across India.
             </p>
           </ScrollReveal>
         </div>

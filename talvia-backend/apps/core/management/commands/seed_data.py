@@ -66,7 +66,7 @@ class Command(BaseCommand):
                 'stat_courses': '100+',
                 'stat_approach': 'Student-First',
                 'footer_description': (
-                    'Talvia Consultancy - Your trusted partner for college admissions '
+                    'Talvia Consultancy - Your trusted guide for college admissions '
                     'and education guidance across India.'
                 ),
                 'meta_title': 'Talvia Consultancy | College Admissions Across India',
@@ -275,24 +275,24 @@ class Command(BaseCommand):
             {
                 'title': 'Student Counselling',
                 'slug': 'student-counselling',
-                'short_description': 'Free counselling sessions to address academic concerns and build confidence.',
+                'short_description': 'Dedicated counselling sessions to address academic concerns and build confidence.',
                 'description': (
-                    'Our free Student Counselling service is designed to support students through academic '
+                    'Our Student Counselling service is designed to support students through academic '
                     'challenges and personal growth. Whether you\'re dealing with exam stress, academic pressure, '
                     'or uncertainty about your future, our trained counsellors provide a safe space to discuss '
                     'your concerns and develop strategies for success. We believe every student deserves access '
-                    'to quality guidance regardless of their financial situation.'
+                    'to quality guidance.'
                 ),
                 'icon': 'Heart',
                 'benefits': [
-                    'Completely free counselling sessions',
+                    'Dedicated, confidential counselling sessions',
                     'Confidential and supportive environment',
                     'Stress management and coping strategies',
                     'Academic performance improvement tips',
                     'Motivation and confidence building',
                 ],
                 'process_steps': [
-                    'Schedule a free counselling session',
+                    'Schedule a counselling session',
                     'Initial assessment of concerns and goals',
                     'Personalized counselling and strategy development',
                     'Action plan creation',
@@ -300,8 +300,8 @@ class Command(BaseCommand):
                 ],
                 'faqs': [
                     {
-                        'question': 'Is the counselling really free?',
-                        'answer': 'Yes, our student counselling service is completely free. We believe in making quality guidance accessible to all students.',
+                        'question': 'How are counselling sessions conducted?',
+                        'answer': 'Our student counselling service is conducted one-on-one with trained advisors to provide personalized support.',
                     },
                     {
                         'question': 'How do I book a counselling session?',

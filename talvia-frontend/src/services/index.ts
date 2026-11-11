@@ -186,7 +186,7 @@ export const coreService = {
           hero_description: 'Discover premier educational opportunities across India with Talvia Consultancy. We provide personalized first-to-end guidance from initial enquiry to final admission.',
           hero_image: null,
           about_heading: 'About Talvia Consultancy',
-          about_description: 'Talvia Consultancy is a leading higher education consultancy in India, connecting students with 25+ trusted partner colleges nationwide...',
+          about_description: 'Talvia Consultancy is a leading higher education consultancy in India, connecting students with top colleges and universities nationwide...',
           about_image: null,
           vision: 'Empowering students across India to access top-tier higher education.',
           mission: 'Delivering transparent, student-first admissions guidance from first step to final admission.',
@@ -194,7 +194,7 @@ export const coreService = {
           stat_districts: '28+ States',
           stat_courses: '100+',
           stat_approach: 'Student-First',
-          footer_description: 'Your premier education consultancy partner across India.',
+          footer_description: 'Your premier education consultancy across India.',
           meta_title: 'Talvia Consultancy | Premium Higher Education Admissions Across India',
           meta_description: 'Connect with premier colleges and universities across India with Talvia Consultancy.',
         }

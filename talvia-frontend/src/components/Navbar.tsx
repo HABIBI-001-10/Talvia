@@ -9,7 +9,7 @@ const NAV_LINKS = [
   {
     label: 'Colleges', to: '/colleges',
     children: [
-      { label: 'All Partner Colleges', to: '/colleges' },
+      { label: 'All Colleges', to: '/colleges' },
       { label: 'Top Featured Colleges', to: '/colleges?featured=true' },
     ],
   },
@@ -107,7 +107,7 @@ export default function Navbar() {
               to="/contact?counselling=true"
               className="hidden md:inline-flex items-center gap-2 bg-black hover:bg-zinc-800 text-white text-sm font-medium px-5 py-2.5 rounded-xl transition-all duration-200 shadow-sm hover:shadow"
             >
-              Get Free Counselling
+              Get Admissions Counselling
             </Link>
             <button
               className="lg:hidden p-2 rounded-lg text-zinc-800 hover:bg-zinc-100 transition-colors"
@@ -156,7 +156,7 @@ export default function Navbar() {
                 to="/contact?counselling=true"
                 className="block w-full text-center bg-black hover:bg-zinc-800 text-white font-medium px-5 py-3 rounded-xl transition-colors shadow-sm"
               >
-                Get Free Counselling
+                Get Admissions Counselling
               </Link>
             </div>
           </div>

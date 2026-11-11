@@ -37,7 +37,7 @@ export default function CollegeCard({ college, onEnquire }: CollegeCardProps) {
 
         {college.is_featured && (
           <span className="absolute top-3 right-3 bg-white text-black text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm border border-zinc-200">
-            Featured Partner
+            Featured College
           </span>
         )}
       </div>

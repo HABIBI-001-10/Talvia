@@ -32,16 +32,16 @@ export default function AboutPage() {
                   Talvia Consultancy was founded with a singular conviction: every student deserves access to unbiased, professional, and transparent higher education counselling. Choosing the right college and course shapes your career trajectory, and our senior advisors are dedicated to making this process confident, informed, and empowering.
                 </p>
                 <p className="text-zinc-600 leading-relaxed mb-5 text-base">
-                  Over the years, Talvia has forged verified partnerships with 25+ premier colleges and universities across Karnataka, Kerala, Tamil Nadu, Maharashtra, Delhi NCR, and other key Indian educational hubs. We guide thousands of students from their first consultation through documentation, quota allocations, and final campus admissions.
+                  Over the years, Talvia has forged verified networks with 25+ premier colleges and universities across Karnataka, Kerala, Tamil Nadu, Maharashtra, Delhi NCR, and other key Indian educational hubs. We guide thousands of students from their first consultation through documentation, quota allocations, and final campus admissions.
                 </p>
                 <p className="text-zinc-600 leading-relaxed mb-8 text-base">
-                  All initial counselling and admissions guidance sessions at Talvia are completely free of cost for students and their families.
+                  All initial counselling and admissions guidance sessions at Talvia are dedicated to supporting students and their families.
                 </p>
                 <Link
                   to="/contact?counselling=true"
                   className="btn-primary"
                 >
-                  Schedule Free Counselling <ArrowRight size={18} />
+                  Schedule Counselling <ArrowRight size={18} />
                 </Link>
               </div>
             </ScrollReveal>
@@ -49,9 +49,9 @@ export default function AboutPage() {
             <ScrollReveal direction="right">
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { icon: Building2, value: 25, suffix: '+', label: 'Partner Colleges' },
+                  { icon: Building2, value: 25, suffix: '+', label: 'Top Colleges' },
                   { icon: Users, value: 28, suffix: '+', label: 'States Covered' },
-                  { icon: Target, value: 100, suffix: '%', label: 'Free Guidance' },
+                  { icon: Target, value: 100, suffix: '%', label: 'Expert Guidance' },
                   { icon: Heart, value: 100, suffix: '%', label: 'Student-First Focus' },
                 ].map(({ icon: Icon, value, suffix, label }) => (
                   <div key={label} className="bg-white rounded-2xl p-6 border border-zinc-200 text-center shadow-sm hover:border-black transition-colors">
@@ -122,10 +122,10 @@ export default function AboutPage() {
                 <h3 className="text-2xl font-black mb-6 tracking-tight">Why Choose Talvia Consultancy?</h3>
                 <div className="space-y-3.5">
                   {[
-                    'Network of 25+ verified partner colleges across India',
+                    'Network of 25+ accredited colleges and universities across India',
                     'Personalised, one-on-one counselling sessions',
                     'Admissions coverage across 28+ Indian states & UTs',
-                    '100% free guidance and professional counselling',
+                    'Professional guidance and transparent academic counselling',
                     'First-to-end admission guidance and documentation support',
                     'Experienced counsellors with deep pan-India institutional knowledge',
                     'Student-first advocacy in every college recommendation',
@@ -175,13 +175,13 @@ export default function AboutPage() {
               Ready to Secure Your Academic Future?
             </h2>
             <p className="text-zinc-400 text-base md:text-lg mb-8 font-light">
-              Connect with our admissions specialists for free one-on-one guidance.
+              Connect with our admissions specialists for personalized one-on-one guidance.
             </p>
             <Link
               to="/contact?counselling=true"
               className="btn-white text-base py-3.5 px-8"
             >
-              Get Free Counselling <ArrowRight size={18} />
+              Get Admissions Counselling <ArrowRight size={18} />
             </Link>
           </ScrollReveal>
         </div>

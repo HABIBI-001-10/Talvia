@@ -33,7 +33,7 @@ export default function ServicesPage() {
             <p className="text-zinc-400 font-semibold text-xs uppercase tracking-[0.25em] mb-2">Advisory Solutions</p>
             <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-3">Our Consultancy Services</h1>
             <p className="text-zinc-400 max-w-xl text-base font-light">
-              Comprehensive higher education guidance at every milestone — unbiased, professional, and 100% free for students.
+              Comprehensive higher education guidance at every milestone — unbiased, professional, and dedicated to student success.
             </p>
           </ScrollReveal>
         </div>
@@ -92,7 +92,7 @@ export default function ServicesPage() {
                             onClick={() => setModalOpen(true)}
                             className="flex-1 text-xs font-semibold bg-black hover:bg-zinc-800 text-white rounded-xl py-2.5 transition-colors uppercase tracking-wider"
                           >
-                            Get Free Help
+                            Get Guidance
                           </button>
                         </div>
                       </div>

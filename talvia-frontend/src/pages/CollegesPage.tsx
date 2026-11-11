@@ -56,9 +56,9 @@ export default function CollegesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal direction="down">
             <p className="text-zinc-400 font-semibold text-xs uppercase tracking-[0.25em] mb-2">Academic Directory</p>
-            <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-3">Partner Colleges Across India</h1>
+            <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-3">Colleges & Universities Across India</h1>
             <p className="text-zinc-400 max-w-2xl text-base font-light">
-              Explore 25+ verified partner universities and colleges across Karnataka, Kerala, Tamil Nadu, Maharashtra, Delhi NCR, and nationwide.
+              Explore premier universities and colleges across Karnataka, Kerala, Tamil Nadu, Maharashtra, Delhi NCR, and nationwide.
             </p>
           </ScrollReveal>
         </div>
@@ -125,8 +125,8 @@ export default function CollegesPage() {
           <ErrorMessage message={error} onRetry={() => setParam('page', '1')} />
         ) : colleges.length === 0 ? (
           <EmptyState
-            title="No Partner Colleges Found"
-            description="Try modifying your search criteria or clear the filters to explore all partner institutions."
+            title="No Colleges Found"
+            description="Try modifying your search criteria or clear the filters to explore all institutions."
             action={{ label: 'Clear Filters', onClick: () => setSearchParams({}) }}
           />
         ) : (

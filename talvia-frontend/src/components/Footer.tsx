@@ -41,7 +41,7 @@ export default function Footer() {
               {[
                 { label: 'Home', to: '/' },
                 { label: 'About Us', to: '/about' },
-                { label: 'Partner Colleges', to: '/colleges' },
+                { label: 'Colleges & Universities', to: '/colleges' },
                 { label: 'Course Catalog', to: '/courses' },
                 { label: 'Consultancy Services', to: '/services' },
                 { label: 'Contact Us', to: '/contact' },

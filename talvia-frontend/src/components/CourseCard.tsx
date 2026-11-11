@@ -42,7 +42,7 @@ export default function CourseCard({ course, onEnquire }: CourseCardProps) {
         )}
         {course.college_count !== undefined && (
           <span className="flex items-center gap-1 font-medium">
-            <Users size={13} className="text-black" /> {course.college_count} Partner Colleges
+            <Users size={13} className="text-black" /> {course.college_count} Colleges
           </span>
         )}
       </div>

@@ -264,7 +264,7 @@ export const DEMO_SERVICES: Service[] = [
     process_steps: ['Initial consultation', 'Aptitude mapping', 'Career options presentation', 'Action plan'],
     faqs: [
       { question: 'Who can benefit from career guidance?', answer: 'Students from 10th grade onwards, plus two graduates, and degree holders seeking the right direction.' },
-      { question: 'Is the guidance session free?', answer: 'Yes! All initial guidance and counselling sessions through Talvia are 100% free.' }
+      { question: 'How are guidance sessions conducted?', answer: 'Our initial guidance and counselling sessions are conducted one-on-one with senior academic advisors.' }
     ],
     display_order: 1,
   },
@@ -273,7 +273,7 @@ export const DEMO_SERVICES: Service[] = [
     title: 'College Selection',
     slug: 'college-selection',
     short_description: 'Comprehensive college comparison across accreditation, campus infrastructure, and placement records.',
-    description: 'Find the right campus culture, location, and fee structure from 25+ partner institutions across premier educational hubs throughout India.',
+    description: 'Find the right campus culture, location, and fee structure from premier institutions across educational hubs throughout India.',
     icon: 'GraduationCap',
     image: null,
     benefits: ['Detailed college comparison matrix', 'Insights into campus placements & NAAC rankings', 'Complete fee structure transparency'],
@@ -309,7 +309,7 @@ export const DEMO_SERVICES: Service[] = [
     benefits: ['Documentation checklist', 'Deadline tracking', 'Direct admission cell liaison'],
     process_steps: ['Document collection', 'Application filling', 'Verification & submission', 'Seat confirmation'],
     faqs: [
-      { question: 'Do you support merit and management quota admissions?', answer: 'Yes, we provide guidance for both merit and direct college seat allocations across partner institutions.' }
+      { question: 'Do you support merit and management quota admissions?', answer: 'Yes, we provide guidance for both merit and direct college seat allocations across institutions nationwide.' }
     ],
     display_order: 4,
   },
@@ -324,7 +324,7 @@ export const DEMO_SERVICES: Service[] = [
     benefits: ['Application error check', 'Statement of purpose assistance', 'Interview readiness guidance'],
     process_steps: ['Draft review', 'Correction and enhancement', 'Final submission check'],
     faqs: [
-      { question: 'Can I apply to multiple colleges at once?', answer: 'Yes, we help manage and submit parallel applications across our partner colleges.' }
+      { question: 'Can I apply to multiple colleges at once?', answer: 'Yes, we help manage and submit parallel applications across multiple institutions.' }
     ],
     display_order: 5,
   },
@@ -332,11 +332,11 @@ export const DEMO_SERVICES: Service[] = [
     id: 6,
     title: 'Student Counselling',
     slug: 'student-counselling',
-    short_description: 'Free, confidential counselling for exam stress, parent alignment, and career anxiety.',
-    description: 'A compassionate, pressure-free space for students and parents to discuss doubts, overcome admission uncertainty, and move forward with peace of mind.',
+    short_description: 'Dedicated, confidential counselling for exam stress, parent alignment, and career anxiety.',
+    description: 'A compassionate, supportive space for students and parents to discuss doubts, overcome admission uncertainty, and move forward with peace of mind.',
     icon: 'Heart',
     image: null,
-    benefits: ['100% confidential and free', 'Parent-student joint discussions', 'Stress management strategies'],
+    benefits: ['100% confidential guidance', 'Parent-student joint discussions', 'Stress management strategies'],
     process_steps: ['Schedule booking', 'Open discussion', 'Confidence building & resolution'],
     faqs: [
       { question: 'Can parents join the counselling session?', answer: 'Yes, parent involvement is highly encouraged for informed decision making.' }

@@ -96,7 +96,7 @@ export default function EnquiryModal({
             <span className="text-zinc-400 text-xs uppercase tracking-widest font-semibold block mb-1">
               Talvia Consultancy • All India
             </span>
-            <h2 className="text-2xl font-black tracking-tight">Get Free Admissions Counselling</h2>
+            <h2 className="text-2xl font-black tracking-tight">Get Admissions Counselling</h2>
             <p className="text-zinc-400 text-xs mt-1">
               First-to-end guidance from our senior academic counsellors
             </p>
@@ -265,7 +265,7 @@ export default function EnquiryModal({
                     'Submitting Enquiry...'
                   ) : (
                     <>
-                      <Send size={16} /> Submit Free Enquiry
+                      <Send size={16} /> Submit Admissions Enquiry
                     </>
                   )}
                 </button>

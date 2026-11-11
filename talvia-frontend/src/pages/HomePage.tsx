@@ -108,16 +108,16 @@ export default function HomePage() {
             <ScrollReveal direction="up" delay={0.4}>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
-                  to="/colleges"
+                  to="/courses"
                   className="btn-white text-base py-3.5 px-8 justify-center shadow-lg hover:shadow-white/10"
                 >
-                  Explore Partner Colleges <ArrowRight size={18} />
+                  Explore Programs <ArrowRight size={18} />
                 </Link>
                 <button
                   onClick={() => setModalOpen(true)}
                   className="btn-outline-white text-base py-3.5 px-8 justify-center"
                 >
-                  Get Free Counselling
+                  Get Admissions Counselling
                 </button>
               </div>
             </ScrollReveal>
@@ -126,7 +126,7 @@ export default function HomePage() {
             <ScrollReveal direction="up" delay={0.5}>
               <div className="mt-12 pt-8 border-t border-zinc-800/80 flex flex-wrap gap-8 text-zinc-400 text-sm">
                 {[
-                  { icon: Building2, text: '25+ Partner Colleges Across India' },
+                  { icon: Building2, text: 'Colleges & Universities Across India' },
                   { icon: Users, text: 'Pan-India Reach (28+ States)' },
                   { icon: BookOpen, text: 'Multiple Course Streams' },
                 ].map(({ icon: Icon, text }) => (
@@ -146,10 +146,10 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {[
-              { value: 25, suffix: '+', label: 'Partner Colleges', icon: Building2 },
+              { value: 500, suffix: '+', label: 'Students Guided', icon: Users },
               { value: 28, suffix: '+', label: 'States Covered', icon: Star },
               { value: 100, suffix: '+', label: 'Course Programs', icon: BookOpen },
-              { value: 100, suffix: '%', label: 'Student-First Guidance', icon: Users },
+              { value: 100, suffix: '%', label: 'Student-First Guidance', icon: Building2 },
             ].map(({ value, suffix, label, icon: Icon }) => (
               <ScrollReveal key={label} direction="up">
                 <div className="text-center group p-4 rounded-2xl hover:bg-zinc-50 transition-colors">
@@ -181,7 +181,7 @@ export default function HomePage() {
                   Talvia Consultancy is a leading education advisory firm connecting aspiring students with accredited colleges and universities across India. We provide unbiased, personalized guidance on university selection, course selection, and admission procedures from first step to final admission.
                 </p>
                 <p className="text-zinc-600 leading-relaxed mb-8 text-base">
-                  Our experienced counsellors work directly with students and parents to evaluate career goals, eligibility, and academic aspirations. With a trusted network of 25+ partner institutions nationwide, we make finding the right institution straightforward, transparent, and completely stress-free.
+                  Our experienced counsellors work directly with students and parents to evaluate career goals, eligibility, and academic aspirations. We connect you with top-ranked colleges and universities nationwide, making finding the right institution straightforward, transparent, and seamless.
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
@@ -219,10 +219,10 @@ export default function HomePage() {
                     <h3 className="text-2xl font-black mb-6 tracking-tight">Why Choose Talvia Consultancy?</h3>
                     <div className="space-y-4">
                       {[
-                        '25+ accredited partner colleges across India',
+                        'Guidance for top accredited colleges across India',
                         'Personalised one-on-one counselling sessions',
                         'Pan-India admissions support across 28+ states',
-                        '100% free guidance and transparent counsel',
+                        'Transparent, unbiased guidance and counsel',
                         'First-to-end admission guidance and document assistance',
                         'Student-first advocacy in all recommendations',
                       ].map((point) => (
@@ -305,14 +305,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── FEATURED PARTNER COLLEGES ─────────────────────────────────── */}
+      {/* ── FEATURED INSTITUTIONS ────────────────────────────────────── */}
       <section className="py-24 bg-[#FAFAFA]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal direction="up">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-14">
               <div>
-                <p className="section-subtitle mb-2">Academic Alliances</p>
-                <h2 className="section-title">Featured Partner Institutions</h2>
+                <p className="section-subtitle mb-2">Academic Network</p>
+                <h2 className="section-title">Featured Institutions</h2>
                 <p className="text-zinc-600 text-sm mt-2">
                   Premier universities and colleges across Karnataka, Kerala, Tamil Nadu, Maharashtra, and Delhi NCR.
                 </p>
@@ -343,14 +343,14 @@ export default function HomePage() {
           ) : (
             <div className="text-center py-16 text-zinc-500">
               <Building2 size={48} className="mx-auto mb-4 text-zinc-300" />
-              <p>Partner college data will appear here.</p>
+              <p>Institution data will appear here.</p>
             </div>
           )}
 
           <ScrollReveal direction="up">
             <div className="text-center mt-12">
               <Link to="/colleges" className="btn-primary py-3.5 px-8">
-                Explore All 25+ Partner Colleges <ArrowRight size={18} />
+                Explore All Colleges <ArrowRight size={18} />
               </Link>
             </div>
           </ScrollReveal>
@@ -380,7 +380,7 @@ export default function HomePage() {
               {
                 step: '02',
                 title: 'Curated Institution Match',
-                desc: 'Review verified partner colleges and courses matched to your aptitude and career aspirations.',
+                desc: 'Review curated top colleges and courses matched to your aptitude and career aspirations.',
               },
               {
                 step: '03',
@@ -432,7 +432,7 @@ export default function HomePage() {
                 onClick={() => setModalOpen(true)}
                 className="btn-white text-base py-3.5 px-8 justify-center shadow-lg hover:shadow-white/10"
               >
-                Get Free Counselling <ArrowRight size={18} />
+                Get Admissions Counselling <ArrowRight size={18} />
               </button>
               <Link
                 to="/contact"
@@ -459,7 +459,7 @@ export default function HomePage() {
 
                 <div className="space-y-5">
                   {[
-                    { title: '100% Free Guidance', desc: 'No consultation fees or hidden charges for students.' },
+                    { title: 'Professional Guidance', desc: 'Expert academic advisory from senior counsellors.' },
                     { title: 'Rapid 24-Hour Callback', desc: 'Dedicated admissions officer assigned to your profile.' },
                     { title: 'Personalized College Matching', desc: 'Customized recommendations based on your scores and budget.' },
                   ].map(({ title, desc }) => (
@@ -615,7 +615,7 @@ export default function HomePage() {
                         'Submitting...'
                       ) : (
                         <>
-                          <Send size={16} /> Submit Free Admissions Enquiry
+                          <Send size={16} /> Submit Admissions Enquiry
                         </>
                       )}
                     </button>

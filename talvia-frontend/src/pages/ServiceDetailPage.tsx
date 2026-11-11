@@ -161,13 +161,13 @@ export default function ServiceDetailPage() {
                 </span>
                 <h3 className="text-xl font-black mb-2 tracking-tight">Need {service.title}?</h3>
                 <p className="text-zinc-400 text-xs mb-6 leading-relaxed">
-                  Our counsellors provide 100% free, personalized support from the first step to final admission.
+                  Our counsellors provide professional, personalized support from the first step to final admission.
                 </p>
                 <button
                   onClick={() => setModalOpen(true)}
                   className="btn-white w-full justify-center py-3"
                 >
-                  Book Free Consultation
+                  Book Consultation
                 </button>
                 <div className="mt-6 pt-5 border-t border-zinc-800 text-xs space-y-1.5 text-zinc-400">
                   <div>Direct Admissions Desk:</div>

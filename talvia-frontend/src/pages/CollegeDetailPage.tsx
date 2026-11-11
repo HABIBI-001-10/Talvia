@@ -46,7 +46,7 @@ export default function CollegeDetailPage() {
         )}
         <div className="absolute inset-0 flex flex-col justify-end max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
           <Link to="/colleges" className="inline-flex items-center gap-2 text-zinc-400 hover:text-white mb-4 text-xs uppercase tracking-wider transition-colors">
-            <ArrowLeft size={14} /> Back to Partner Colleges
+            <ArrowLeft size={14} /> Back to Colleges
           </Link>
           <div className="flex items-end gap-5">
             <div className="w-20 h-20 bg-white rounded-2xl flex items-center justify-center shadow-2xl flex-shrink-0 border border-zinc-200">
@@ -60,7 +60,7 @@ export default function CollegeDetailPage() {
               <div className="flex items-center gap-2 mb-1">
                 {college.is_featured && (
                   <span className="bg-white text-black text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider border border-zinc-200">
-                    Featured Partner
+                    Featured College
                   </span>
                 )}
                 {college.accreditation && (
