@@ -45,9 +45,8 @@ export default function TalviaLogo({
         </div>
         {showTagline && (
           <span
-            className={`text-[9.5px] uppercase tracking-[0.24em] font-medium mt-0.5 ${
-              isWhite ? 'text-zinc-400' : 'text-zinc-500'
-            }`}
+            className={`text-[9.5px] uppercase tracking-[0.24em] font-medium mt-0.5 ${isWhite ? 'text-zinc-400' : 'text-zinc-500'
+              }`}
           >
             Education Consultancy • India
           </span>
