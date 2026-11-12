@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { X, Send, CheckCircle2, Phone, Mail } from 'lucide-react';
+import { X, Phone, Mail, MessageCircle } from 'lucide-react';
 import { enquiryService } from '../services';
 import type { EnquiryFormData } from '../types';
 
@@ -50,6 +50,7 @@ export default function EnquiryModal({
   });
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [whatsappUrl, setWhatsappUrl] = useState('');
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   if (!isOpen) return null;
@@ -74,14 +75,18 @@ export default function EnquiryModal({
     if (Object.keys(errs).length > 0) { setErrors(errs); return; }
     setLoading(true);
     try {
-      await enquiryService.submit({
+      const res = await enquiryService.submit({
         ...form,
         preferred_college: prefillCollege || form.preferred_college,
         interested_course: prefillCourse || form.interested_course,
       });
+      setWhatsappUrl(res.data.whatsappUrl);
+      if (typeof window !== 'undefined') {
+        window.open(res.data.whatsappUrl, '_blank');
+      }
       setSuccess(true);
     } catch {
-      setErrors({ form: 'Failed to submit enquiry. Please call us directly at +91 8943442479.' });
+      setErrors({ form: 'Failed to prepare enquiry. Please reach us directly on WhatsApp at +91 8943442479.' });
     } finally {
       setLoading(false);
     }
@@ -113,14 +118,24 @@ export default function EnquiryModal({
         {/* Content */}
         <div className="p-7 overflow-y-auto flex-1">
           {success ? (
-            <div className="text-center py-8">
-              <div className="w-16 h-16 bg-zinc-100 rounded-full flex items-center justify-center mx-auto mb-4 border border-zinc-200">
-                <CheckCircle2 size={36} className="text-black" />
+            <div className="text-center py-6">
+              <div className="w-16 h-16 bg-emerald-50 rounded-full flex items-center justify-center mx-auto mb-4 border border-emerald-200">
+                <MessageCircle size={36} className="text-emerald-600" />
               </div>
-              <h3 className="text-xl font-bold text-black mb-2">Enquiry Received</h3>
+              <h3 className="text-xl font-bold text-black mb-2">WhatsApp Enquiry Ready</h3>
               <p className="text-zinc-600 text-sm mb-6 max-w-sm mx-auto">
-                Thank you! Our senior admissions counsellor will contact you within 24 hours.
+                Your admissions details have been formatted for our WhatsApp admissions desk (+91 8943442479).
               </p>
+              {whatsappUrl && (
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 px-6 rounded-xl transition-all shadow-md text-sm mb-4"
+                >
+                  <MessageCircle size={18} /> Open WhatsApp Chat
+                </a>
+              )}
               <div className="bg-zinc-50 border border-zinc-200 rounded-2xl p-4 mb-6 text-left text-xs space-y-2">
                 <div className="font-semibold text-black uppercase tracking-wider text-[11px]">Direct Support Desk:</div>
                 <div className="flex items-center gap-2 text-zinc-700">
@@ -132,7 +147,7 @@ export default function EnquiryModal({
               </div>
               <button
                 onClick={onClose}
-                className="btn-primary w-full justify-center"
+                className="w-full text-center text-zinc-600 hover:text-black py-2.5 text-xs font-semibold uppercase tracking-wider transition-colors"
               >
                 Close Window
               </button>
@@ -259,13 +274,13 @@ export default function EnquiryModal({
                 <button
                   type="submit"
                   disabled={loading}
-                  className="btn-primary w-full justify-center py-3.5"
+                  className="btn-primary w-full justify-center py-3.5 flex items-center gap-2"
                 >
                   {loading ? (
-                    'Submitting Enquiry...'
+                    'Preparing WhatsApp Enquiry...'
                   ) : (
                     <>
-                      <Send size={16} /> Submit Admissions Enquiry
+                      <MessageCircle size={18} className="text-emerald-400" /> Send Enquiry via WhatsApp
                     </>
                   )}
                 </button>

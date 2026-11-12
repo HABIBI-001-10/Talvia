@@ -3,26 +3,6 @@
 .env.local
 *.env
 
-# Python / Django
-__pycache__/
-*.py[cod]
-*$py.class
-*.sqlite3
-*.log
-local_settings.py
-db.sqlite3-journal
-
-# Virtual Environments
-venv/
-env/
-ENV/
-.venv/
-
-# Static / Media (exclude uploaded media files if you want a clean repo, keep media dir structure)
-talvia-backend/media/*
-!talvia-backend/media/.gitkeep
-talvia-backend/staticfiles/
-
 # Node / Frontend
 node_modules/
 dist/
@@ -39,4 +19,3 @@ dist-ssr/
 *.sw?
 .DS_Store
 Thumbs.db
-

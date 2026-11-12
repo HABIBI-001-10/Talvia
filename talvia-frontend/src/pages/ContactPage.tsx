@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Phone, Mail, MapPin, MessageCircle, Share2, Globe, Link as LinkIcon, Send, CheckCircle2 } from 'lucide-react';
+import { Phone, Mail, MapPin, MessageCircle, Share2, Globe, Link as LinkIcon } from 'lucide-react';
 import { enquiryService } from '../services';
 import { INDIAN_STATES } from '../components/EnquiryModal';
 import { ScrollReveal } from '../components/Animations';
@@ -14,6 +14,7 @@ export default function ContactPage() {
     interested_course: '', preferred_college: '', message: '',
   });
   const [status, setStatus] = useState<'idle'|'loading'|'success'|'error'>('idle');
+  const [submittedWhatsAppUrl, setSubmittedWhatsAppUrl] = useState('');
   const [errors, setErrors] = useState<Record<string,string>>({});
 
   const validate = () => {
@@ -36,13 +37,16 @@ export default function ContactPage() {
     if (Object.keys(errs).length) { setErrors(errs); return; }
     setStatus('loading');
     try {
-      await enquiryService.submit({
+      const res = await enquiryService.submit({
         ...form,
         enquiry_type: isCounselling ? 'counselling' : 'contact',
         source_page: 'contact',
       });
+      setSubmittedWhatsAppUrl(res.data.whatsappUrl);
+      if (typeof window !== 'undefined') {
+        window.open(res.data.whatsappUrl, '_blank');
+      }
       setStatus('success');
-      setForm({ student_name:'', phone:'', email:'', district:'', interested_course:'', preferred_college:'', message:'' });
     } catch {
       setStatus('error');
     }
@@ -159,13 +163,31 @@ export default function ContactPage() {
                 </p>
 
                 {status === 'success' ? (
-                  <div className="text-center py-12">
-                    <CheckCircle2 size={48} className="text-black mx-auto mb-4" />
-                    <h4 className="text-xl font-bold text-black mb-2">Enquiry Successfully Transmitted</h4>
+                  <div className="text-center py-10">
+                    <div className="w-16 h-16 bg-emerald-50 rounded-full flex items-center justify-center mx-auto mb-4 border border-emerald-200">
+                      <MessageCircle size={36} className="text-emerald-600" />
+                    </div>
+                    <h4 className="text-xl font-bold text-black mb-2">WhatsApp Enquiry Ready</h4>
                     <p className="text-zinc-600 text-sm mb-6 max-w-md mx-auto">
-                      Thank you. A senior admissions counsellor will contact you at +91 8943442479.
+                      Your admissions enquiry details have been formatted for our WhatsApp admissions desk (+91 8943442479).
                     </p>
-                    <button onClick={() => setStatus('idle')} className="btn-primary">
+                    {submittedWhatsAppUrl && (
+                      <a
+                        href={submittedWhatsAppUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-primary w-full justify-center flex items-center gap-2 mb-3 bg-emerald-600 hover:bg-emerald-700 text-white"
+                      >
+                        <MessageCircle size={18} /> Open WhatsApp Chat
+                      </a>
+                    )}
+                    <button
+                      onClick={() => {
+                        setStatus('idle');
+                        setForm({ student_name:'', phone:'', email:'', district:'', interested_course:'', preferred_college:'', message:'' });
+                      }}
+                      className="btn-secondary w-full justify-center"
+                    >
                       Submit Another Query
                     </button>
                   </div>
@@ -289,13 +311,13 @@ export default function ContactPage() {
                     <button
                       type="submit"
                       disabled={status === 'loading'}
-                      className="btn-primary w-full justify-center py-3.5 text-sm uppercase tracking-wider"
+                      className="btn-primary w-full justify-center py-3.5 text-sm uppercase tracking-wider flex items-center gap-2"
                     >
                       {status === 'loading' ? (
-                        'Submitting Enquiry...'
+                        'Preparing WhatsApp...'
                       ) : (
                         <>
-                          <Send size={16} /> Submit Admissions Enquiry
+                          <MessageCircle size={18} className="text-emerald-400" /> Send Enquiry via WhatsApp
                         </>
                       )}
                     </button>
