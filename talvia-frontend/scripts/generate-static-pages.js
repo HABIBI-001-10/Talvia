@@ -447,3 +447,4 @@ const notFoundHtml = template
 fs.writeFileSync(path.join(distDir, '404.html'), notFoundHtml, 'utf8');
 
 console.log(`Successfully generated ${routes.length} static page endpoints + 404.html in dist/!`);
+
