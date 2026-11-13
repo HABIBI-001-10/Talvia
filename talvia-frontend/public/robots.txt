@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://talviastudentsgrowth.in/sitemap.xml
