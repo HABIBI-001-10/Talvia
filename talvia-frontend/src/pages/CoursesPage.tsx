@@ -50,13 +50,13 @@ export default function CoursesPage() {
   return (
     <>
       {/* Header */}
-      <div className="bg-black text-white py-20 border-b border-zinc-900">
+      <div className="bg-gradient-to-b from-[#141824] via-[#18202E] to-[#121620] text-white py-20 border-b border-[#252E3E]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal direction="down">
-            <p className="text-zinc-400 font-semibold text-xs uppercase tracking-[0.25em] mb-2">Curriculum Directory</p>
+            <p className="text-[#E4C586] font-semibold text-xs uppercase tracking-[0.25em] mb-2">Curriculum Directory</p>
             <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-3">Academic Programs & Degrees</h1>
-            <p className="text-zinc-400 max-w-xl text-base font-light">
-              Explore in-demand undergraduate, postgraduate, and professional disciplines offered by premier colleges and universities across India.
+            <p className="text-slate-300 max-w-xl text-base font-light">
+              Explore premier Medical (MBBS/BDS/BAMS), Pharmacy (B.Pharm/Pharm.D), Healthcare, Engineering, and Professional degree disciplines.
             </p>
           </ScrollReveal>
         </div>
@@ -70,8 +70,8 @@ export default function CoursesPage() {
               onClick={() => setParam('category', '')}
               className={`px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider transition-all ${
                 !category
-                  ? 'bg-black text-white shadow-sm'
-                  : 'bg-white text-zinc-700 border border-zinc-200 hover:border-black'
+                  ? 'bg-[#181E2A] text-white shadow-sm border border-[#2D384D]'
+                  : 'bg-white text-slate-700 border border-slate-200 hover:border-[#C59B4E]'
               }`}
             >
               All Programs
@@ -82,8 +82,8 @@ export default function CoursesPage() {
                 onClick={() => setParam('category', cat.code)}
                 className={`px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider transition-all ${
                   category === cat.code
-                    ? 'bg-black text-white shadow-sm'
-                    : 'bg-white text-zinc-700 border border-zinc-200 hover:border-black'
+                    ? 'bg-[#181E2A] text-[#E8D09E] shadow-sm border border-[#C59B4E]/40 font-bold'
+                    : 'bg-white text-slate-700 border border-slate-200 hover:border-[#C59B4E]'
                 }`}
               >
                 {cat.name} <span className="ml-1 opacity-70">({cat.count})</span>
@@ -92,16 +92,16 @@ export default function CoursesPage() {
           </div>
 
           {/* Search bar */}
-          <div className="bg-white rounded-2xl shadow-sm border border-zinc-200 p-4 mb-8 flex items-center gap-3">
-            <Search size={18} className="text-zinc-400 ml-2" />
+          <div className="bg-white rounded-2xl shadow-sm border border-slate-200/80 p-4 mb-8 flex items-center gap-3">
+            <Search size={18} className="text-[#C59B4E] ml-2" />
             <input
               value={search}
               onChange={e => setParam('search', e.target.value)}
-              placeholder="Search courses by keyword, stream, eligibility..."
-              className="flex-1 py-1 text-sm focus:outline-none bg-transparent"
+              placeholder="Search courses by keyword, stream (MBBS, B.Pharm, Pharm.D, Engineering)..."
+              className="flex-1 py-1 text-sm focus:outline-none bg-transparent text-slate-800"
             />
             {search && (
-              <button onClick={() => setParam('search', '')} className="text-zinc-400 hover:text-black">
+              <button onClick={() => setParam('search', '')} className="text-slate-400 hover:text-slate-800">
                 <X size={16} />
               </button>
             )}

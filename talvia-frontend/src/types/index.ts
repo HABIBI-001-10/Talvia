@@ -99,12 +99,16 @@ export interface EnquiryFormData {
   student_name: string;
   phone: string;
   email: string;
-  district: string;
+  preferred_country: string;
+  preferred_state: string;
+  preferred_city: string;
   interested_course: string;
-  preferred_college: string;
   message: string;
-  enquiry_type: string;
-  source_page: string;
+  enquiry_type?: string;
+  source_page?: string;
+  // Kept as optional for backward compatibility
+  district?: string;
+  preferred_college?: string;
 }
 
 export interface ContactInfo {

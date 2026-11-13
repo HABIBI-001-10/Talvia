@@ -62,21 +62,21 @@ export default function ServiceDetailPage() {
   return (
     <>
       {/* Header */}
-      <div className="bg-black text-white py-20 border-b border-zinc-900">
+      <div className="bg-gradient-to-b from-[#141824] via-[#18202E] to-[#121620] text-white py-20 border-b border-[#252E3E]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link to="/services" className="inline-flex items-center gap-2 text-zinc-400 hover:text-white mb-6 text-xs uppercase tracking-wider transition-colors">
+          <Link to="/services" className="inline-flex items-center gap-2 text-slate-400 hover:text-white mb-6 text-xs uppercase tracking-wider transition-colors">
             <ArrowLeft size={14} /> Back to Services
           </Link>
           <div className="flex items-center gap-5">
-            <div className="w-16 h-16 bg-white text-black rounded-2xl flex items-center justify-center flex-shrink-0 border border-zinc-200">
-              <Icon size={30} className="text-black" />
+            <div className="w-16 h-16 bg-[#181E2A] text-[#E8D09E] rounded-2xl flex items-center justify-center flex-shrink-0 border border-[#2D384D] shadow-md">
+              <Icon size={28} className="text-[#E8D09E]" />
             </div>
             <div>
-              <span className="text-xs uppercase tracking-widest text-zinc-400 font-semibold block mb-1">
+              <span className="text-xs uppercase tracking-widest text-[#E4C586] font-semibold block mb-1">
                 Admissions Consultancy
               </span>
               <h1 className="text-3xl md:text-4xl font-black tracking-tight">{service.title}</h1>
-              <p className="text-zinc-400 mt-1 text-sm font-light">{service.short_description}</p>
+              <p className="text-slate-300 mt-1 text-sm font-light">{service.short_description}</p>
             </div>
           </div>
         </div>
@@ -155,28 +155,31 @@ export default function ServiceDetailPage() {
           {/* Sidebar */}
           <div className="space-y-6">
             <ScrollReveal direction="right">
-              <div className="bg-black text-white rounded-3xl p-7 shadow-xl border border-zinc-800">
-                <span className="text-[11px] uppercase tracking-widest text-zinc-400 font-semibold block mb-1">
-                  Admissions Consultation
-                </span>
-                <h3 className="text-xl font-black mb-2 tracking-tight">Need {service.title}?</h3>
-                <p className="text-zinc-400 text-xs mb-6 leading-relaxed">
-                  Our counsellors provide professional, personalized support from the first step to final admission.
-                </p>
-                <button
-                  onClick={() => setModalOpen(true)}
-                  className="btn-white w-full justify-center py-3"
-                >
-                  Book Consultation
-                </button>
-                <div className="mt-6 pt-5 border-t border-zinc-800 text-xs space-y-1.5 text-zinc-400">
-                  <div>Direct Admissions Desk:</div>
-                  <a href="tel:+918943442479" className="text-white font-bold block hover:underline">
-                    +91 8943442479
-                  </a>
-                  <a href="mailto:talviaconsultancy@gmail.com" className="text-zinc-400 block hover:underline">
-                    talviaconsultancy@gmail.com
-                  </a>
+              <div className="bg-gradient-to-br from-[#181E2A] via-[#1E2535] to-[#141822] text-white rounded-3xl p-7 shadow-xl border border-[#2D384D] relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-36 h-36 bg-[#C59B4E]/10 rounded-full blur-2xl" />
+                <div className="relative z-10">
+                  <span className="text-[11px] uppercase tracking-widest text-[#E4C586] font-semibold block mb-1">
+                    Admissions Consultation
+                  </span>
+                  <h3 className="text-xl font-black mb-2 tracking-tight">Need {service.title}?</h3>
+                  <p className="text-slate-300 text-xs mb-6 leading-relaxed">
+                    Our counsellors provide professional, personalized support from the first step to final admission.
+                  </p>
+                  <button
+                    onClick={() => setModalOpen(true)}
+                    className="btn-accent w-full justify-center py-3 text-sm font-semibold shadow-md"
+                  >
+                    Book Consultation
+                  </button>
+                  <div className="mt-6 pt-5 border-t border-[#2D384D] text-xs space-y-2 text-slate-300">
+                    <div className="text-slate-400 font-semibold uppercase tracking-wider text-[10px]">Direct Admissions Desk</div>
+                    <a href="tel:+918943442479" className="text-white font-bold block hover:underline">
+                      +91 8943442479
+                    </a>
+                    <a href="mailto:talviaconsultancy@gmail.com" className="text-slate-300 block hover:underline break-all">
+                      talviaconsultancy@gmail.com
+                    </a>
+                  </div>
                 </div>
               </div>
             </ScrollReveal>

@@ -4,15 +4,15 @@ import TalviaLogo from './TalviaLogo';
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white border-t border-zinc-900">
+    <footer className="bg-[#121620] text-slate-300 border-t border-[#232B3B]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-zinc-800">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-[#232B3B]">
           {/* Brand */}
           <div className="space-y-4">
             <Link to="/" className="inline-block">
               <TalviaLogo variant="white" className="h-10 md:h-11" showTagline />
             </Link>
-            <p className="text-zinc-400 text-sm leading-relaxed pr-2">
+            <p className="text-slate-400 text-sm leading-relaxed pr-2">
               Premier higher education consultancy connecting aspiring students with top universities and colleges across India. Comprehensive guidance from first step to final admission.
             </p>
             <div className="flex gap-2.5 pt-2">
@@ -26,7 +26,7 @@ export default function Footer() {
                   key={label}
                   href={href}
                   aria-label={label}
-                  className="w-9 h-9 rounded-full bg-zinc-900 hover:bg-white hover:text-black text-zinc-300 flex items-center justify-center transition-all duration-200 border border-zinc-800"
+                  className="w-9 h-9 rounded-full bg-[#1B2232] hover:bg-[#C59B4E] hover:text-[#121620] text-slate-300 flex items-center justify-center transition-all duration-200 border border-[#2D384D]"
                 >
                   <Icon size={15} />
                 </a>
@@ -36,22 +36,23 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-semibold text-sm tracking-wider uppercase text-zinc-300 mb-5">Quick Links</h3>
+            <h3 className="font-semibold text-xs tracking-widest uppercase text-[#C59B4E] mb-5">Quick Links</h3>
             <ul className="space-y-2.5">
               {[
                 { label: 'Home', to: '/' },
                 { label: 'About Us', to: '/about' },
-                { label: 'Colleges & Universities', to: '/colleges' },
                 { label: 'Course Catalog', to: '/courses' },
                 { label: 'Consultancy Services', to: '/services' },
                 { label: 'Contact Us', to: '/contact' },
+                { label: 'Privacy Policy', to: '/privacy-policy' },
+                { label: 'Terms & Conditions', to: '/terms-and-conditions' },
               ].map(({ label, to }) => (
                 <li key={label}>
                   <Link
                     to={to}
-                    className="text-zinc-400 hover:text-white text-sm transition-colors duration-200 flex items-center gap-1.5"
+                    className="text-slate-400 hover:text-white text-sm transition-colors duration-200 flex items-center gap-1.5"
                   >
-                    <span className="text-zinc-600">›</span> {label}
+                    <span className="text-slate-600">›</span> {label}
                   </Link>
                 </li>
               ))}
@@ -60,11 +61,11 @@ export default function Footer() {
 
           {/* Consultancy Services */}
           <div>
-            <h3 className="font-semibold text-sm tracking-wider uppercase text-zinc-300 mb-5">Our Services</h3>
+            <h3 className="font-semibold text-xs tracking-widest uppercase text-[#C59B4E] mb-5">Our Services</h3>
             <ul className="space-y-2.5">
               {[
                 'Career Guidance',
-                'College Selection',
+                'Campus & Course Advisory',
                 'Course Selection',
                 'Admission Assistance',
                 'Application Support',
@@ -72,10 +73,10 @@ export default function Footer() {
               ].map((service) => (
                 <li key={service}>
                   <Link
-                    to={`/services/${service.toLowerCase().replace(/ /g, '-')}`}
-                    className="text-zinc-400 hover:text-white text-sm transition-colors duration-200 flex items-center gap-1.5"
+                    to={`/services/${service.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`}
+                    className="text-slate-400 hover:text-white text-sm transition-colors duration-200 flex items-center gap-1.5"
                   >
-                    <span className="text-zinc-600">›</span> {service}
+                    <span className="text-slate-600">›</span> {service}
                   </Link>
                 </li>
               ))}
@@ -84,21 +85,21 @@ export default function Footer() {
 
           {/* Contact Details */}
           <div>
-            <h3 className="font-semibold text-sm tracking-wider uppercase text-zinc-300 mb-5">Enquiries</h3>
+            <h3 className="font-semibold text-xs tracking-widest uppercase text-[#C59B4E] mb-5">Enquiries</h3>
             <ul className="space-y-3.5">
-              <li className="flex gap-3 text-zinc-300 text-sm">
-                <MapPin size={17} className="text-zinc-400 flex-shrink-0 mt-0.5" />
-                <span>Pan-India Higher Education Consultancy<br /><span className="text-zinc-500 text-xs">Offices in Kochi & Major Educational Hubs</span></span>
+              <li className="flex gap-3 text-slate-300 text-sm">
+                <MapPin size={17} className="text-[#C59B4E] flex-shrink-0 mt-0.5" />
+                <span>Pan-India Higher Education Consultancy<br /><span className="text-slate-500 text-xs">Offices in Kochi & Major Educational Hubs</span></span>
               </li>
               <li>
-                <a href="tel:+918943442479" className="flex gap-3 text-zinc-300 hover:text-white text-sm transition-colors">
-                  <Phone size={17} className="text-zinc-400 flex-shrink-0 mt-0.5" />
+                <a href="tel:+918943442479" className="flex gap-3 text-slate-300 hover:text-white text-sm transition-colors">
+                  <Phone size={17} className="text-[#C59B4E] flex-shrink-0 mt-0.5" />
                   <span className="font-medium">+91 8943442479</span>
                 </a>
               </li>
               <li>
-                <a href="mailto:talviaconsultancy@gmail.com" className="flex gap-3 text-zinc-300 hover:text-white text-sm transition-colors">
-                  <Mail size={17} className="text-zinc-400 flex-shrink-0 mt-0.5" />
+                <a href="mailto:talviaconsultancy@gmail.com" className="flex gap-3 text-slate-300 hover:text-white text-sm transition-colors">
+                  <Mail size={17} className="text-[#C59B4E] flex-shrink-0 mt-0.5" />
                   <span>talviaconsultancy@gmail.com</span>
                 </a>
               </li>
@@ -107,9 +108,9 @@ export default function Footer() {
                   href="https://wa.me/918943442479?text=Hello%20Talvia%20Consultancy%2C%20I%20need%20guidance%20on%20college%20admissions."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex gap-3 text-zinc-300 hover:text-white text-sm transition-colors items-center group"
+                  className="flex gap-3 text-slate-300 hover:text-white text-sm transition-colors items-center group"
                 >
-                  <MessageCircle size={17} className="text-zinc-400 group-hover:text-emerald-400 flex-shrink-0" />
+                  <MessageCircle size={17} className="text-emerald-400 flex-shrink-0" />
                   <span>Chat on WhatsApp (+91 8943442479)</span>
                 </a>
               </li>
@@ -118,8 +119,13 @@ export default function Footer() {
         </div>
 
         {/* Bottom copyright */}
-        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-zinc-500 text-xs">
+        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-slate-500 text-xs">
           <p>© {new Date().getFullYear()} TALVIA Consultancy. All rights reserved.</p>
+          <div className="flex items-center gap-4">
+            <Link to="/privacy-policy" className="hover:text-slate-300 transition-colors">Privacy Policy</Link>
+            <span>•</span>
+            <Link to="/terms-and-conditions" className="hover:text-slate-300 transition-colors">Terms & Conditions</Link>
+          </div>
           <p className="tracking-wide">Your Education. Your Future. Our Guidance. • Pan-India Admissions</p>
         </div>
       </div>

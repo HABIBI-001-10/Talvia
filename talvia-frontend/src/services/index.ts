@@ -13,6 +13,37 @@ import {
 
 export const WHATSAPP_PHONE = '918943442479';
 
+export const POPULAR_COUNTRIES = [
+  'India',
+  'Abroad — Russia',
+  'Abroad — Georgia',
+  'Abroad — Uzbekistan',
+  'Abroad — Philippines',
+  'Abroad — Kazakhstan',
+  'Abroad — United Kingdom (UK)',
+  'Abroad — Other Countries',
+];
+
+export const POPULAR_STATES = [
+  'Kerala',
+  'Karnataka',
+  'Tamil Nadu',
+  'Maharashtra',
+  'Delhi NCR',
+  'Telangana',
+  'Andhra Pradesh',
+  'Gujarat',
+  'West Bengal',
+  'Uttar Pradesh',
+  'Punjab',
+  'Rajasthan',
+  'Madhya Pradesh',
+  'Goa',
+  'Odisha',
+  'Other Indian State / UT',
+  'Overseas / Non-India',
+];
+
 export function createWhatsAppEnquiryUrl(data: EnquiryFormData): string {
   const lines = [
     '🎓 *New Admissions Enquiry — TALVIA Consultancy*',
@@ -20,9 +51,10 @@ export function createWhatsAppEnquiryUrl(data: EnquiryFormData): string {
     `👤 *Student Name:* ${data.student_name}`,
     `📞 *Phone Number:* ${data.phone}`,
     data.email ? `✉️ *Email:* ${data.email}` : null,
-    data.district ? `📍 *State / Region:* ${data.district}` : null,
     data.interested_course ? `📚 *Interested Course:* ${data.interested_course}` : null,
-    data.preferred_college ? `🏛️ *Preferred College:* ${data.preferred_college}` : null,
+    data.preferred_country ? `🌍 *Preferred Country:* ${data.preferred_country}` : null,
+    (data.preferred_state || data.district) ? `📍 *Preferred State:* ${data.preferred_state || data.district}` : null,
+    data.preferred_city ? `🏙️ *Preferred City:* ${data.preferred_city}` : null,
     data.message ? `💬 *Query / Message:* ${data.message}` : null,
   ].filter(Boolean);
 
