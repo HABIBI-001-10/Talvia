@@ -13,7 +13,7 @@ export interface SEOProps {
 
 export const SITE_URL = 'https://talviastudentsgrowth.in';
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/exact-logo-raw.png`;
-export const SITE_NAME = 'TALVIA Consultancy';
+export const SITE_NAME = 'TALVIA';
 
 /**
  * Universal SEO component for TALVIA Consultancy.
@@ -124,6 +124,8 @@ export default function SEO({
     setMeta('name', 'description', description);
     setMeta('name', 'keywords', keywordsStr);
     setMeta('name', 'author', SITE_NAME);
+    setMeta('name', 'application-name', 'TALVIA');
+    setMeta('name', 'apple-mobile-web-app-title', 'TALVIA');
     setMeta('name', 'robots', noindex ? 'noindex, nofollow' : 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1');
 
     // Open Graph

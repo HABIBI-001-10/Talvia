@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Share2, Globe, Link as LinkIcon, Rss, MessageCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, Share2, Globe, Link as LinkIcon, MessageCircle } from 'lucide-react';
 import TalviaLogo from './TalviaLogo';
 
 export default function Footer() {
@@ -17,14 +17,16 @@ export default function Footer() {
             </p>
             <div className="flex gap-2.5 pt-2">
               {[
-                { icon: Share2, href: '#', label: 'Facebook' },
-                { icon: Globe, href: '#', label: 'Instagram' },
-                { icon: LinkIcon, href: '#', label: 'LinkedIn' },
-                { icon: Rss, href: '#', label: 'YouTube' },
+                { icon: Share2, href: 'https://www.facebook.com/talviaconsultancy', label: 'TALVIA Facebook' },
+                { icon: Globe, href: 'https://www.instagram.com/talviaconsultancy', label: 'TALVIA Instagram' },
+                { icon: LinkIcon, href: 'https://www.linkedin.com/company/talviaconsultancy', label: 'TALVIA LinkedIn' },
+                { icon: MessageCircle, href: 'https://wa.me/918943442479', label: 'TALVIA WhatsApp' },
               ].map(({ icon: Icon, href, label }) => (
                 <a
                   key={label}
                   href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={label}
                   className="w-9 h-9 rounded-full bg-[#1B2232] hover:bg-[#C59B4E] hover:text-[#121620] text-slate-300 flex items-center justify-center transition-all duration-200 border border-[#2D384D]"
                 >

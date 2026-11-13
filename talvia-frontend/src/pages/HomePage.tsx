@@ -75,12 +75,44 @@ export default function HomePage() {
     '@context': 'https://schema.org',
     '@graph': [
       {
+        '@type': 'WebSite',
+        '@id': 'https://talviastudentsgrowth.in/#website',
+        url: 'https://talviastudentsgrowth.in/',
+        name: 'TALVIA',
+        alternateName: [
+          'TALVIA Consultancy',
+          'TALVIA Global Education',
+          'TALVIA Students Growth',
+          'Talvia',
+        ],
+        description: 'The official website of TALVIA — Premier global education consultancy connecting aspiring students with top-ranked universities worldwide. Education Without Borders.',
+        publisher: {
+          '@id': 'https://talviastudentsgrowth.in/#organization',
+        },
+        inLanguage: 'en-US',
+      },
+      {
         '@type': 'EducationalOrganization',
         '@id': 'https://talviastudentsgrowth.in/#organization',
-        name: 'TALVIA Consultancy',
-        url: 'https://talviastudentsgrowth.in',
-        logo: 'https://talviastudentsgrowth.in/exact-logo-raw.png',
-        description: 'Premier global education consultancy connecting aspiring students with top-ranked universities worldwide under our vision of Education Without Borders.',
+        name: 'TALVIA',
+        legalName: 'TALVIA Educational Consultancy',
+        alternateName: [
+          'TALVIA Consultancy',
+          'TALVIA Global Education',
+          'Talvia',
+        ],
+        url: 'https://talviastudentsgrowth.in/',
+        logo: {
+          '@type': 'ImageObject',
+          '@id': 'https://talviastudentsgrowth.in/#logo',
+          url: 'https://talviastudentsgrowth.in/exact-logo-raw.png',
+          contentUrl: 'https://talviastudentsgrowth.in/exact-logo-raw.png',
+          caption: 'TALVIA — Education Without Borders Logo',
+          width: '512',
+          height: '512',
+        },
+        image: 'https://talviastudentsgrowth.in/exact-logo-raw.png',
+        description: 'TALVIA is the premier global higher education consultancy connecting aspiring students with top-ranked universities worldwide under our vision: Education Without Borders.',
         slogan: 'Education Without Borders • Global Admissions Advisory',
         telephone: '+91 8943442479',
         email: 'talviaconsultancy@gmail.com',
@@ -88,26 +120,30 @@ export default function HomePage() {
           '@type': 'PostalAddress',
           addressLocality: 'Kochi',
           addressRegion: 'Kerala',
+          postalCode: '682011',
           addressCountry: 'IN',
         },
         sameAs: [
           'https://wa.me/918943442479',
+          'https://www.instagram.com/talviaconsultancy',
+          'https://www.facebook.com/talviaconsultancy',
+          'https://www.linkedin.com/company/talviaconsultancy',
+          'https://talviastudentsgrowth.in/',
         ],
         contactPoint: {
           '@type': 'ContactPoint',
           telephone: '+91 8943442479',
           contactType: 'admissions counselling',
+          areaServed: 'Worldwide',
           availableLanguage: ['English', 'Malayalam', 'Hindi'],
         },
-      },
-      {
-        '@type': 'WebSite',
-        '@id': 'https://talviastudentsgrowth.in/#website',
-        url: 'https://talviastudentsgrowth.in',
-        name: 'TALVIA Consultancy',
-        publisher: {
-          '@id': 'https://talviastudentsgrowth.in/#organization',
-        },
+        knowsAbout: [
+          'Global Higher Education Admissions',
+          'MBBS Abroad',
+          'Pharmacy Admissions',
+          'Healthcare Degrees',
+          'Education Without Borders',
+        ],
       },
     ],
   };
@@ -115,10 +151,19 @@ export default function HomePage() {
   return (
     <>
       <SEO
-        title="TALVIA Consultancy | Global Higher Education Admissions • Education Without Borders"
-        description="Premier global education consultancy connecting aspiring students with top-ranked universities worldwide. First-to-end guidance for MBBS abroad, Pharmacy, Healthcare, Tech & Management."
+        title="TALVIA — Official Website | Global Education Admissions • Education Without Borders"
+        description="The official website of TALVIA. Premier global education consultancy connecting aspiring students with top-ranked universities worldwide. First-to-end guidance for MBBS abroad, Pharmacy, Healthcare & Professional degrees under our vision: Education Without Borders."
         canonical="https://talviastudentsgrowth.in/"
         keywords={[
+          'TALVIA',
+          'TALVIA Consultancy',
+          'TALVIA official website',
+          'TALVIA Education',
+          'TALVIA admissions',
+          'TALVIA students growth',
+          'Talvia',
+          'talviastudentsgrowth.in',
+          'Education Without Borders',
           'global education consultancy',
           'study abroad',
           'MBBS abroad',
@@ -126,14 +171,12 @@ export default function HomePage() {
           'B Pharm admissions',
           'Pharm D courses',
           'international university admissions',
-          'Education Without Borders',
           'study in Russia',
           'study in Georgia',
           'study in Uzbekistan',
           'study in Philippines',
           'study in Kazakhstan',
           'study in UK',
-          'Talvia Consultancy',
         ]}
         structuredData={homeStructuredData}
       />
