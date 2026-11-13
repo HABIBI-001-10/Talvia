@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronRight, Star, Users, Building2, BookOpen, Compass, GraduationCap, FileCheck, ClipboardList, Heart, CheckCircle2, Phone, Send, MessageCircle } from 'lucide-react';
-import { serviceService, enquiryService, POPULAR_COUNTRIES, POPULAR_STATES } from '../services';
+import { serviceService, enquiryService, POPULAR_COUNTRIES, getStatesForCountry } from '../services';
 import type { Service } from '../types';
 import EnquiryModal from '../components/EnquiryModal';
 import { ScrollReveal, StaggerContainer, StaggerItem, AnimatedNumber, HoverLiftCard } from '../components/Animations';
@@ -39,6 +39,16 @@ export default function HomePage() {
   const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
     setFormErrors(prev => ({ ...prev, [e.target.name]: '' }));
+  };
+
+  const handleCountryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const country = e.target.value;
+    const states = getStatesForCountry(country);
+    setForm(prev => ({
+      ...prev,
+      preferred_country: country,
+      preferred_state: states[0] || '',
+    }));
   };
 
   const handleFormSubmit = async (e: React.FormEvent) => {
@@ -551,7 +561,7 @@ export default function HomePage() {
                         <select
                           name="preferred_country"
                           value={form.preferred_country}
-                          onChange={handleFormChange}
+                          onChange={handleCountryChange}
                           className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#181E2A] bg-white text-slate-800"
                         >
                           {POPULAR_COUNTRIES.map((c) => (
@@ -561,7 +571,7 @@ export default function HomePage() {
                       </div>
                       <div>
                         <label className="text-xs font-semibold text-slate-700 uppercase tracking-wider block mb-1">
-                          Preferred State
+                          Preferred State / Province
                         </label>
                         <select
                           name="preferred_state"
@@ -569,7 +579,7 @@ export default function HomePage() {
                           onChange={handleFormChange}
                           className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#181E2A] bg-white text-slate-800"
                         >
-                          {POPULAR_STATES.map((st) => (
+                          {getStatesForCountry(form.preferred_country).map((st) => (
                             <option key={st} value={st}>{st}</option>
                           ))}
                         </select>

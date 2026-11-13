@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { X, Phone, Mail, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { enquiryService, POPULAR_COUNTRIES, POPULAR_STATES } from '../services';
+import { enquiryService, POPULAR_COUNTRIES, POPULAR_STATES, getStatesForCountry } from '../services';
 import type { EnquiryFormData } from '../types';
 
 interface EnquiryModalProps {
@@ -54,6 +54,17 @@ export default function EnquiryModal({
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
     setErrors(prev => ({ ...prev, [e.target.name]: '' }));
+  };
+
+  const handleCountryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const country = e.target.value;
+    const states = getStatesForCountry(country);
+    setForm(prev => ({
+      ...prev,
+      preferred_country: country,
+      preferred_state: states[0] || '',
+    }));
+    setErrors(prev => ({ ...prev, preferred_country: '' }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -218,7 +229,7 @@ export default function EnquiryModal({
                   <select
                     name="preferred_country"
                     value={form.preferred_country}
-                    onChange={handleChange}
+                    onChange={handleCountryChange}
                     className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#181E2A] bg-white text-slate-800"
                   >
                     {POPULAR_COUNTRIES.map((country) => (
@@ -230,7 +241,7 @@ export default function EnquiryModal({
                 </div>
                 <div>
                   <label className="text-xs font-semibold text-slate-700 uppercase tracking-wider block mb-1">
-                    Preferred State
+                    Preferred State / Province
                   </label>
                   <select
                     name="preferred_state"
@@ -238,7 +249,7 @@ export default function EnquiryModal({
                     onChange={handleChange}
                     className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#181E2A] bg-white text-slate-800"
                   >
-                    {POPULAR_STATES.map((state) => (
+                    {getStatesForCountry(form.preferred_country).map((state) => (
                       <option key={state} value={state}>
                         {state}
                       </option>

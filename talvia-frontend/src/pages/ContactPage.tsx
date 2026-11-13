@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, MessageCircle } from 'lucide-react';
-import { enquiryService, POPULAR_COUNTRIES, POPULAR_STATES } from '../services';
+import { enquiryService, POPULAR_COUNTRIES, getStatesForCountry } from '../services';
 import { ScrollReveal } from '../components/Animations';
 
 export default function ContactPage() {
@@ -34,6 +34,16 @@ export default function ContactPage() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setForm(p => ({ ...p, [e.target.name]: e.target.value }));
     setErrors(p => ({ ...p, [e.target.name]: '' }));
+  };
+
+  const handleCountryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const country = e.target.value;
+    const states = getStatesForCountry(country);
+    setForm(p => ({
+      ...p,
+      preferred_country: country,
+      preferred_state: states[0] || '',
+    }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -265,7 +275,7 @@ export default function ContactPage() {
                         <select
                           name="preferred_country"
                           value={form.preferred_country}
-                          onChange={handleChange}
+                          onChange={handleCountryChange}
                           className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#181E2A] bg-white text-slate-800"
                         >
                           {POPULAR_COUNTRIES.map((c) => (
@@ -275,7 +285,7 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <label className="text-xs font-semibold text-slate-700 uppercase tracking-wider block mb-1">
-                          Preferred State
+                          Preferred State / Province
                         </label>
                         <select
                           name="preferred_state"
@@ -283,7 +293,7 @@ export default function ContactPage() {
                           onChange={handleChange}
                           className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#181E2A] bg-white text-slate-800"
                         >
-                          {POPULAR_STATES.map((st) => (
+                          {getStatesForCountry(form.preferred_country).map((st) => (
                             <option key={st} value={st}>{st}</option>
                           ))}
                         </select>

@@ -13,36 +13,97 @@ import {
 
 export const WHATSAPP_PHONE = '918943442479';
 
-export const POPULAR_COUNTRIES = [
-  'India',
-  'Abroad — Russia',
-  'Abroad — Georgia',
-  'Abroad — Uzbekistan',
-  'Abroad — Philippines',
-  'Abroad — Kazakhstan',
-  'Abroad — United Kingdom (UK)',
-  'Abroad — Other Countries',
-];
+export const COUNTRY_STATES_MAP: Record<string, string[]> = {
+  'India': [
+    'Kerala',
+    'Karnataka',
+    'Tamil Nadu',
+    'Maharashtra',
+    'Delhi NCR',
+    'Telangana',
+    'Andhra Pradesh',
+    'Gujarat',
+    'West Bengal',
+    'Uttar Pradesh',
+    'Punjab',
+    'Rajasthan',
+    'Madhya Pradesh',
+    'Goa',
+    'Odisha',
+    'Bihar',
+    'Haryana',
+    'Himachal Pradesh',
+    'Assam & North East',
+    'Other Indian States / UTs',
+  ],
+  'Russia': [
+    'Moscow Federal Region',
+    'Saint Petersburg',
+    'Kazan (Tatarstan)',
+    'Bashkortostan (Ufa)',
+    'Kursk Oblast',
+    'Orenburg Oblast',
+    'Rostov Oblast',
+    'Volgograd Oblast',
+    'Smolensk Oblast',
+    'Crimea (Simferopol)',
+    'Other Russian Regions',
+  ],
+  'Georgia': [
+    'Tbilisi (Capital Region)',
+    'Adjara (Batumi)',
+    'Imereti (Kutaisi)',
+    'Kakheti',
+    'Other Georgian Regions',
+  ],
+  'Uzbekistan': [
+    'Tashkent City',
+    'Samarkand Region',
+    'Bukhara Region',
+    'Andijan Region',
+    'Fergana Region',
+    'Other Uzbek Regions',
+  ],
+  'Philippines': [
+    'Metro Manila (NCR)',
+    'Central Visayas (Cebu)',
+    'Davao Region',
+    'Calabarzon',
+    'Other Philippine Regions',
+  ],
+  'Kazakhstan': [
+    'Almaty',
+    'Astana',
+    'Shymkent',
+    'Karaganda',
+    'Other Kazakh Regions',
+  ],
+  'United Kingdom (UK)': [
+    'England — London',
+    'England — West Midlands (Birmingham)',
+    'England — Greater Manchester',
+    'England — Yorkshire & Humber',
+    'Scotland (Edinburgh/Glasgow)',
+    'Wales (Cardiff)',
+    'Northern Ireland (Belfast)',
+  ],
+  'Other Countries': [
+    'Capital / Central Region',
+    'Northern Province',
+    'Southern Province',
+    'Eastern Province',
+    'Western Province',
+    'Other Province / Territory',
+  ],
+};
 
-export const POPULAR_STATES = [
-  'Kerala',
-  'Karnataka',
-  'Tamil Nadu',
-  'Maharashtra',
-  'Delhi NCR',
-  'Telangana',
-  'Andhra Pradesh',
-  'Gujarat',
-  'West Bengal',
-  'Uttar Pradesh',
-  'Punjab',
-  'Rajasthan',
-  'Madhya Pradesh',
-  'Goa',
-  'Odisha',
-  'Other Indian State / UT',
-  'Overseas / Non-India',
-];
+export const POPULAR_COUNTRIES = Object.keys(COUNTRY_STATES_MAP);
+
+export function getStatesForCountry(country: string): string[] {
+  return COUNTRY_STATES_MAP[country] || COUNTRY_STATES_MAP['India'];
+}
+
+export const POPULAR_STATES = COUNTRY_STATES_MAP['India'];
 
 export function createWhatsAppEnquiryUrl(data: EnquiryFormData): string {
   const lines = [
