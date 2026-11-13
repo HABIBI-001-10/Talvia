@@ -1,10 +1,60 @@
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ShieldCheck, FileText, Phone, Mail, CheckCircle2 } from 'lucide-react';
 import { ScrollReveal } from '../components/Animations';
+import SEO from '../components/SEO';
 
 export default function TermsAndConditionsPage() {
+  const termsStructuredData = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebPage',
+        '@id': 'https://talviastudentsgrowth.in/terms-and-conditions#webpage',
+        url: 'https://talviastudentsgrowth.in/terms-and-conditions',
+        name: 'Terms & Conditions | TALVIA Educational Consultancy',
+        description: 'Terms and Conditions governing educational advisory services and website usage for TALVIA Consultancy.',
+        publisher: {
+          '@type': 'EducationalOrganization',
+          name: 'TALVIA Consultancy',
+          url: 'https://talviastudentsgrowth.in',
+        },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: 'https://talviastudentsgrowth.in/',
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Terms & Conditions',
+            item: 'https://talviastudentsgrowth.in/terms-and-conditions',
+          },
+        ],
+      },
+    ],
+  };
+
   return (
     <>
+      <SEO
+        title="Terms & Conditions | TALVIA Educational Consultancy"
+        description="Read the Terms & Conditions governing educational advisory services, admissions guidance, and website usage for TALVIA Consultancy."
+        canonical="https://talviastudentsgrowth.in/terms-and-conditions"
+        keywords={[
+          'Talvia terms and conditions',
+          'terms of service',
+          'educational consultancy terms',
+          'admissions advisory agreement',
+          'legal terms',
+        ]}
+        structuredData={termsStructuredData}
+      />
+
       {/* Header */}
       <div className="bg-gradient-to-b from-[#141824] via-[#18202E] to-[#121620] text-white py-20 border-b border-[#252E3E]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">

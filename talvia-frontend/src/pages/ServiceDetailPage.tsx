@@ -5,6 +5,7 @@ import { serviceService } from '../services';
 import type { Service } from '../types';
 import { PageLoader, ErrorMessage } from '../components/ui';
 import EnquiryModal from '../components/EnquiryModal';
+import SEO from '../components/SEO';
 import { ScrollReveal } from '../components/Animations';
 
 const ICON_MAP: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
@@ -59,8 +60,82 @@ export default function ServiceDetailPage() {
 
   const Icon = ICON_MAP[service.icon] || BookOpen;
 
+  const serviceGraph: Record<string, unknown>[] = [
+    {
+      '@type': 'Service',
+      '@id': `https://talviastudentsgrowth.in/services/${service.slug}#service`,
+      name: service.title,
+      description: service.short_description || service.description,
+      provider: {
+        '@type': 'EducationalOrganization',
+        name: 'TALVIA Consultancy',
+        url: 'https://talviastudentsgrowth.in',
+      },
+      url: `https://talviastudentsgrowth.in/services/${service.slug}`,
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: 'https://talviastudentsgrowth.in/',
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Our Services',
+          item: 'https://talviastudentsgrowth.in/services',
+        },
+        {
+          '@type': 'ListItem',
+          position: 3,
+          name: service.title,
+          item: `https://talviastudentsgrowth.in/services/${service.slug}`,
+        },
+      ],
+    },
+  ];
+
+  if (service.faqs && service.faqs.length > 0) {
+    serviceGraph.push({
+      '@type': 'FAQPage',
+      mainEntity: service.faqs.map(faq => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: faq.answer,
+        },
+      })),
+    });
+  }
+
+  const serviceStructuredData = {
+    '@context': 'https://schema.org',
+    '@graph': serviceGraph,
+  };
+
   return (
     <>
+      <SEO
+        title={`${service.title} | TALVIA Consultancy`}
+        description={`${service.short_description} Comprehensive guidance from senior international education counsellors. Education Without Borders.`}
+        canonical={`https://talviastudentsgrowth.in/services/${service.slug}`}
+        keywords={[
+          service.title,
+          'education consultancy',
+          'admissions guidance',
+          'university counseling',
+          'higher education advisory',
+          'student visa guidance',
+          'Talvia Consultancy',
+          'Education Without Borders',
+        ]}
+        structuredData={serviceStructuredData}
+      />
+
       {/* Header */}
       <div className="bg-gradient-to-b from-[#141824] via-[#18202E] to-[#121620] text-white py-20 border-b border-[#252E3E]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

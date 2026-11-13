@@ -1,10 +1,62 @@
 import { Link } from 'react-router-dom';
 import { CheckCircle2, Target, Heart, Users, Building2, ArrowRight } from 'lucide-react';
 import { ScrollReveal, StaggerContainer, StaggerItem, AnimatedNumber } from '../components/Animations';
+import SEO from '../components/SEO';
 
 export default function AboutPage() {
+  const aboutStructuredData = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'AboutPage',
+        '@id': 'https://talviastudentsgrowth.in/about#webpage',
+        url: 'https://talviastudentsgrowth.in/about',
+        name: 'About TALVIA Consultancy • Education Without Borders',
+        description: 'Learn about TALVIA Consultancy’s global higher education advisory, our mission, vision, and student-first guidance across 25+ countries.',
+        publisher: {
+          '@type': 'EducationalOrganization',
+          name: 'TALVIA Consultancy',
+          url: 'https://talviastudentsgrowth.in',
+        },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: 'https://talviastudentsgrowth.in/',
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'About Us',
+            item: 'https://talviastudentsgrowth.in/about',
+          },
+        ],
+      },
+    ],
+  };
+
   return (
     <>
+      <SEO
+        title="About Us | TALVIA Consultancy • Education Without Borders"
+        description="Discover TALVIA Consultancy's global vision for higher education without borders. Empowering students with ethical, transparent admissions guidance across 25+ countries."
+        canonical="https://talviastudentsgrowth.in/about"
+        keywords={[
+          'about Talvia',
+          'global education consultancy',
+          'education without borders',
+          'study abroad consultants',
+          'international university admissions',
+          'overseas medical education',
+          'ethical education advisory',
+        ]}
+        structuredData={aboutStructuredData}
+      />
+
       {/* Header */}
       <div className="bg-gradient-to-b from-[#141824] via-[#18202E] to-[#121620] text-white py-20 border-b border-[#252E3E]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

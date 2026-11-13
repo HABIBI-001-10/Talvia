@@ -9,11 +9,17 @@ import ServiceDetailPage from './pages/ServiceDetailPage';
 import ContactPage from './pages/ContactPage';
 import TermsAndConditionsPage from './pages/TermsAndConditionsPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
+import SEO from './components/SEO';
 import { ScrollToTop } from './components/Animations';
 
 function NotFound() {
   return (
     <div className="min-h-[65vh] flex flex-col items-center justify-center text-center px-4">
+      <SEO
+        title="404 - Page Not Found | TALVIA Consultancy"
+        description="The page you are looking for does not exist or has been relocated."
+        noindex={true}
+      />
       <div className="text-8xl font-black text-slate-200 mb-4 tracking-tighter">404</div>
       <h2 className="text-2xl font-bold text-slate-900 mb-3">Page Not Found</h2>
       <p className="text-slate-500 mb-6 text-sm">The page you are looking for does not exist or has been relocated.</p>

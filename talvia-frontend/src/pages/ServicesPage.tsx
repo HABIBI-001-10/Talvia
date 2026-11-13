@@ -5,6 +5,7 @@ import { serviceService } from '../services';
 import type { Service } from '../types';
 import { LoadingSpinner, ErrorMessage } from '../components/ui';
 import EnquiryModal from '../components/EnquiryModal';
+import SEO from '../components/SEO';
 import { ScrollReveal, StaggerContainer, StaggerItem, HoverLiftCard } from '../components/Animations';
 
 const ICON_MAP: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
@@ -24,8 +25,60 @@ export default function ServicesPage() {
       .finally(() => setLoading(false));
   }, []);
 
+  const servicesStructuredData = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Service',
+        '@id': 'https://talviastudentsgrowth.in/services#service',
+        serviceType: 'Higher Education Admissions Consulting',
+        provider: {
+          '@type': 'EducationalOrganization',
+          name: 'TALVIA Consultancy',
+          url: 'https://talviastudentsgrowth.in',
+        },
+        areaServed: 'Worldwide',
+        description: 'Comprehensive global higher education admissions advisory covering career guidance, university selection, quota procedures, documentation and visa support.',
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: 'https://talviastudentsgrowth.in/',
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Our Services',
+            item: 'https://talviastudentsgrowth.in/services',
+          },
+        ],
+      },
+    ],
+  };
+
   return (
     <>
+      <SEO
+        title="Global Higher Education Advisory Services | TALVIA Consultancy"
+        description="Comprehensive admissions advisory: career guidance, international university selection, course advisory, visa documentation, and student counselling worldwide."
+        canonical="https://talviastudentsgrowth.in/services"
+        keywords={[
+          'education consultancy services',
+          'career guidance',
+          'university selection',
+          'college admissions assistance',
+          'visa documentation support',
+          'student counselling',
+          'Education Without Borders',
+          'Talvia Consultancy services',
+        ]}
+        structuredData={servicesStructuredData}
+      />
+
       {/* Header */}
       <div className="bg-gradient-to-b from-[#141824] via-[#18202E] to-[#121620] text-white py-20 border-b border-[#252E3E]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -4,6 +4,7 @@ import { ArrowRight, ChevronRight, Star, Users, Building2, BookOpen, Compass, Gr
 import { serviceService, enquiryService, POPULAR_COUNTRIES, getStatesForCountry } from '../services';
 import type { Service } from '../types';
 import EnquiryModal from '../components/EnquiryModal';
+import SEO from '../components/SEO';
 import { ScrollReveal, StaggerContainer, StaggerItem, AnimatedNumber, HoverLiftCard } from '../components/Animations';
 
 // ─── Service icon map ──────────────────────────────────────────────────────
@@ -70,8 +71,73 @@ export default function HomePage() {
     }
   };
 
+  const homeStructuredData = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'EducationalOrganization',
+        '@id': 'https://talviastudentsgrowth.in/#organization',
+        name: 'TALVIA Consultancy',
+        url: 'https://talviastudentsgrowth.in',
+        logo: 'https://talviastudentsgrowth.in/exact-logo-raw.png',
+        description: 'Premier global education consultancy connecting aspiring students with top-ranked universities worldwide under our vision of Education Without Borders.',
+        slogan: 'Education Without Borders • Global Admissions Advisory',
+        telephone: '+91 8943442479',
+        email: 'talviaconsultancy@gmail.com',
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: 'Kochi',
+          addressRegion: 'Kerala',
+          addressCountry: 'IN',
+        },
+        sameAs: [
+          'https://wa.me/918943442479',
+        ],
+        contactPoint: {
+          '@type': 'ContactPoint',
+          telephone: '+91 8943442479',
+          contactType: 'admissions counselling',
+          availableLanguage: ['English', 'Malayalam', 'Hindi'],
+        },
+      },
+      {
+        '@type': 'WebSite',
+        '@id': 'https://talviastudentsgrowth.in/#website',
+        url: 'https://talviastudentsgrowth.in',
+        name: 'TALVIA Consultancy',
+        publisher: {
+          '@id': 'https://talviastudentsgrowth.in/#organization',
+        },
+      },
+    ],
+  };
+
   return (
     <>
+      <SEO
+        title="TALVIA Consultancy | Global Higher Education Admissions • Education Without Borders"
+        description="Premier global education consultancy connecting aspiring students with top-ranked universities worldwide. First-to-end guidance for MBBS abroad, Pharmacy, Healthcare, Tech & Management."
+        canonical="https://talviastudentsgrowth.in/"
+        keywords={[
+          'global education consultancy',
+          'study abroad',
+          'MBBS abroad',
+          'medical admission guidance',
+          'B Pharm admissions',
+          'Pharm D courses',
+          'international university admissions',
+          'Education Without Borders',
+          'study in Russia',
+          'study in Georgia',
+          'study in Uzbekistan',
+          'study in Philippines',
+          'study in Kazakhstan',
+          'study in UK',
+          'Talvia Consultancy',
+        ]}
+        structuredData={homeStructuredData}
+      />
+
       {/* ── HERO ──────────────────────────────────────────────────────── */}
       <section className="relative min-h-[90vh] flex items-center bg-gradient-to-b from-[#141824] via-[#192130] to-[#121620] text-white overflow-hidden border-b border-[#252E3E]">
         {/* Subtle warm ambient lighting */}

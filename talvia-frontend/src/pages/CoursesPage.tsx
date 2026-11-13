@@ -5,6 +5,7 @@ import { courseService } from '../services';
 import type { Course, CourseCategory } from '../types';
 import CourseCard from '../components/CourseCard';
 import EnquiryModal from '../components/EnquiryModal';
+import SEO from '../components/SEO';
 import { LoadingSpinner, ErrorMessage, EmptyState } from '../components/ui';
 import { ScrollReveal, StaggerContainer, StaggerItem } from '../components/Animations';
 
@@ -47,8 +48,67 @@ export default function CoursesPage() {
     setModalOpen(true);
   };
 
+  const activeCategoryName = categories.find(c => c.code === category)?.name;
+  const pageTitle = activeCategoryName
+    ? `${activeCategoryName} Programs & Degrees | TALVIA Consultancy`
+    : 'International Academic Programs & Degrees | TALVIA Consultancy';
+
+  const coursesStructuredData = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'CollectionPage',
+        '@id': 'https://talviastudentsgrowth.in/courses#webpage',
+        url: 'https://talviastudentsgrowth.in/courses',
+        name: pageTitle,
+        description: 'Explore premier Medical (MBBS Abroad & India), Pharmacy (B.Pharm, Pharm.D), Healthcare, Engineering, and Professional degree disciplines.',
+        publisher: {
+          '@type': 'EducationalOrganization',
+          name: 'TALVIA Consultancy',
+          url: 'https://talviastudentsgrowth.in',
+        },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: 'https://talviastudentsgrowth.in/',
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Courses & Programs',
+            item: 'https://talviastudentsgrowth.in/courses',
+          },
+        ],
+      },
+    ],
+  };
+
   return (
     <>
+      <SEO
+        title={pageTitle}
+        description="Explore premier Medical (MBBS Abroad & India), Pharmacy (B.Pharm, Pharm.D), Healthcare, Engineering, and Professional degree programs across accredited global universities."
+        canonical="https://talviastudentsgrowth.in/courses"
+        keywords={[
+          'MBBS admission',
+          'MBBS abroad',
+          'B Pharm colleges',
+          'Pharm D admissions',
+          'BDS dental degree',
+          'BAMS Ayurveda',
+          'nursing courses',
+          'engineering admissions',
+          'global university degrees',
+          'medical degrees abroad',
+        ]}
+        structuredData={coursesStructuredData}
+      />
+
       {/* Header */}
       <div className="bg-gradient-to-b from-[#141824] via-[#18202E] to-[#121620] text-white py-20 border-b border-[#252E3E]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -3,6 +3,7 @@ import { useSearchParams, Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, MessageCircle } from 'lucide-react';
 import { enquiryService, POPULAR_COUNTRIES, getStatesForCountry } from '../services';
 import { ScrollReveal } from '../components/Animations';
+import SEO from '../components/SEO';
 
 export default function ContactPage() {
   const [searchParams] = useSearchParams();
@@ -67,8 +68,76 @@ export default function ContactPage() {
     }
   };
 
+  const contactTitle = isCounselling
+    ? 'Get Admissions Counselling | TALVIA Consultancy • Education Without Borders'
+    : 'Contact Us | TALVIA Consultancy • Global Admissions Office';
+
+  const contactDescription = isCounselling
+    ? 'Schedule a dedicated one-on-one admissions counselling session with our senior advisors for medical, pharmacy, and global degree programs.'
+    : 'Connect with TALVIA Consultancy’s global higher education advisors. Schedule personalized admissions counselling or message our WhatsApp desk (+91 8943442479).';
+
+  const contactStructuredData = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'ContactPage',
+        '@id': 'https://talviastudentsgrowth.in/contact#webpage',
+        url: 'https://talviastudentsgrowth.in/contact',
+        name: contactTitle,
+        description: contactDescription,
+        mainEntity: {
+          '@type': 'EducationalOrganization',
+          name: 'TALVIA Consultancy',
+          url: 'https://talviastudentsgrowth.in',
+          telephone: '+91 8943442479',
+          email: 'talviaconsultancy@gmail.com',
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'Kochi',
+            addressRegion: 'Kerala',
+            addressCountry: 'IN',
+          },
+        },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: 'https://talviastudentsgrowth.in/',
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: isCounselling ? 'Admissions Counselling' : 'Contact Us',
+            item: 'https://talviastudentsgrowth.in/contact',
+          },
+        ],
+      },
+    ],
+  };
+
   return (
     <>
+      <SEO
+        title={contactTitle}
+        description={contactDescription}
+        canonical="https://talviastudentsgrowth.in/contact"
+        keywords={[
+          'contact Talvia',
+          'admissions counselling',
+          'higher education advisor',
+          'study abroad consultation',
+          'WhatsApp admissions desk',
+          'MBBS admission guidance',
+          'Kochi education consultancy',
+          'Education Without Borders',
+        ]}
+        structuredData={contactStructuredData}
+      />
+
       {/* Header */}
       <div className="bg-gradient-to-b from-[#141824] via-[#18202E] to-[#121620] text-white py-20 border-b border-[#252E3E]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

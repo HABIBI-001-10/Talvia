@@ -1,10 +1,60 @@
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Lock, Shield, Phone, Mail, CheckCircle2 } from 'lucide-react';
 import { ScrollReveal } from '../components/Animations';
+import SEO from '../components/SEO';
 
 export default function PrivacyPolicyPage() {
+  const privacyStructuredData = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebPage',
+        '@id': 'https://talviastudentsgrowth.in/privacy-policy#webpage',
+        url: 'https://talviastudentsgrowth.in/privacy-policy',
+        name: 'Privacy Policy | TALVIA Educational Consultancy',
+        description: 'Privacy Policy and personal data protection procedures for TALVIA Consultancy visitors and applicants.',
+        publisher: {
+          '@type': 'EducationalOrganization',
+          name: 'TALVIA Consultancy',
+          url: 'https://talviastudentsgrowth.in',
+        },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: 'https://talviastudentsgrowth.in/',
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Privacy Policy',
+            item: 'https://talviastudentsgrowth.in/privacy-policy',
+          },
+        ],
+      },
+    ],
+  };
+
   return (
     <>
+      <SEO
+        title="Privacy Policy | TALVIA Educational Consultancy"
+        description="Learn how TALVIA Consultancy protects your privacy and personal data. We maintain strict confidentiality for student records and admissions enquiries."
+        canonical="https://talviastudentsgrowth.in/privacy-policy"
+        keywords={[
+          'Talvia privacy policy',
+          'student data protection',
+          'admissions privacy',
+          'counselling confidentiality',
+          'privacy practices',
+        ]}
+        structuredData={privacyStructuredData}
+      />
+
       {/* Header */}
       <div className="bg-gradient-to-b from-[#141824] via-[#18202E] to-[#121620] text-white py-20 border-b border-[#252E3E]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">

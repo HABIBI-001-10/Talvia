@@ -5,6 +5,7 @@ import { courseService } from '../services';
 import type { Course } from '../types';
 import { PageLoader, ErrorMessage } from '../components/ui';
 import EnquiryModal from '../components/EnquiryModal';
+import SEO from '../components/SEO';
 import { ScrollReveal } from '../components/Animations';
 
 export default function CourseDetailPage() {
@@ -33,8 +34,70 @@ export default function CourseDetailPage() {
     </div>
   );
 
+  const courseStructuredData = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Course',
+        '@id': `https://talviastudentsgrowth.in/courses/${course.slug}#course`,
+        name: course.name,
+        description: course.short_description || course.description,
+        provider: {
+          '@type': 'EducationalOrganization',
+          name: 'TALVIA Consultancy',
+          url: 'https://talviastudentsgrowth.in',
+        },
+        educationalCredentialAwarded: course.degree_type_display,
+        timeRequired: course.duration,
+        url: `https://talviastudentsgrowth.in/courses/${course.slug}`,
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: 'https://talviastudentsgrowth.in/',
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Courses & Programs',
+            item: 'https://talviastudentsgrowth.in/courses',
+          },
+          {
+            '@type': 'ListItem',
+            position: 3,
+            name: course.name,
+            item: `https://talviastudentsgrowth.in/courses/${course.slug}`,
+          },
+        ],
+      },
+    ],
+  };
+
   return (
     <>
+      <SEO
+        title={`${course.name} Admissions & Details | TALVIA Consultancy`}
+        description={`${course.short_description} Duration: ${course.duration}. First-to-end guidance for accredited domestic and international university admissions.`}
+        canonical={`https://talviastudentsgrowth.in/courses/${course.slug}`}
+        keywords={[
+          course.name,
+          course.category_display,
+          course.degree_type_display || 'Degree Program',
+          'course admissions',
+          'eligibility criteria',
+          'duration',
+          'fee guidance',
+          'top universities',
+          'study abroad',
+          'Talvia Consultancy',
+        ]}
+        structuredData={courseStructuredData}
+      />
+
       {/* Header */}
       <div className="bg-gradient-to-b from-[#141824] via-[#18202E] to-[#121620] text-white py-20 border-b border-[#252E3E]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
