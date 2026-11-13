@@ -68,7 +68,9 @@ export default function ServiceDetailPage() {
       description: service.short_description || service.description,
       provider: {
         '@type': 'EducationalOrganization',
-        name: 'TALVIA Consultancy',
+        '@id': 'https://talviastudentsgrowth.in/#organization',
+        name: 'TALVIA',
+        legalName: 'TALVIA Educational Consultancy',
         url: 'https://talviastudentsgrowth.in',
       },
       url: `https://talviastudentsgrowth.in/services/${service.slug}`,
@@ -255,6 +257,35 @@ export default function ServiceDetailPage() {
                       talviaconsultancy@gmail.com
                     </a>
                   </div>
+                </div>
+              </div>
+            </ScrollReveal>
+
+            {/* Popular Academic Programs Covered */}
+            <ScrollReveal direction="right" delay={0.1}>
+              <div className="bg-white rounded-2xl p-6 border border-zinc-200 shadow-xs">
+                <h4 className="text-xs font-bold text-black uppercase tracking-wider mb-4 pb-2 border-b border-zinc-100">
+                  Degree Programs Guided by TALVIA
+                </h4>
+                <div className="space-y-2 text-xs">
+                  <Link to="/courses/mbbs-bachelor-of-medicine-bachelor-of-surgery" className="block text-zinc-700 hover:text-[#B48A3D] transition-colors py-1">
+                    → MBBS Abroad & Medical Admissions
+                  </Link>
+                  <Link to="/courses/b-pharm-bachelor-of-pharmacy" className="block text-zinc-700 hover:text-[#B48A3D] transition-colors py-1">
+                    → B.Pharm (Bachelor of Pharmacy)
+                  </Link>
+                  <Link to="/courses/pharm-d-doctor-of-pharmacy" className="block text-zinc-700 hover:text-[#B48A3D] transition-colors py-1">
+                    → Pharm.D (Doctor of Pharmacy)
+                  </Link>
+                  <Link to="/courses/bsc-nursing" className="block text-zinc-700 hover:text-[#B48A3D] transition-colors py-1">
+                    → BSc Nursing & Healthcare Degrees
+                  </Link>
+                  <Link to="/services" className="block text-zinc-700 hover:text-[#B48A3D] transition-colors py-1">
+                    → View All Admissions Services
+                  </Link>
+                  <Link to="/about" className="block text-zinc-700 hover:text-[#B48A3D] transition-colors py-1">
+                    → About TALVIA Consultancy
+                  </Link>
                 </div>
               </div>
             </ScrollReveal>

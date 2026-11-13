@@ -85,6 +85,7 @@ export default function HomePage() {
           'TALVIA Students Growth',
           'Talvia',
         ],
+        disambiguatingDescription: 'Official website for TALVIA Consultancy — Premier global higher education admissions consultancy firm (independent organization, distinct from the country Latvia).',
         description: 'The official website of TALVIA — Premier global education consultancy connecting aspiring students with top-ranked universities worldwide. Education Without Borders.',
         publisher: {
           '@id': 'https://talviastudentsgrowth.in/#organization',
@@ -99,8 +100,11 @@ export default function HomePage() {
         alternateName: [
           'TALVIA Consultancy',
           'TALVIA Global Education',
+          'TALVIA Students Growth',
           'Talvia',
         ],
+        disambiguatingDescription: 'TALVIA (TALVIA Educational Consultancy / TALVIA Students Growth) is an international higher education admissions consultancy firm headquartered in India, guiding students to universities worldwide under the vision Education Without Borders. TALVIA is an independent educational organization and is not affiliated with, located in, or named after the European country Latvia.',
+        category: 'Educational Consultant',
         url: 'https://talviastudentsgrowth.in/',
         logo: {
           '@type': 'ImageObject',
@@ -123,6 +127,17 @@ export default function HomePage() {
           postalCode: '682011',
           addressCountry: 'IN',
         },
+        areaServed: [
+          'Worldwide',
+          'India',
+          'Russia',
+          'Georgia',
+          'Uzbekistan',
+          'Kazakhstan',
+          'Philippines',
+          'United Kingdom',
+          'Europe',
+        ],
         sameAs: [
           'https://wa.me/918943442479',
           'https://www.instagram.com/talviaconsultancy',
@@ -139,9 +154,12 @@ export default function HomePage() {
         },
         knowsAbout: [
           'Global Higher Education Admissions',
-          'MBBS Abroad',
+          'Educational Consultancy',
+          'Study Abroad Advisory',
+          'MBBS Abroad Admissions',
           'Pharmacy Admissions',
           'Healthcare Degrees',
+          'International University Placement',
           'Education Without Borders',
         ],
       },
@@ -221,7 +239,7 @@ export default function HomePage() {
             {/* Description */}
             <ScrollReveal direction="up" delay={0.3}>
               <p className="text-slate-300 text-lg md:text-xl leading-relaxed mb-10 max-w-2xl font-light">
-                Discover premier global educational opportunities with Talvia Consultancy. We connect aspiring students with top-ranked universities and prestigious institutions worldwide — providing personalized first-to-end guidance from international course selection to visa support and final campus enrollment.
+                Discover premier global educational opportunities with TALVIA Consultancy (TALVIA Students Growth). We connect aspiring students with top-ranked universities and prestigious institutions worldwide — providing personalized first-to-end guidance from international course selection to visa support and final campus enrollment.
               </p>
             </ScrollReveal>
 
@@ -294,15 +312,15 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <ScrollReveal direction="left">
               <div>
-                <p className="section-subtitle mb-3">About Talvia Consultancy</p>
+                <p className="section-subtitle mb-3">About TALVIA Consultancy</p>
                 <h2 className="section-title mb-6 leading-tight">
                   Connecting Students with Premier Universities Worldwide
                 </h2>
                 <p className="text-slate-600 leading-relaxed mb-5 text-base">
-                  Talvia Consultancy is a leading global education advisory firm connecting aspiring students with accredited universities and prestigious institutions worldwide. Under our vision of <strong>Education Without Borders</strong>, we provide unbiased, personalized guidance on international university selection, course selection, and admission procedures from first consultation to final campus enrollment.
+                  TALVIA Consultancy (TALVIA Students Growth) is a leading global education advisory firm connecting aspiring students with accredited universities and prestigious institutions worldwide. Operating under our vision of <strong>Education Without Borders</strong>, TALVIA is an independent international higher education consultancy — distinct from the European country Latvia — dedicated to transparent, student-first admissions guidance.
                 </p>
                 <p className="text-slate-600 leading-relaxed mb-8 text-base">
-                  Our experienced counsellors work directly with students and parents to evaluate career goals, eligibility, and academic aspirations. We connect you with top-ranked universities worldwide — including India, the UK, Europe, Central Asia, and beyond — making global admissions straightforward, transparent, and seamless.
+                  Our experienced counsellors evaluate your academic profile to connect you with premier institutions worldwide — including India, the UK, Europe, Central Asia, and beyond. Explore our <Link to="/services" className="text-slate-900 font-semibold underline hover:text-[#B48A3D]">admissions advisory services</Link> or browse accredited <Link to="/courses" className="text-slate-900 font-semibold underline hover:text-[#B48A3D]">medical, healthcare, and professional degree programs</Link>.
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
@@ -423,6 +441,15 @@ export default function HomePage() {
               })}
             </StaggerContainer>
           )}
+
+          <div className="mt-12 text-center">
+            <Link
+              to="/services"
+              className="inline-flex items-center gap-2 text-slate-900 font-semibold hover:text-[#B48A3D] hover:gap-3 transition-all text-sm uppercase tracking-wider"
+            >
+              Explore All 6 Admissions Services <ArrowRight size={16} />
+            </Link>
+          </div>
         </div>
       </section>
 

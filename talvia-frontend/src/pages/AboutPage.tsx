@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { CheckCircle2, Target, Heart, Users, Building2, ArrowRight } from 'lucide-react';
+import { CheckCircle2, Target, Heart, Users, Building2, ArrowRight, HelpCircle } from 'lucide-react';
 import { ScrollReveal, StaggerContainer, StaggerItem, AnimatedNumber } from '../components/Animations';
 import SEO from '../components/SEO';
 
@@ -13,11 +13,68 @@ export default function AboutPage() {
         url: 'https://talviastudentsgrowth.in/about',
         name: 'About TALVIA Consultancy • Education Without Borders',
         description: 'Learn about TALVIA Consultancy’s global higher education advisory, our mission, vision, and student-first guidance across 25+ countries.',
-        publisher: {
-          '@type': 'EducationalOrganization',
-          name: 'TALVIA Consultancy',
-          url: 'https://talviastudentsgrowth.in',
+        mainEntity: {
+          '@id': 'https://talviastudentsgrowth.in/#organization',
         },
+      },
+      {
+        '@type': 'EducationalOrganization',
+        '@id': 'https://talviastudentsgrowth.in/#organization',
+        name: 'TALVIA',
+        legalName: 'TALVIA Educational Consultancy',
+        alternateName: [
+          'TALVIA Consultancy',
+          'TALVIA Global Education',
+          'TALVIA Students Growth',
+          'Talvia',
+        ],
+        disambiguatingDescription: 'TALVIA (TALVIA Educational Consultancy / TALVIA Students Growth) is an international higher education admissions consultancy firm headquartered in India, guiding students to universities worldwide under the vision Education Without Borders. TALVIA is an independent educational organization and is not affiliated with, located in, or named after the European country Latvia.',
+        category: 'Educational Consultant',
+        url: 'https://talviastudentsgrowth.in/',
+        logo: {
+          '@type': 'ImageObject',
+          '@id': 'https://talviastudentsgrowth.in/#logo',
+          url: 'https://talviastudentsgrowth.in/exact-logo-raw.png',
+          contentUrl: 'https://talviastudentsgrowth.in/exact-logo-raw.png',
+          caption: 'TALVIA — Education Without Borders Logo',
+          width: '512',
+          height: '512',
+        },
+        image: 'https://talviastudentsgrowth.in/exact-logo-raw.png',
+        description: 'TALVIA is the premier global higher education consultancy connecting aspiring students with top-ranked universities worldwide under our vision: Education Without Borders.',
+        slogan: 'Education Without Borders • Global Admissions Advisory',
+        telephone: '+91 8943442479',
+        email: 'talviaconsultancy@gmail.com',
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: 'Kochi',
+          addressRegion: 'Kerala',
+          postalCode: '682011',
+          addressCountry: 'IN',
+        },
+        sameAs: [
+          'https://wa.me/918943442479',
+          'https://www.instagram.com/talviaconsultancy',
+          'https://www.facebook.com/talviaconsultancy',
+          'https://www.linkedin.com/company/talviaconsultancy',
+          'https://talviastudentsgrowth.in/',
+        ],
+        contactPoint: {
+          '@type': 'ContactPoint',
+          telephone: '+91 8943442479',
+          contactType: 'admissions counselling',
+          areaServed: 'Worldwide',
+          availableLanguage: ['English', 'Malayalam', 'Hindi'],
+        },
+        knowsAbout: [
+          'Global Higher Education Admissions',
+          'Educational Consultancy',
+          'Study Abroad Advisory',
+          'MBBS Abroad Admissions',
+          'Pharmacy Admissions',
+          'Healthcare Degrees',
+          'Education Without Borders',
+        ],
       },
       {
         '@type': 'BreadcrumbList',
@@ -36,6 +93,27 @@ export default function AboutPage() {
           },
         ],
       },
+      {
+        '@type': 'FAQPage',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: 'What is TALVIA Consultancy?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'TALVIA (TALVIA Educational Consultancy / TALVIA Students Growth) is a premier global higher education admissions advisory firm headquartered in India. We connect aspiring students with top-ranked accredited universities across 25+ countries for MBBS abroad, Pharmacy, Healthcare, and Professional degrees under our vision: Education Without Borders.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'Is TALVIA an educational consultancy or related to the country Latvia?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'TALVIA is an independent educational consultancy firm dedicated to student admissions guidance worldwide. TALVIA is not affiliated with, located in, or named after the European nation of Latvia. The name TALVIA represents student growth, academic empowerment, and global higher education access.',
+            },
+          },
+        ],
+      },
     ],
   };
 
@@ -46,6 +124,9 @@ export default function AboutPage() {
         description="Discover TALVIA Consultancy's global vision for higher education without borders. Empowering students with ethical, transparent admissions guidance across 25+ countries."
         canonical="https://talviastudentsgrowth.in/about"
         keywords={[
+          'TALVIA',
+          'TALVIA Consultancy',
+          'TALVIA Students Growth',
           'about Talvia',
           'global education consultancy',
           'education without borders',
@@ -62,7 +143,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal direction="down">
             <p className="text-[#E4C586] font-semibold text-xs uppercase tracking-[0.25em] mb-2">Who We Are</p>
-            <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-3">About Talvia Consultancy</h1>
+            <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-3">About TALVIA Consultancy</h1>
             <p className="text-slate-300 max-w-xl text-base font-light">
               Your Education. Your Future. Our Guidance. • Education Without Borders
             </p>
@@ -81,13 +162,18 @@ export default function AboutPage() {
                   A Global Vision for Higher Education
                 </h2>
                 <p className="text-slate-600 leading-relaxed mb-5 text-base">
-                  Talvia Consultancy was founded with a singular conviction: every student deserves access to unbiased, professional, and transparent higher education counselling. Guided by our vision of <strong>Education Without Borders</strong>, our senior advisors empower students to pursue world-class medical, pharmacy, healthcare, and professional degrees across recognized global universities.
+                  <strong>TALVIA Consultancy</strong> (TALVIA Students Growth) was founded with a singular conviction: every student deserves access to unbiased, professional, and transparent higher education counselling. Guided by our vision of <strong>Education Without Borders</strong>, our senior advisors empower students to pursue world-class medical, pharmacy, healthcare, and professional degrees across recognized global universities.
                 </p>
                 <p className="text-slate-600 leading-relaxed mb-5 text-base">
-                  Over the years, Talvia has established strong advisory networks across 25+ countries — including India, Russia, Georgia, Uzbekistan, the Philippines, Kazakhstan, the UK, and Europe. We provide comprehensive first-to-end guidance from international course selection through document apostille, visa filing, quota seats, and final campus enrollment.
+                  Over the years, TALVIA has established strong advisory networks across 25+ countries — including India, Russia, Georgia, Uzbekistan, the Philippines, Kazakhstan, the UK, and Europe. We provide comprehensive first-to-end guidance from international course selection through document apostille, visa filing, quota seats, and final campus enrollment.
                 </p>
+                <div className="p-4 bg-white rounded-xl border border-slate-200/90 shadow-xs mb-6">
+                  <p className="text-xs text-slate-700 leading-relaxed">
+                    <strong>Brand Identity:</strong> TALVIA is an independent international educational consultancy organization headquartered in India with worldwide university networks (distinct from the European country Latvia). Our sole mission is student empowerment and academic growth.
+                  </p>
+                </div>
                 <p className="text-slate-600 leading-relaxed mb-8 text-base">
-                  All initial counselling and admissions guidance sessions at Talvia are dedicated to supporting students and their families in making informed academic choices.
+                  Explore our <Link to="/services" className="text-slate-900 font-semibold underline hover:text-[#B48A3D]">admissions advisory services</Link> and browse accredited <Link to="/courses" className="text-slate-900 font-semibold underline hover:text-[#B48A3D]">global degree programs</Link> to take the next confident step in your academic journey.
                 </p>
                 <Link
                   to="/contact?counselling=true"
@@ -171,9 +257,9 @@ export default function AboutPage() {
                 <div className="absolute top-0 right-0 w-48 h-48 bg-[#C59B4E]/10 rounded-full blur-3xl" />
                 <div className="relative z-10">
                   <span className="text-xs uppercase tracking-widest text-[#E4C586] font-semibold block mb-2">
-                    The Talvia Difference
+                    The TALVIA Difference
                   </span>
-                  <h3 className="text-2xl font-black mb-6 tracking-tight">Why Choose Talvia Consultancy?</h3>
+                  <h3 className="text-2xl font-black mb-6 tracking-tight">Why Choose TALVIA Consultancy?</h3>
                   <div className="space-y-3.5">
                     {[
                       'Network of top accredited universities across 25+ countries worldwide',
@@ -200,10 +286,10 @@ export default function AboutPage() {
                 <p className="section-subtitle mb-2">Our Methodology</p>
                 <h2 className="section-title mb-5">Student-First, Always</h2>
                 <p className="text-slate-600 leading-relaxed mb-5 text-base">
-                  At Talvia Consultancy, we recognize that every student possesses distinct talents, financial parameters, and professional goals. Our advisory journey begins with active listening — understanding academic records, career aspirations, and personal preferences before proposing any institution.
+                  At TALVIA Consultancy, we recognize that every student possesses distinct talents, financial parameters, and professional goals. Our advisory journey begins with active listening — understanding academic records, career aspirations, and personal preferences before proposing any institution.
                 </p>
                 <p className="text-slate-600 leading-relaxed mb-5 text-base">
-                  We never push specific institutions based on commercial arrangements. Our recommendations are strictly aligned with the student's best interests, licensing pathways, and career aspirations. This commitment to honest, impartial counsel is what has established Talvia's global reputation.
+                  We never push specific institutions based on commercial arrangements. Our recommendations are strictly aligned with the student's best interests, licensing pathways, and career aspirations. This commitment to honest, impartial counsel is what has established TALVIA's global reputation.
                 </p>
                 <p className="text-slate-600 leading-relaxed mb-8 text-base">
                   From initial profile evaluation to final visa approvals, accommodation assistance, and pre-departure briefings, our team stands with you at every milestone.
@@ -218,6 +304,68 @@ export default function AboutPage() {
                 </div>
               </div>
             </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Brand Identity & Frequently Asked Questions */}
+      <section className="py-20 bg-white border-t border-slate-200/80">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal direction="up">
+            <div className="text-center mb-12">
+              <p className="section-subtitle mb-2">Brand Identity & FAQs</p>
+              <h2 className="section-title">Frequently Asked Questions About TALVIA</h2>
+              <p className="text-slate-600 text-sm mt-3 max-w-xl mx-auto">
+                Clarifying TALVIA’s role as an independent international education consultancy and how we empower students worldwide.
+              </p>
+            </div>
+          </ScrollReveal>
+
+          <div className="space-y-4">
+            {[
+              {
+                q: 'What is TALVIA Consultancy?',
+                a: (
+                  <>
+                    TALVIA (registered as TALVIA Educational Consultancy / TALVIA Students Growth) is a premier global higher education admissions advisory firm headquartered in India. Under our guiding principle of <strong>Education Without Borders</strong>, we provide comprehensive guidance for <Link to="/courses/mbbs-bachelor-of-medicine-bachelor-of-surgery" className="text-[#B48A3D] font-semibold underline">MBBS abroad</Link>, <Link to="/courses/b-pharm-bachelor-of-pharmacy" className="text-[#B48A3D] font-semibold underline">Pharmacy (B.Pharm, Pharm.D)</Link>, Healthcare, Engineering, and Business degrees across 25+ countries worldwide.
+                  </>
+                ),
+              },
+              {
+                q: 'Is TALVIA an educational consultancy or related to the country Latvia?',
+                a: (
+                  <>
+                    TALVIA is an independent educational consultancy firm dedicated exclusively to student admissions guidance and academic advisory. <strong>TALVIA is not affiliated with, located in, or named after the European country Latvia.</strong> The brand name TALVIA signifies student growth, academic aspiration, and global access to premier institutions worldwide.
+                  </>
+                ),
+              },
+              {
+                q: 'What services does TALVIA Consultancy provide?',
+                a: (
+                  <>
+                    We offer complete end-to-end support including <Link to="/services/career-guidance" className="text-[#B48A3D] font-semibold underline">Career Guidance</Link>, <Link to="/services/college-selection" className="text-[#B48A3D] font-semibold underline">University Selection</Link>, <Link to="/services/course-selection" className="text-[#B48A3D] font-semibold underline">Course Selection</Link>, <Link to="/services/admission-assistance" className="text-[#B48A3D] font-semibold underline">Admission Assistance</Link>, <Link to="/services/application-support" className="text-[#B48A3D] font-semibold underline">Application Support</Link>, and <Link to="/services/student-counselling" className="text-[#B48A3D] font-semibold underline">Student Counselling</Link>.
+                  </>
+                ),
+              },
+              {
+                q: 'How can I connect with TALVIA admissions counsellors?',
+                a: (
+                  <>
+                    You can schedule a one-on-one session via our <Link to="/contact?counselling=true" className="text-[#B48A3D] font-semibold underline">Admissions Contact Page</Link>, call us at <a href="tel:+918943442479" className="text-[#B48A3D] font-semibold underline">+91 8943442479</a>, or chat with our admissions desk directly on <a href="https://wa.me/918943442479" target="_blank" rel="noopener noreferrer" className="text-[#B48A3D] font-semibold underline">WhatsApp</a>.
+                  </>
+                ),
+              },
+            ].map(({ q, a }, idx) => (
+              <ScrollReveal key={idx} direction="up">
+                <div className="bg-[#FAFBFD] rounded-2xl p-6 border border-slate-200/80 hover:border-[#C59B4E]/40 transition-colors shadow-xs">
+                  <h3 className="text-base font-bold text-slate-900 mb-2 flex items-start gap-2.5">
+                    <HelpCircle size={18} className="text-[#C59B4E] flex-shrink-0 mt-0.5" />
+                    <span>{q}</span>
+                  </h3>
+                  <div className="text-slate-600 text-sm leading-relaxed pl-7">{a}</div>
+                </div>
+              </ScrollReveal>
+            ))}
           </div>
         </div>
       </section>

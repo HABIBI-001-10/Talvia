@@ -39,6 +39,7 @@ const routes = [
             'TALVIA Students Growth',
             'Talvia',
           ],
+          disambiguatingDescription: 'Official website for TALVIA Consultancy — Premier global higher education admissions consultancy firm (independent organization, distinct from the country Latvia).',
           description: 'The official website of TALVIA — Premier global education consultancy connecting aspiring students with top-ranked universities worldwide. Education Without Borders.',
           publisher: {
             '@id': `${SITE_URL}/#organization`,
@@ -53,8 +54,11 @@ const routes = [
           alternateName: [
             'TALVIA Consultancy',
             'TALVIA Global Education',
+            'TALVIA Students Growth',
             'Talvia',
           ],
+          disambiguatingDescription: 'TALVIA (TALVIA Educational Consultancy / TALVIA Students Growth) is an international higher education admissions consultancy firm headquartered in India, guiding students to universities worldwide under the vision Education Without Borders. TALVIA is an independent educational organization and is not affiliated with, located in, or named after the European country Latvia.',
+          category: 'Educational Consultant',
           url: `${SITE_URL}/`,
           logo: {
             '@type': 'ImageObject',
@@ -77,6 +81,17 @@ const routes = [
             postalCode: '682011',
             addressCountry: 'IN',
           },
+          areaServed: [
+            'Worldwide',
+            'India',
+            'Russia',
+            'Georgia',
+            'Uzbekistan',
+            'Kazakhstan',
+            'Philippines',
+            'United Kingdom',
+            'Europe',
+          ],
           sameAs: [
             'https://wa.me/918943442479',
             'https://www.instagram.com/talviaconsultancy',
@@ -93,9 +108,12 @@ const routes = [
           },
           knowsAbout: [
             'Global Higher Education Admissions',
-            'MBBS Abroad',
+            'Educational Consultancy',
+            'Study Abroad Advisory',
+            'MBBS Abroad Admissions',
             'Pharmacy Admissions',
             'Healthcare Degrees',
+            'International University Placement',
             'Education Without Borders',
           ],
         },
@@ -106,7 +124,7 @@ const routes = [
     path: 'about',
     title: 'About Us | TALVIA Consultancy • Education Without Borders',
     description: 'Discover TALVIA Consultancy\'s global vision for higher education without borders. Empowering students with ethical, transparent admissions guidance across 25+ countries.',
-    keywords: 'about Talvia, global education consultancy, education without borders, study abroad consultants, international university admissions, overseas medical education, ethical education advisory',
+    keywords: 'TALVIA, TALVIA Consultancy, TALVIA Students Growth, about Talvia, global education consultancy, education without borders, study abroad consultants, international university admissions, overseas medical education, ethical education advisory',
     canonical: `${SITE_URL}/about`,
     structuredData: {
       '@context': 'https://schema.org',
@@ -117,17 +135,59 @@ const routes = [
           url: `${SITE_URL}/about`,
           name: 'About TALVIA Consultancy • Education Without Borders',
           description: 'Learn about TALVIA Consultancy’s global higher education advisory, our mission, vision, and student-first guidance across 25+ countries.',
-          publisher: {
-            '@type': 'EducationalOrganization',
-            name: 'TALVIA Consultancy',
-            url: SITE_URL,
+          mainEntity: {
+            '@id': `${SITE_URL}/#organization`,
           },
+        },
+        {
+          '@type': 'EducationalOrganization',
+          '@id': `${SITE_URL}/#organization`,
+          name: 'TALVIA',
+          legalName: 'TALVIA Educational Consultancy',
+          alternateName: [
+            'TALVIA Consultancy',
+            'TALVIA Global Education',
+            'TALVIA Students Growth',
+            'Talvia',
+          ],
+          disambiguatingDescription: 'TALVIA (TALVIA Educational Consultancy / TALVIA Students Growth) is an international higher education admissions consultancy firm headquartered in India, guiding students to universities worldwide under the vision Education Without Borders. TALVIA is an independent educational organization and is not affiliated with, located in, or named after the European country Latvia.',
+          category: 'Educational Consultant',
+          url: `${SITE_URL}/`,
+          logo: DEFAULT_IMAGE,
+          sameAs: [
+            'https://wa.me/918943442479',
+            'https://www.instagram.com/talviaconsultancy',
+            'https://www.facebook.com/talviaconsultancy',
+            'https://www.linkedin.com/company/talviaconsultancy',
+            `${SITE_URL}/`,
+          ],
         },
         {
           '@type': 'BreadcrumbList',
           itemListElement: [
             { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
             { '@type': 'ListItem', position: 2, name: 'About Us', item: `${SITE_URL}/about` },
+          ],
+        },
+        {
+          '@type': 'FAQPage',
+          mainEntity: [
+            {
+              '@type': 'Question',
+              name: 'What is TALVIA Consultancy?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'TALVIA (TALVIA Educational Consultancy / TALVIA Students Growth) is a premier global higher education admissions advisory firm headquartered in India. We connect aspiring students with top-ranked accredited universities across 25+ countries for MBBS abroad, Pharmacy, Healthcare, and Professional degrees under our vision: Education Without Borders.',
+              },
+            },
+            {
+              '@type': 'Question',
+              name: 'Is TALVIA an educational consultancy or related to the country Latvia?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'TALVIA is an independent educational consultancy firm dedicated to student admissions guidance worldwide. TALVIA is not affiliated with, located in, or named after the European nation of Latvia. The name TALVIA represents student growth, academic empowerment, and global higher education access.',
+              },
+            },
           ],
         },
       ],
@@ -331,7 +391,7 @@ const routes = [
     path: 'contact',
     title: 'Contact Us | TALVIA Consultancy • Global Admissions Office',
     description: 'Connect with TALVIA Consultancy’s global higher education advisors. Schedule personalized admissions counselling or message our WhatsApp desk (+91 8943442479).',
-    keywords: 'contact Talvia, admissions counselling, higher education advisor, study abroad consultation, WhatsApp admissions desk, Kochi education consultancy, Education Without Borders',
+    keywords: 'TALVIA, TALVIA Consultancy, TALVIA admissions, TALVIA Students Growth, contact Talvia, admissions counselling, higher education advisor, study abroad consultation, WhatsApp admissions desk, Kochi education consultancy, Education Without Borders',
     canonical: `${SITE_URL}/contact`,
     structuredData: {
       '@context': 'https://schema.org',
@@ -342,6 +402,30 @@ const routes = [
           url: `${SITE_URL}/contact`,
           name: 'Contact Us | TALVIA Consultancy • Global Admissions Office',
           description: 'Get in touch with TALVIA Consultancy for personalized admissions counselling worldwide.',
+          mainEntity: {
+            '@type': 'EducationalOrganization',
+            '@id': `${SITE_URL}/#organization`,
+            name: 'TALVIA',
+            legalName: 'TALVIA Educational Consultancy',
+            alternateName: [
+              'TALVIA Consultancy',
+              'TALVIA Global Education',
+              'TALVIA Students Growth',
+              'Talvia',
+            ],
+            disambiguatingDescription: 'TALVIA (TALVIA Educational Consultancy / TALVIA Students Growth) is an international higher education admissions consultancy firm headquartered in India, guiding students to universities worldwide under the vision Education Without Borders. TALVIA is an independent educational organization and is not affiliated with, located in, or named after the European country Latvia.',
+            category: 'Educational Consultant',
+            url: `${SITE_URL}/`,
+            telephone: '+91 8943442479',
+            email: 'talviaconsultancy@gmail.com',
+            address: {
+              '@type': 'PostalAddress',
+              addressLocality: 'Kochi',
+              addressRegion: 'Kerala',
+              postalCode: '682011',
+              addressCountry: 'IN',
+            },
+          },
         },
         {
           '@type': 'BreadcrumbList',
@@ -457,9 +541,70 @@ for (const route of routes) {
     `<meta name="twitter:description" content="${route.description.replace(/"/g, '&quot;')}" />`
   );
 
-  // 7. Inject JSON-LD Schema if present
-  if (route.structuredData) {
-    const schemaTag = `<script type="application/ld+json" id="talvia-schema-jsonld">${JSON.stringify(route.structuredData)}</script>`;
+  // 7. Inject JSON-LD Schema
+  let routeStructuredData = route.structuredData;
+  if (!routeStructuredData && route.path.startsWith('courses/')) {
+    const courseCleanName = route.title.replace(/\s+Admissions & Details\s+\|\s+TALVIA Consultancy/i, '');
+    routeStructuredData = {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'Course',
+          '@id': `${SITE_URL}/${route.path}#course`,
+          name: courseCleanName,
+          description: route.description,
+          provider: {
+            '@type': 'EducationalOrganization',
+            '@id': `${SITE_URL}/#organization`,
+            name: 'TALVIA',
+            legalName: 'TALVIA Educational Consultancy',
+            url: SITE_URL,
+          },
+          url: `${SITE_URL}/${route.path}`,
+        },
+        {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
+            { '@type': 'ListItem', position: 2, name: 'Courses & Programs', item: `${SITE_URL}/courses` },
+            { '@type': 'ListItem', position: 3, name: courseCleanName, item: `${SITE_URL}/${route.path}` },
+          ],
+        },
+      ],
+    };
+  } else if (!routeStructuredData && route.path.startsWith('services/')) {
+    const serviceCleanName = route.title.replace(/\s+\|\s+TALVIA Consultancy/i, '');
+    routeStructuredData = {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'Service',
+          '@id': `${SITE_URL}/${route.path}#service`,
+          name: serviceCleanName,
+          description: route.description,
+          provider: {
+            '@type': 'EducationalOrganization',
+            '@id': `${SITE_URL}/#organization`,
+            name: 'TALVIA',
+            legalName: 'TALVIA Educational Consultancy',
+            url: SITE_URL,
+          },
+          url: `${SITE_URL}/${route.path}`,
+        },
+        {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
+            { '@type': 'ListItem', position: 2, name: 'Our Services', item: `${SITE_URL}/services` },
+            { '@type': 'ListItem', position: 3, name: serviceCleanName, item: `${SITE_URL}/${route.path}` },
+          ],
+        },
+      ],
+    };
+  }
+
+  if (routeStructuredData) {
+    const schemaTag = `<script type="application/ld+json" id="talvia-schema-jsonld">${JSON.stringify(routeStructuredData)}</script>`;
     html = html.replace('</head>', `  ${schemaTag}\n</head>`);
   }
 

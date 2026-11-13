@@ -369,8 +369,8 @@ export const DEMO_SERVICES: Service[] = [
     benefits: ['One-on-one session with senior admissions counsellors', 'Psychometric and aptitude analysis', 'Long-term global career roadmap across international industries'],
     process_steps: ['Initial consultation', 'Aptitude mapping', 'Career options presentation', 'Action plan'],
     faqs: [
-      { question: 'Who can benefit from career guidance?', answer: 'Students from 10th grade onwards, plus two graduates, and degree holders seeking the right direction.' },
-      { question: 'How are guidance sessions conducted?', answer: 'Our initial guidance and counselling sessions are conducted one-on-one with senior academic advisors.' }
+      { question: 'Who can benefit from career guidance at TALVIA?', answer: 'Students from 10th grade onwards, plus two graduates, and degree holders seeking clear direction across medical, healthcare, tech, and global degrees.' },
+      { question: 'How are guidance sessions conducted?', answer: 'Our initial guidance and admissions counselling sessions are conducted one-on-one with senior academic advisors at TALVIA Consultancy.' }
     ],
     display_order: 1,
   },
@@ -385,7 +385,7 @@ export const DEMO_SERVICES: Service[] = [
     benefits: ['Detailed university comparison matrix', 'Insights into global rankings & WHO/NMC accreditations', 'Complete fee structure transparency'],
     process_steps: ['Requirement gathering', 'Shortlist generation', 'Campus comparison', 'Direct recommendation'],
     faqs: [
-      { question: 'Do you cover international universities as well as domestic ones?', answer: 'Yes, under our Education Without Borders vision, we guide admissions across premier institutions worldwide including India, Russia, Georgia, Uzbekistan, Philippines, Kazakhstan, UK, and Europe.' }
+      { question: 'Do you cover international universities as well as domestic ones?', answer: 'Yes, under our Education Without Borders vision, TALVIA Consultancy guides admissions across premier accredited institutions worldwide including India, Russia, Georgia, Uzbekistan, Philippines, Kazakhstan, UK, and Europe.' }
     ],
     display_order: 2,
   },
@@ -415,7 +415,7 @@ export const DEMO_SERVICES: Service[] = [
     benefits: ['Documentation checklist', 'Deadline tracking', 'Direct admission cell liaison'],
     process_steps: ['Document collection', 'Application filling', 'Verification & submission', 'Seat confirmation'],
     faqs: [
-      { question: 'Do you support merit and international seat admissions?', answer: 'Yes, we provide guidance for merit seats, international university allocations, and direct admissions across institutions worldwide.' }
+      { question: 'Do you support merit and international seat admissions?', answer: 'Yes, TALVIA Consultancy provides first-to-end guidance for merit seats, international university allocations, and direct admissions across institutions worldwide.' }
     ],
     display_order: 4,
   },

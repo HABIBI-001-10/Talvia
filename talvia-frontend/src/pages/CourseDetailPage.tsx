@@ -44,7 +44,9 @@ export default function CourseDetailPage() {
         description: course.short_description || course.description,
         provider: {
           '@type': 'EducationalOrganization',
-          name: 'TALVIA Consultancy',
+          '@id': 'https://talviastudentsgrowth.in/#organization',
+          name: 'TALVIA',
+          legalName: 'TALVIA Educational Consultancy',
           url: 'https://talviastudentsgrowth.in',
         },
         educationalCredentialAwarded: course.degree_type_display,
@@ -158,21 +160,67 @@ export default function CourseDetailPage() {
             <ScrollReveal direction="up">
               <div className="bg-[#FAFBFD] rounded-2xl p-7 border border-slate-200/80 shadow-sm">
                 <h2 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4 pb-3 border-b border-slate-200/60 flex items-center gap-2">
-                  <Sparkles size={16} className="text-[#C59B4E]" /> How Talvia Guides Your Admission
+                  <Sparkles size={16} className="text-[#C59B4E]" /> How TALVIA Guides Your Admission
                 </h2>
                 <div className="space-y-4">
                   {[
-                    'Profiling & University Shortlisting: We identify accredited universities and faculties worldwide matching your academic scores, preferred country, state, city, or abroad options.',
-                    'Global Licensing & Regulatory Guidance: Comprehensive counsel on NMC, WHO, ECFMG, PCI, and international licensing requirements.',
-                    'First-to-End Document Scrutiny & Apostille: Strict verification of academic certificates, apostille/embassy attestations, and admission paperwork.',
-                    'Transparent Fee Advisory: Clear upfront understanding of annual tuition in INR and local currencies, hostel facilities, and regulatory approvals.',
-                    'Visa, Travel & WhatsApp Assistance: Full support with student visas, pre-departure briefings, and direct counsellor access.',
+                    {
+                      title: 'Profiling & University Shortlisting',
+                      text: (
+                        <>
+                          We identify accredited universities and faculties worldwide matching your academic scores and preferences through our{' '}
+                          <Link to="/services/college-selection" className="text-[#B48A3D] font-semibold underline">
+                            University Selection service
+                          </Link>.
+                        </>
+                      ),
+                    },
+                    {
+                      title: 'Global Licensing & Regulatory Guidance',
+                      text: (
+                        <>
+                          Comprehensive counsel on NMC, WHO, ECFMG, PCI, and international licensing requirements through personalized{' '}
+                          <Link to="/services/career-guidance" className="text-[#B48A3D] font-semibold underline">
+                            Career Guidance
+                          </Link>.
+                        </>
+                      ),
+                    },
+                    {
+                      title: 'First-to-End Document Scrutiny & Apostille',
+                      text: (
+                        <>
+                          Strict verification of academic certificates, apostille/embassy attestations, and admission paperwork via{' '}
+                          <Link to="/services/admission-assistance" className="text-[#B48A3D] font-semibold underline">
+                            Admission Assistance
+                          </Link>.
+                        </>
+                      ),
+                    },
+                    {
+                      title: 'Transparent Fee Advisory',
+                      text: 'Clear upfront understanding of annual tuition in INR and local currencies, hostel facilities, and regulatory approvals with 0 hidden charges.',
+                    },
+                    {
+                      title: 'Visa, Travel & WhatsApp Assistance',
+                      text: (
+                        <>
+                          Full support with student visas, pre-departure briefings, and direct counsellor access via our dedicated{' '}
+                          <Link to="/services/student-counselling" className="text-[#B48A3D] font-semibold underline">
+                            Student Counselling desk
+                          </Link>.
+                        </>
+                      ),
+                    },
                   ].map((item, idx) => (
                     <div key={idx} className="flex items-start gap-3">
                       <div className="w-5 h-5 rounded-full bg-[#FBF7EE] text-[#C59B4E] border border-[#E8D7B8] flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">
                         ✓
                       </div>
-                      <p className="text-slate-600 text-sm leading-relaxed">{item}</p>
+                      <div className="text-slate-600 text-sm leading-relaxed">
+                        <strong className="text-slate-900">{item.title}: </strong>
+                        {item.text}
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -191,7 +239,7 @@ export default function CourseDetailPage() {
                   </span>
                   <h3 className="text-xl font-black mb-2 tracking-tight">Need Guidance for {course.name}?</h3>
                   <p className="text-slate-300 text-xs mb-6 leading-relaxed">
-                    Connect with our senior global education advisors to explore admission procedures, global licensing, tuition fees, and target destinations worldwide.
+                    Connect with TALVIA’s senior global education advisors to explore admission procedures, global licensing, tuition fees, and target destinations worldwide.
                   </p>
                   <button
                     onClick={() => setModalOpen(true)}
@@ -208,6 +256,32 @@ export default function CourseDetailPage() {
                       talviaconsultancy@gmail.com
                     </a>
                   </div>
+                </div>
+              </div>
+            </ScrollReveal>
+
+            {/* Related Admissions Resources */}
+            <ScrollReveal direction="right" delay={0.1}>
+              <div className="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-xs">
+                <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-4 pb-2 border-b border-slate-100">
+                  Admissions Services for {course.name}
+                </h4>
+                <div className="space-y-2 text-xs">
+                  <Link to="/services/college-selection" className="block text-slate-700 hover:text-[#B48A3D] transition-colors py-1">
+                    → University Shortlisting & Comparison
+                  </Link>
+                  <Link to="/services/admission-assistance" className="block text-slate-700 hover:text-[#B48A3D] transition-colors py-1">
+                    → Document Apostille & Admission Support
+                  </Link>
+                  <Link to="/services/student-counselling" className="block text-slate-700 hover:text-[#B48A3D] transition-colors py-1">
+                    → One-on-One Student & Parent Counselling
+                  </Link>
+                  <Link to="/courses" className="block text-slate-700 hover:text-[#B48A3D] transition-colors py-1">
+                    → Browse All International Programs
+                  </Link>
+                  <Link to="/about" className="block text-slate-700 hover:text-[#B48A3D] transition-colors py-1">
+                    → About TALVIA Consultancy (Education Without Borders)
+                  </Link>
                 </div>
               </div>
             </ScrollReveal>

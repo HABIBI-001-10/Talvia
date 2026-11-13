@@ -87,7 +87,17 @@ export default function ContactPage() {
         description: contactDescription,
         mainEntity: {
           '@type': 'EducationalOrganization',
-          name: 'TALVIA Consultancy',
+          '@id': 'https://talviastudentsgrowth.in/#organization',
+          name: 'TALVIA',
+          legalName: 'TALVIA Educational Consultancy',
+          alternateName: [
+            'TALVIA Consultancy',
+            'TALVIA Global Education',
+            'TALVIA Students Growth',
+            'Talvia',
+          ],
+          disambiguatingDescription: 'TALVIA (TALVIA Educational Consultancy / TALVIA Students Growth) is an international higher education admissions consultancy firm headquartered in India, guiding students to universities worldwide under the vision Education Without Borders. TALVIA is an independent educational organization and is not affiliated with, located in, or named after the European country Latvia.',
+          category: 'Educational Consultant',
           url: 'https://talviastudentsgrowth.in',
           telephone: '+91 8943442479',
           email: 'talviaconsultancy@gmail.com',
@@ -95,6 +105,7 @@ export default function ContactPage() {
             '@type': 'PostalAddress',
             addressLocality: 'Kochi',
             addressRegion: 'Kerala',
+            postalCode: '682011',
             addressCountry: 'IN',
           },
         },
@@ -126,6 +137,10 @@ export default function ContactPage() {
         description={contactDescription}
         canonical="https://talviastudentsgrowth.in/contact"
         keywords={[
+          'TALVIA',
+          'TALVIA Consultancy',
+          'TALVIA admissions',
+          'TALVIA Students Growth',
           'contact Talvia',
           'admissions counselling',
           'higher education advisor',
@@ -144,7 +159,7 @@ export default function ContactPage() {
           <ScrollReveal direction="down">
             <p className="text-[#E4C586] font-semibold text-xs uppercase tracking-[0.25em] mb-2">Global Admissions Office • Education Without Borders</p>
             <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-3">
-              {isCounselling ? 'Get Admissions Counselling' : 'Contact Talvia Consultancy'}
+              {isCounselling ? 'Get Admissions Counselling' : 'Contact TALVIA Consultancy'}
             </h1>
             <p className="text-slate-300 max-w-xl text-base font-light">
               {isCounselling
@@ -207,12 +222,32 @@ export default function ContactPage() {
                       <div>
                         <p className="text-slate-400 text-xs mb-0.5 uppercase tracking-wider font-semibold">Head Advisory Office</p>
                         <p className="text-slate-200 text-sm leading-relaxed">
-                          Global Higher Education Advisory Desk<br />
-                          <span className="text-slate-400 text-xs">Central Support: Kochi, Kerala with Global University Networks</span>
+                          TALVIA Educational Consultancy Desk<br />
+                          <span className="text-slate-400 text-xs">Central Support: Kochi, Kerala (682011) with Global University Networks</span>
                         </p>
                       </div>
                     </div>
                   </div>
+                </div>
+              </div>
+            </ScrollReveal>
+
+            {/* Quick Navigation Resources */}
+            <ScrollReveal direction="left" delay={0.1}>
+              <div className="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-xs">
+                <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-4 pb-2 border-b border-slate-100">
+                  Explore TALVIA Admissions
+                </h4>
+                <div className="space-y-2 text-xs">
+                  <Link to="/courses" className="block text-slate-700 hover:text-[#B48A3D] transition-colors py-1">
+                    → Browse Medical, Healthcare & Degree Programs
+                  </Link>
+                  <Link to="/services" className="block text-slate-700 hover:text-[#B48A3D] transition-colors py-1">
+                    → View All 6 Admissions Advisory Services
+                  </Link>
+                  <Link to="/about" className="block text-slate-700 hover:text-[#B48A3D] transition-colors py-1">
+                    → Learn About TALVIA Consultancy (Education Without Borders)
+                  </Link>
                 </div>
               </div>
             </ScrollReveal>
