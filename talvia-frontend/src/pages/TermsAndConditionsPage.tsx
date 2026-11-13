@@ -42,7 +42,7 @@ export default function TermsAndConditionsPage() {
               <span className="text-[#C59B4E] font-mono font-black">02.</span> Scope of Educational Advisory Services
             </h2>
             <p className="mb-3">
-              TALVIA Consultancy operates as an independent higher education advisory platform helping students and parents navigate academic choices across India and recognized international educational institutions. Our services include:
+              TALVIA Consultancy operates as an independent global higher education advisory platform helping students and parents navigate academic choices across recognized domestic and international educational institutions worldwide under our vision of <strong>Education Without Borders</strong>. Our services include:
             </p>
             <ul className="space-y-2 pl-4 mb-3">
               {[

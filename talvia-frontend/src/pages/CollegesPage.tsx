@@ -55,10 +55,10 @@ export default function CollegesPage() {
       <div className="bg-gradient-to-b from-[#141824] via-[#18202E] to-[#121620] text-white py-20 border-b border-[#252E3E]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal direction="down">
-            <p className="text-[#E4C586] font-semibold text-xs uppercase tracking-[0.25em] mb-2">Academic Directory</p>
-            <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-3">Colleges & Universities Across India</h1>
+            <p className="text-[#E4C586] font-semibold text-xs uppercase tracking-[0.25em] mb-2">Global Academic Directory</p>
+            <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-3">Universities & Institutions Worldwide</h1>
             <p className="text-slate-300 max-w-2xl text-base font-light">
-              Explore premier universities and colleges across Karnataka, Kerala, Tamil Nadu, Maharashtra, Delhi NCR, and nationwide.
+              Explore premier accredited universities and faculties across India, Europe, Central Asia, the UK, and international study destinations.
             </p>
           </ScrollReveal>
         </div>

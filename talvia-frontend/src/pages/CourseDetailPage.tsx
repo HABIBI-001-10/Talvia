@@ -59,7 +59,7 @@ export default function CourseDetailPage() {
               </span>
             )}
             <span className="flex items-center gap-1.5">
-              <MapPin size={15} className="text-[#C59B4E]" /> Pan-India & International Admissions Available
+              <MapPin size={15} className="text-[#C59B4E]" /> Global Admissions Available — India, Europe, Central Asia, UK & Worldwide
             </span>
           </div>
         </div>
@@ -99,11 +99,11 @@ export default function CourseDetailPage() {
                 </h2>
                 <div className="space-y-4">
                   {[
-                    'Profiling & Institution Shortlisting: We identify recognized universities and colleges matching your academic scores, preferred state, city, or abroad options.',
-                    'Entrance Exam & Quota Guidance: Comprehensive counselling for NEET-UG, GPAT, state merit allocations, management quota, and institutional direct seats.',
-                    'First-to-End Document Verification: Strict scrutiny of certificates, eligibility criteria, migration forms, and admission paperwork.',
-                    'Transparent Fee Advisory: Clear upfront understanding of annual tuition, hostel facilities, and regulatory approvals (NMC / PCI / INC / UGC).',
-                    'Direct WhatsApp Assistance: Instant answers to candidate and parent queries from senior academic counsellors.',
+                    'Profiling & University Shortlisting: We identify accredited universities and faculties worldwide matching your academic scores, preferred country, state, city, or abroad options.',
+                    'Global Licensing & Regulatory Guidance: Comprehensive counsel on NMC, WHO, ECFMG, PCI, and international licensing requirements.',
+                    'First-to-End Document Scrutiny & Apostille: Strict verification of academic certificates, apostille/embassy attestations, and admission paperwork.',
+                    'Transparent Fee Advisory: Clear upfront understanding of annual tuition in INR and local currencies, hostel facilities, and regulatory approvals.',
+                    'Visa, Travel & WhatsApp Assistance: Full support with student visas, pre-departure briefings, and direct counsellor access.',
                   ].map((item, idx) => (
                     <div key={idx} className="flex items-start gap-3">
                       <div className="w-5 h-5 rounded-full bg-[#FBF7EE] text-[#C59B4E] border border-[#E8D7B8] flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">
@@ -128,7 +128,7 @@ export default function CourseDetailPage() {
                   </span>
                   <h3 className="text-xl font-black mb-2 tracking-tight">Need Guidance for {course.name}?</h3>
                   <p className="text-slate-300 text-xs mb-6 leading-relaxed">
-                    Connect with our senior education advisors to explore admission procedures, cutoffs, tuition fees, and target locations across India and abroad.
+                    Connect with our senior global education advisors to explore admission procedures, global licensing, tuition fees, and target destinations worldwide.
                   </p>
                   <button
                     onClick={() => setModalOpen(true)}

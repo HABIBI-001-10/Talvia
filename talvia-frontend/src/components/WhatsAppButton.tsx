@@ -7,7 +7,7 @@ interface WhatsAppButtonProps {
 
 export default function WhatsAppButton({
   phone = '918943442479',
-  message = 'Hello Talvia Consultancy, I need guidance on college admissions across India.',
+  message = 'Hello Talvia Consultancy, I need guidance on university admissions worldwide (Education Without Borders).',
 }: WhatsAppButtonProps) {
   const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
   return (
@@ -15,7 +15,7 @@ export default function WhatsAppButton({
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 flex items-center gap-2.5 bg-black hover:bg-zinc-800 text-white pl-4 pr-5 py-3 rounded-full shadow-2xl transition-all duration-300 hover:scale-105 border border-zinc-700 group"
+      className="fixed bottom-6 right-6 z-50 flex items-center gap-2.5 bg-[#181E2A] hover:bg-[#252E3E] text-white pl-4 pr-5 py-3 rounded-full shadow-2xl transition-all duration-300 hover:scale-105 border border-[#2D384D] group"
       aria-label="Enquire on WhatsApp"
     >
       <div className="w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center text-white flex-shrink-0 group-hover:scale-110 transition-transform">

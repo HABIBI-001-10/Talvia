@@ -96,7 +96,7 @@ export default function HomePage() {
               <div className="inline-flex items-center gap-2 bg-[#1B2333]/90 border border-[#C59B4E]/35 rounded-full px-4 py-1.5 mb-7 shadow-sm">
                 <Star size={13} className="text-[#C59B4E]" fill="#C59B4E" />
                 <span className="text-[#E8D09E] text-xs font-semibold uppercase tracking-widest">
-                  YOUR EDUCATION. YOUR FUTURE. OUR GUIDANCE.
+                  EDUCATION WITHOUT BORDERS • GLOBAL ADMISSIONS ADVISORY
                 </span>
               </div>
             </ScrollReveal>
@@ -104,15 +104,15 @@ export default function HomePage() {
             {/* Main Heading */}
             <ScrollReveal direction="up" delay={0.2}>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.1] mb-6 tracking-tight">
-                Find the Right College Across India.{' '}
-                <span className="text-[#E4C586]">Build Your Future.</span>
+                Find the Right University Worldwide.{' '}
+                <span className="text-[#E4C586]">Education Without Borders.</span>
               </h1>
             </ScrollReveal>
 
             {/* Description */}
             <ScrollReveal direction="up" delay={0.3}>
               <p className="text-slate-300 text-lg md:text-xl leading-relaxed mb-10 max-w-2xl font-light">
-                Discover premier educational opportunities across India with Talvia Consultancy. We connect aspiring students with trusted colleges and universities nationwide, providing personalised guidance from first step to final admission.
+                Discover premier global educational opportunities with Talvia Consultancy. We connect aspiring students with top-ranked universities and prestigious institutions worldwide — providing personalized first-to-end guidance from international course selection to visa support and final campus enrollment.
               </p>
             </ScrollReveal>
 
@@ -138,9 +138,9 @@ export default function HomePage() {
             <ScrollReveal direction="up" delay={0.5}>
               <div className="mt-12 pt-8 border-t border-[#263143] flex flex-wrap gap-8 text-slate-300 text-sm">
                 {[
-                  { icon: Building2, text: 'Colleges & Universities Across India' },
-                  { icon: Users, text: 'Pan-India Reach (28+ States)' },
-                  { icon: BookOpen, text: 'Multiple Course Streams' },
+                  { icon: Building2, text: 'Accredited Universities Worldwide' },
+                  { icon: Users, text: 'Global Reach Across 25+ Countries' },
+                  { icon: BookOpen, text: 'First-to-End International Guidance' },
                 ].map(({ icon: Icon, text }) => (
                   <div key={text} className="flex items-center gap-2.5">
                     <Icon size={16} className="text-[#C59B4E]" />
@@ -158,9 +158,9 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {[
-              { value: 500, suffix: '+', label: 'Students Guided', icon: Users },
-              { value: 28, suffix: '+', label: 'States Covered', icon: Star },
-              { value: 100, suffix: '+', label: 'Course Programs', icon: BookOpen },
+              { value: 500, suffix: '+', label: 'Global Students Guided', icon: Users },
+              { value: 25, suffix: '+', label: 'Countries Covered', icon: Star },
+              { value: 150, suffix: '+', label: 'Partner Universities', icon: BookOpen },
               { value: 100, suffix: '%', label: 'Student-First Guidance', icon: Building2 },
             ].map(({ value, suffix, label, icon: Icon }) => (
               <ScrollReveal key={label} direction="up">
@@ -187,19 +187,19 @@ export default function HomePage() {
               <div>
                 <p className="section-subtitle mb-3">About Talvia Consultancy</p>
                 <h2 className="section-title mb-6 leading-tight">
-                  India's Trusted Higher Education Consultancy
+                  Connecting Students with Premier Universities Worldwide
                 </h2>
                 <p className="text-slate-600 leading-relaxed mb-5 text-base">
-                  Talvia Consultancy is a leading education advisory firm connecting aspiring students with accredited colleges and universities across India. We provide unbiased, personalized guidance on university selection, course selection, and admission procedures from first step to final admission.
+                  Talvia Consultancy is a leading global education advisory firm connecting aspiring students with accredited universities and prestigious institutions worldwide. Under our vision of <strong>Education Without Borders</strong>, we provide unbiased, personalized guidance on international university selection, course selection, and admission procedures from first consultation to final campus enrollment.
                 </p>
                 <p className="text-slate-600 leading-relaxed mb-8 text-base">
-                  Our experienced counsellors work directly with students and parents to evaluate career goals, eligibility, and academic aspirations. We connect you with top-ranked colleges and universities nationwide, making finding the right institution straightforward, transparent, and seamless.
+                  Our experienced counsellors work directly with students and parents to evaluate career goals, eligibility, and academic aspirations. We connect you with top-ranked universities worldwide — including India, the UK, Europe, Central Asia, and beyond — making global admissions straightforward, transparent, and seamless.
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                   {[
-                    { title: 'Our Vision', text: 'To be India’s most trusted education consultancy, empowering students from every state to reach their full potential.' },
-                    { title: 'Our Mission', text: 'To provide accessible, transparent, and student-first admission guidance without bias or hidden charges.' },
+                    { title: 'Our Vision', text: 'To be a globally trusted education consultancy, recognized for ethical guidance and empowering students to access premier higher education without borders.' },
+                    { title: 'Our Mission', text: 'To provide accessible, transparent, and student-first admissions guidance worldwide, bridging aspirations with premier international education.' },
                   ].map(({ title, text }) => (
                     <div key={title} className="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-sm hover:border-[#C59B4E]/30 transition-colors">
                       <h4 className="font-bold text-slate-900 mb-2 flex items-center gap-2 text-sm uppercase tracking-wider">
@@ -226,17 +226,17 @@ export default function HomePage() {
                   <div className="absolute top-0 right-0 w-48 h-48 bg-[#C59B4E]/10 rounded-full blur-3xl" />
                   <div className="relative z-10">
                     <span className="text-xs uppercase tracking-widest text-[#E4C586] font-semibold block mb-2">
-                      Professional Advisory
+                      Professional Advisory • Education Without Borders
                     </span>
                     <h3 className="text-2xl font-black mb-6 tracking-tight">Why Choose Talvia Consultancy?</h3>
                     <div className="space-y-4">
                       {[
-                        'Guidance for top accredited colleges across India',
-                        'Personalised one-on-one counselling sessions',
-                        'Pan-India admissions support across 28+ states',
-                        'Transparent, unbiased guidance and counsel',
-                        'First-to-end admission guidance and document assistance',
-                        'Student-first advocacy in all recommendations',
+                        'Direct guidance for top accredited universities worldwide',
+                        'Personalised one-on-one international admissions counselling',
+                        'Global admissions desk covering 25+ study destinations',
+                        'Transparent, unbiased course and fee advisory',
+                        'Cross-border document preparation, apostille & visa guidance',
+                        'Student-first advocacy in all university recommendations',
                       ].map((point) => (
                         <div key={point} className="flex items-start gap-3">
                           <CheckCircle2 size={18} className="text-[#C59B4E] flex-shrink-0 mt-0.5" />
@@ -334,23 +334,23 @@ export default function HomePage() {
             {[
               {
                 step: '01',
-                title: 'Share Requirements',
-                desc: 'Discuss your academic profile, preferred streams, budget, and target Indian states or cities.',
+                title: 'Share Global Aspirations',
+                desc: 'Discuss your academic profile, preferred course streams, budget, and target study destinations worldwide.',
               },
               {
                 step: '02',
-                title: 'Curated Institution Match',
-                desc: 'Review curated top colleges and courses matched to your aptitude and career aspirations.',
+                title: 'International University Match',
+                desc: 'Review curated top accredited global medical, pharmacy, tech, and business programs tailored to your profile.',
               },
               {
                 step: '03',
                 title: 'Expert Counselling',
-                desc: 'One-on-one guidance addressing course curricula, future employment trends, and parent queries.',
+                desc: 'One-on-one guidance addressing curricula, global licensing (NMC, WHO, ECFMG, PCI), living costs, and parent queries.',
               },
               {
                 step: '04',
-                title: 'First-to-End Admission',
-                desc: 'Complete assistance with application forms, verification, quota seats, and final college enrollment.',
+                title: 'First-to-End Enrollment',
+                desc: 'Complete assistance with cross-border applications, apostille, visa filing, quota seats, and campus enrollment.',
               },
             ].map(({ step, title, desc }) => (
               <StaggerItem key={step}>
@@ -378,14 +378,14 @@ export default function HomePage() {
             <div className="inline-flex items-center gap-2 bg-[#1B2333] border border-[#C59B4E]/35 rounded-full px-4 py-1.5 mb-6">
               <Star size={13} className="text-[#E8D09E]" fill="#E8D09E" />
               <span className="text-[#E8D09E] text-xs font-semibold uppercase tracking-widest">
-                All India Admissions Desk
+                Global Admissions Desk • Education Without Borders
               </span>
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white mb-6 leading-tight tracking-tight">
-              Your Dream College Is Closer Than You Think
+              Your Dream University Is Closer Than You Think
             </h2>
             <p className="text-slate-300 text-base md:text-lg mb-10 max-w-2xl mx-auto font-light">
-              Connect with our senior education counsellors today. Get personalised institution recommendations and first-to-end guidance across India.
+              Connect with our senior global education counsellors today. Get personalised international university recommendations and first-to-end guidance worldwide.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
@@ -414,14 +414,14 @@ export default function HomePage() {
                 <p className="section-subtitle mb-3">Enquiry Desk</p>
                 <h2 className="section-title mb-4">Request Admissions Guidance</h2>
                 <p className="text-slate-600 mb-8 text-base">
-                  Submit your details and our senior admissions counsellor will contact you within 24 hours.
+                  Submit your details and our senior international admissions counsellor will contact you within 24 hours.
                 </p>
 
                 <div className="space-y-5">
                   {[
-                    { title: 'Professional Guidance', desc: 'Expert academic advisory from senior counsellors.' },
-                    { title: 'Rapid 24-Hour Callback', desc: 'Dedicated admissions officer assigned to your profile.' },
-                    { title: 'Personalized College Matching', desc: 'Customized recommendations based on your scores and budget.' },
+                    { title: 'Global Academic Advisory', desc: 'Expert guidance for domestic & international university admissions.' },
+                    { title: 'Rapid 24-Hour Callback', desc: 'Dedicated international education counsellor assigned to your profile.' },
+                    { title: 'Personalized University Matching', desc: 'Customized recommendations based on your scores, preferred destination, and budget.' },
                   ].map(({ title, desc }) => (
                     <div key={title} className="flex gap-4 p-4 rounded-xl bg-white border border-slate-200/80 shadow-sm">
                       <div className="w-8 h-8 rounded-lg bg-[#FBF7EE] text-[#C59B4E] border border-[#E8D7B8] flex items-center justify-center font-bold text-xs flex-shrink-0">
@@ -594,7 +594,7 @@ export default function HomePage() {
                         name="preferred_city"
                         value={form.preferred_city}
                         onChange={handleFormChange}
-                        placeholder="e.g. Kochi, Bangalore, Chennai, Mangalore, Delhi"
+                        placeholder="e.g. Kochi, Bangalore, London, Tashkent, Tbilisi"
                         className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#181E2A]"
                       />
                     </div>

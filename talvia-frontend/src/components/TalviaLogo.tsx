@@ -22,8 +22,8 @@ export default function TalviaLogo({
           className={`${className} w-auto object-contain rounded-lg transition-transform duration-200 group-hover:scale-105`}
         />
         {showTagline && (
-          <span className="text-[10px] uppercase tracking-[0.22em] font-medium text-zinc-400">
-            Consultancy • All India
+          <span className="text-[10px] uppercase tracking-[0.22em] font-medium text-slate-400">
+            Education Without Borders
           </span>
         )}
       </div>
@@ -45,10 +45,10 @@ export default function TalviaLogo({
         </div>
         {showTagline && (
           <span
-            className={`text-[9.5px] uppercase tracking-[0.24em] font-medium mt-0.5 ${isWhite ? 'text-zinc-400' : 'text-zinc-500'
+            className={`text-[9.5px] uppercase tracking-[0.24em] font-medium mt-0.5 ${isWhite ? 'text-slate-400' : 'text-slate-500'
               }`}
           >
-            Education Consultancy • India
+            Global Education • Education Without Borders
           </span>
         )}
       </div>

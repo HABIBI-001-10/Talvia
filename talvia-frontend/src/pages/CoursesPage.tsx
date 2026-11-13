@@ -53,10 +53,10 @@ export default function CoursesPage() {
       <div className="bg-gradient-to-b from-[#141824] via-[#18202E] to-[#121620] text-white py-20 border-b border-[#252E3E]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal direction="down">
-            <p className="text-[#E4C586] font-semibold text-xs uppercase tracking-[0.25em] mb-2">Curriculum Directory</p>
-            <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-3">Academic Programs & Degrees</h1>
+            <p className="text-[#E4C586] font-semibold text-xs uppercase tracking-[0.25em] mb-2">Global Academic Directory</p>
+            <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-3">International Degrees & Programs</h1>
             <p className="text-slate-300 max-w-xl text-base font-light">
-              Explore premier Medical (MBBS/BDS/BAMS), Pharmacy (B.Pharm/Pharm.D), Healthcare, Engineering, and Professional degree disciplines.
+              Explore globally recognized Medical (MBBS Abroad & India), Pharmacy (B.Pharm/Pharm.D), Healthcare, Engineering, and Professional degree programs.
             </p>
           </ScrollReveal>
         </div>

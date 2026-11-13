@@ -96,11 +96,11 @@ export default function EnquiryModal({
         <div className="bg-gradient-to-r from-[#141824] via-[#1A2232] to-[#141824] text-white px-7 py-6 flex items-start justify-between border-b border-[#252E3E]">
           <div>
             <span className="text-[#E4C586] text-xs uppercase tracking-widest font-semibold block mb-1">
-              Talvia Consultancy • Admissions Desk
+              Talvia Consultancy • Global Admissions Desk
             </span>
             <h2 className="text-2xl font-black tracking-tight">Get Admissions Counselling</h2>
             <p className="text-slate-300 text-xs mt-1">
-              Personalized guidance for Medical, Pharmacy, Healthcare & Degree Programs
+              Education Without Borders • Guidance for Global Medical, Pharmacy & Degree Programs
             </p>
           </div>
           <button
@@ -266,7 +266,7 @@ export default function EnquiryModal({
                   name="preferred_city"
                   value={form.preferred_city}
                   onChange={handleChange}
-                  placeholder="e.g. Kochi, Bangalore, Chennai, Mangalore, Delhi"
+                  placeholder="e.g. Kochi, Bangalore, London, Tashkent, Tbilisi"
                   className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#181E2A]"
                 />
               </div>

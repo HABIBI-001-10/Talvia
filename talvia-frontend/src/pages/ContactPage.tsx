@@ -73,14 +73,14 @@ export default function ContactPage() {
       <div className="bg-gradient-to-b from-[#141824] via-[#18202E] to-[#121620] text-white py-20 border-b border-[#252E3E]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal direction="down">
-            <p className="text-[#E4C586] font-semibold text-xs uppercase tracking-[0.25em] mb-2">Central Admissions Office</p>
+            <p className="text-[#E4C586] font-semibold text-xs uppercase tracking-[0.25em] mb-2">Global Admissions Office • Education Without Borders</p>
             <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-3">
               {isCounselling ? 'Get Admissions Counselling' : 'Contact Talvia Consultancy'}
             </h1>
             <p className="text-slate-300 max-w-xl text-base font-light">
               {isCounselling
-                ? 'Fill in your details and our senior admissions counsellor will contact you within 24 hours with dedicated guidance.'
-                : 'Connect with our education advisors across India and abroad for institutional queries or student guidance.'}
+                ? 'Fill in your details and our senior international admissions counsellor will contact you within 24 hours with dedicated guidance.'
+                : 'Connect with our global education advisors worldwide for university queries, admissions procedures, or candidate counselling.'}
             </p>
           </ScrollReveal>
         </div>
@@ -138,8 +138,8 @@ export default function ContactPage() {
                       <div>
                         <p className="text-slate-400 text-xs mb-0.5 uppercase tracking-wider font-semibold">Head Advisory Office</p>
                         <p className="text-slate-200 text-sm leading-relaxed">
-                          Pan-India & International Admissions Advisory<br />
-                          <span className="text-slate-400 text-xs">Offices in Kochi & Major Educational Hubs</span>
+                          Global Higher Education Advisory Desk<br />
+                          <span className="text-slate-400 text-xs">Central Support: Kochi, Kerala with Global University Networks</span>
                         </p>
                       </div>
                     </div>
@@ -308,7 +308,7 @@ export default function ContactPage() {
                         name="preferred_city"
                         value={form.preferred_city}
                         onChange={handleChange}
-                        placeholder="e.g. Kochi, Bangalore, Chennai, Mangalore, Delhi"
+                        placeholder="e.g. Kochi, Bangalore, London, Tashkent, Tbilisi"
                         className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#181E2A]"
                       />
                     </div>

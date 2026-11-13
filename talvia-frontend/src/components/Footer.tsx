@@ -13,7 +13,7 @@ export default function Footer() {
               <TalviaLogo variant="white" className="h-10 md:h-11" showTagline />
             </Link>
             <p className="text-slate-400 text-sm leading-relaxed pr-2">
-              Premier higher education consultancy connecting aspiring students with top universities and colleges across India. Comprehensive guidance from first step to final admission.
+              Premier global education consultancy connecting aspiring students with top-ranked universities worldwide. Education Without Borders — comprehensive guidance from first consultation to campus enrollment.
             </p>
             <div className="flex gap-2.5 pt-2">
               {[
@@ -89,7 +89,7 @@ export default function Footer() {
             <ul className="space-y-3.5">
               <li className="flex gap-3 text-slate-300 text-sm">
                 <MapPin size={17} className="text-[#C59B4E] flex-shrink-0 mt-0.5" />
-                <span>Pan-India Higher Education Consultancy<br /><span className="text-slate-500 text-xs">Offices in Kochi & Major Educational Hubs</span></span>
+                <span>Global Higher Education Consultancy<br /><span className="text-slate-500 text-xs">Central Support: Kochi, Kerala • Education Without Borders</span></span>
               </li>
               <li>
                 <a href="tel:+918943442479" className="flex gap-3 text-slate-300 hover:text-white text-sm transition-colors">
@@ -105,7 +105,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="https://wa.me/918943442479?text=Hello%20Talvia%20Consultancy%2C%20I%20need%20guidance%20on%20college%20admissions."
+                  href="https://wa.me/918943442479?text=Hello%20Talvia%20Consultancy%2C%20I%20need%20guidance%20on%20university%20admissions%20(Education%20Without%20Borders)."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex gap-3 text-slate-300 hover:text-white text-sm transition-colors items-center group"
@@ -126,7 +126,7 @@ export default function Footer() {
             <span>•</span>
             <Link to="/terms-and-conditions" className="hover:text-slate-300 transition-colors">Terms & Conditions</Link>
           </div>
-          <p className="tracking-wide">Your Education. Your Future. Our Guidance. • Pan-India Admissions</p>
+          <p className="tracking-wide">Education Without Borders • Global Admissions Advisory</p>
         </div>
       </div>
     </footer>

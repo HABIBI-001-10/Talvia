@@ -366,7 +366,7 @@ export const DEMO_SERVICES: Service[] = [
     description: 'Our Career Guidance sessions match your strengths, aptitudes, and market trends so you can embark on your educational journey with complete confidence.',
     icon: 'Compass',
     image: null,
-    benefits: ['One-on-one session with senior admissions counsellors', 'Psychometric and aptitude analysis', 'Long-term career roadmap across Indian industries'],
+    benefits: ['One-on-one session with senior admissions counsellors', 'Psychometric and aptitude analysis', 'Long-term global career roadmap across international industries'],
     process_steps: ['Initial consultation', 'Aptitude mapping', 'Career options presentation', 'Action plan'],
     faqs: [
       { question: 'Who can benefit from career guidance?', answer: 'Students from 10th grade onwards, plus two graduates, and degree holders seeking the right direction.' },
@@ -376,16 +376,16 @@ export const DEMO_SERVICES: Service[] = [
   },
   {
     id: 2,
-    title: 'College Selection',
+    title: 'University Selection',
     slug: 'college-selection',
-    short_description: 'Comprehensive college comparison across accreditation, campus infrastructure, and placement records.',
-    description: 'Find the right campus culture, location, and fee structure from premier institutions across educational hubs throughout India.',
+    short_description: 'Comprehensive university comparison across global accreditation, faculty, and clinical/campus infrastructure.',
+    description: 'Find the right campus culture, location, and fee structure from premier accredited universities and medical faculties worldwide.',
     icon: 'GraduationCap',
     image: null,
-    benefits: ['Detailed college comparison matrix', 'Insights into campus placements & NAAC rankings', 'Complete fee structure transparency'],
+    benefits: ['Detailed university comparison matrix', 'Insights into global rankings & WHO/NMC accreditations', 'Complete fee structure transparency'],
     process_steps: ['Requirement gathering', 'Shortlist generation', 'Campus comparison', 'Direct recommendation'],
     faqs: [
-      { question: 'Do you cover colleges across all India?', answer: 'Yes, we guide admissions across major educational hubs in India including Karnataka, Kerala, Tamil Nadu, Maharashtra, Delhi NCR, and more.' }
+      { question: 'Do you cover international universities as well as domestic ones?', answer: 'Yes, under our Education Without Borders vision, we guide admissions across premier institutions worldwide including India, Russia, Georgia, Uzbekistan, Philippines, Kazakhstan, UK, and Europe.' }
     ],
     display_order: 2,
   },
@@ -408,14 +408,14 @@ export const DEMO_SERVICES: Service[] = [
     id: 4,
     title: 'Admission Assistance',
     slug: 'admission-assistance',
-    short_description: 'First-to-end guidance with college documentation, quota procedures, and enrollment deadlines.',
+    short_description: 'First-to-end guidance with university documentation, apostille, visa procedures, and enrollment deadlines.',
     description: 'Simplify the entire enrollment cycle. We verify your certificates, prepare submission forms, and guide you from your first step to final admission confirmation.',
     icon: 'FileCheck',
     image: null,
     benefits: ['Documentation checklist', 'Deadline tracking', 'Direct admission cell liaison'],
     process_steps: ['Document collection', 'Application filling', 'Verification & submission', 'Seat confirmation'],
     faqs: [
-      { question: 'Do you support merit and management quota admissions?', answer: 'Yes, we provide guidance for both merit and direct college seat allocations across institutions nationwide.' }
+      { question: 'Do you support merit and international seat admissions?', answer: 'Yes, we provide guidance for merit seats, international university allocations, and direct admissions across institutions worldwide.' }
     ],
     display_order: 4,
   },

@@ -47,7 +47,7 @@ export default function PrivacyPolicyPage() {
             <ul className="space-y-2 pl-4">
               {[
                 'Contact Details: Full Name, WhatsApp/Mobile Phone Number, and Email Address.',
-                'Location Preferences: Preferred Country (India or Overseas), Preferred State, and Preferred City.',
+                'Location Preferences: Preferred Country, Preferred State / Province, and Preferred City.',
                 'Academic Interests: Target Degree or Program (e.g. MBBS, B.Pharm, Pharm.D, BDS, BTech, Nursing, etc.).',
                 'Message Details: Any additional academic background, scores, marks, or specific institutional questions you submit.',
               ].map((item, idx) => (

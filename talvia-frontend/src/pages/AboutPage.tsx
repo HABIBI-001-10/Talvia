@@ -12,7 +12,7 @@ export default function AboutPage() {
             <p className="text-[#E4C586] font-semibold text-xs uppercase tracking-[0.25em] mb-2">Who We Are</p>
             <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-3">About Talvia Consultancy</h1>
             <p className="text-slate-300 max-w-xl text-base font-light">
-              Your Education. Your Future. Our Guidance. • Pan-India Admissions Advisory
+              Your Education. Your Future. Our Guidance. • Education Without Borders
             </p>
           </ScrollReveal>
         </div>
@@ -26,16 +26,16 @@ export default function AboutPage() {
               <div>
                 <p className="section-subtitle mb-2">Our Foundation</p>
                 <h2 className="section-title mb-6 leading-tight">
-                  India's Dedicated Higher Education Advisory
+                  A Global Vision for Higher Education
                 </h2>
                 <p className="text-slate-600 leading-relaxed mb-5 text-base">
-                  Talvia Consultancy was founded with a singular conviction: every student deserves access to unbiased, professional, and transparent higher education counselling. Choosing the right college and course shapes your career trajectory, and our senior advisors are dedicated to making this process confident, informed, and empowering.
+                  Talvia Consultancy was founded with a singular conviction: every student deserves access to unbiased, professional, and transparent higher education counselling. Guided by our vision of <strong>Education Without Borders</strong>, our senior advisors empower students to pursue world-class medical, pharmacy, healthcare, and professional degrees across recognized global universities.
                 </p>
                 <p className="text-slate-600 leading-relaxed mb-5 text-base">
-                  Over the years, Talvia has forged verified networks with 25+ premier colleges and universities across Karnataka, Kerala, Tamil Nadu, Maharashtra, Delhi NCR, and other key Indian educational hubs. We guide thousands of students from their first consultation through documentation, quota allocations, and final campus admissions.
+                  Over the years, Talvia has established strong advisory networks across 25+ countries — including India, Russia, Georgia, Uzbekistan, the Philippines, Kazakhstan, the UK, and Europe. We provide comprehensive first-to-end guidance from international course selection through document apostille, visa filing, quota seats, and final campus enrollment.
                 </p>
                 <p className="text-slate-600 leading-relaxed mb-8 text-base">
-                  All initial counselling and admissions guidance sessions at Talvia are dedicated to supporting students and their families.
+                  All initial counselling and admissions guidance sessions at Talvia are dedicated to supporting students and their families in making informed academic choices.
                 </p>
                 <Link
                   to="/contact?counselling=true"
@@ -49,9 +49,9 @@ export default function AboutPage() {
             <ScrollReveal direction="right">
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { icon: Building2, value: 25, suffix: '+', label: 'Top Colleges' },
-                  { icon: Users, value: 28, suffix: '+', label: 'States Covered' },
-                  { icon: Target, value: 100, suffix: '%', label: 'Expert Guidance' },
+                  { icon: Building2, value: 150, suffix: '+', label: 'Partner Universities' },
+                  { icon: Users, value: 25, suffix: '+', label: 'Countries Covered' },
+                  { icon: Target, value: 100, suffix: '%', label: 'Global Guidance' },
                   { icon: Heart, value: 100, suffix: '%', label: 'Student-First Focus' },
                 ].map(({ icon: Icon, value, suffix, label }) => (
                   <div key={label} className="bg-white rounded-2xl p-6 border border-slate-200/80 text-center shadow-sm hover:border-[#C59B4E]/60 transition-colors">
@@ -85,17 +85,17 @@ export default function AboutPage() {
               {
                 title: 'Our Vision',
                 symbol: '01',
-                text: 'To be India’s premier higher education consultancy, recognized for ethical guidance, exceptional college outcomes, and student empowerment across all states.',
+                text: 'To be a globally trusted education consultancy, recognized for ethical guidance, exceptional student outcomes, and empowering students to access premier higher education without borders.',
               },
               {
                 title: 'Our Mission',
                 symbol: '02',
-                text: 'To provide accessible, transparent, and personalized college guidance across India, bridging the gap between student aspirations and top educational opportunities.',
+                text: 'To provide accessible, transparent, and personalized admissions guidance worldwide, bridging the gap between student aspirations and top international educational opportunities.',
               },
               {
                 title: 'Our Values',
                 symbol: '03',
-                text: 'Uncompromising integrity, student-first advocacy, full transparency regarding fees and eligibility, and dedicated support from the first step to final admission.',
+                text: 'Uncompromising integrity, student-first advocacy, global regulatory compliance (WHO, NMC, ECFMG, PCI), and dedicated support from the first step to final campus enrollment.',
               },
             ].map(({ title, symbol, text }) => (
               <StaggerItem key={title}>
@@ -124,14 +124,14 @@ export default function AboutPage() {
                   <h3 className="text-2xl font-black mb-6 tracking-tight">Why Choose Talvia Consultancy?</h3>
                   <div className="space-y-3.5">
                     {[
-                      'Network of 25+ accredited colleges and universities across India',
-                      'Personalised, one-on-one counselling sessions',
-                      'Admissions coverage across 28+ Indian states & UTs',
-                      'Professional guidance and transparent academic counselling',
-                      'First-to-end admission guidance and documentation support',
-                      'Experienced counsellors with deep pan-India institutional knowledge',
-                      'Student-first advocacy in every college recommendation',
-                      'Transparent and unbiased fee and accreditation metrics',
+                      'Network of top accredited universities across 25+ countries worldwide',
+                      'Personalised, one-on-one international admissions counselling',
+                      'Admissions coverage for MBBS Abroad, Pharmacy, Tech & Management',
+                      'Comprehensive guidance on global licensing (NMC, WHO, ECFMG, PCI, GMC)',
+                      'First-to-end support with visa processing, apostille & document verification',
+                      'Experienced counsellors with deep international admissions expertise',
+                      'Student-first advocacy in every university recommendation',
+                      'Transparent and unbiased fee structures in INR and local currencies',
                     ].map((point) => (
                       <div key={point} className="flex items-start gap-3">
                         <CheckCircle2 size={17} className="text-[#C59B4E] flex-shrink-0 mt-0.5" />
@@ -151,10 +151,10 @@ export default function AboutPage() {
                   At Talvia Consultancy, we recognize that every student possesses distinct talents, financial parameters, and professional goals. Our advisory journey begins with active listening — understanding academic records, career aspirations, and personal preferences before proposing any institution.
                 </p>
                 <p className="text-slate-600 leading-relaxed mb-5 text-base">
-                  We never push specific colleges based on quotas or commercial arrangements. Our recommendations are strictly aligned with the student's best interests. This commitment to honest, impartial counsel is what has established Talvia's reputation across India.
+                  We never push specific institutions based on commercial arrangements. Our recommendations are strictly aligned with the student's best interests, licensing pathways, and career aspirations. This commitment to honest, impartial counsel is what has established Talvia's global reputation.
                 </p>
                 <p className="text-slate-600 leading-relaxed mb-8 text-base">
-                  From initial profile evaluation to final fee remittance and hostel accommodation assistance, our team stands with you at every milestone.
+                  From initial profile evaluation to final visa approvals, accommodation assistance, and pre-departure briefings, our team stands with you at every milestone.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link to="/courses" className="btn-primary">
@@ -175,10 +175,10 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <ScrollReveal direction="up">
             <h2 className="text-3xl md:text-4xl font-black mb-4 tracking-tight">
-              Ready to Secure Your Academic Future?
+              Ready to Study Without Borders?
             </h2>
             <p className="text-slate-300 text-base md:text-lg mb-8 font-light">
-              Connect with our admissions specialists for personalized one-on-one guidance.
+              Connect with our global admissions specialists for personalized guidance and university selection.
             </p>
             <Link
               to="/contact?counselling=true"

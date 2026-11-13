@@ -73,7 +73,7 @@ export default function ServiceDetailPage() {
             </div>
             <div>
               <span className="text-xs uppercase tracking-widest text-[#E4C586] font-semibold block mb-1">
-                Admissions Consultancy
+                Global Admissions Consultancy • Education Without Borders
               </span>
               <h1 className="text-3xl md:text-4xl font-black tracking-tight">{service.title}</h1>
               <p className="text-slate-300 mt-1 text-sm font-light">{service.short_description}</p>

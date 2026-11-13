@@ -30,10 +30,10 @@ export default function ServicesPage() {
       <div className="bg-gradient-to-b from-[#141824] via-[#18202E] to-[#121620] text-white py-20 border-b border-[#252E3E]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal direction="down">
-            <p className="text-[#E4C586] font-semibold text-xs uppercase tracking-[0.25em] mb-2">Advisory Solutions</p>
+            <p className="text-[#E4C586] font-semibold text-xs uppercase tracking-[0.25em] mb-2">Global Advisory Solutions</p>
             <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-3">Our Consultancy Services</h1>
             <p className="text-slate-300 max-w-xl text-base font-light">
-              Comprehensive higher education guidance at every milestone — unbiased, professional, and dedicated to student success.
+              Comprehensive higher education guidance worldwide — Education Without Borders, dedicated to student success across domestic and international universities.
             </p>
           </ScrollReveal>
         </div>
