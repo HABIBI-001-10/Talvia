@@ -17,8 +17,11 @@ export const SITE_NAME = 'TALVIA Consultancy';
 
 /**
  * Universal SEO component for TALVIA Consultancy.
- * Manages document.title, standard meta tags, Open Graph, Twitter Cards,
- * canonical URLs, robots directives, and JSON-LD structured data.
+ * Manages document.title, meta tags, Open Graph, Twitter Cards,
+ * canonical URLs, and JSON-LD structured data.
+ *
+ * Guarantees strictly ONE <title> tag, ONE meta description, and ONE canonical link
+ * across client-side page transitions, eliminating duplicate tags.
  */
 export default function SEO({
   title,
@@ -43,40 +46,65 @@ export default function SEO({
   useEffect(() => {
     if (typeof document === 'undefined') return;
 
-    // 1. Update Title
+    // 1. Strictly maintain EXACTLY ONE <title> tag in <head>
     document.title = title;
+    const titleElements = document.querySelectorAll('title');
+    if (titleElements.length > 0) {
+      titleElements[0].textContent = title;
+      // Remove any duplicate title elements
+      for (let i = 1; i < titleElements.length; i++) {
+        titleElements[i].remove();
+      }
+    } else {
+      const t = document.createElement('title');
+      t.id = 'page-title';
+      t.textContent = title;
+      document.head.appendChild(t);
+    }
 
-    // Helper to set or create a <meta> tag
+    // Helper: set or update exactly ONE <meta> tag
     const setMeta = (attr: 'name' | 'property', key: string, content: string | undefined) => {
-      let tag = document.querySelector(`meta[${attr}="${key}"]`);
+      const tags = document.querySelectorAll(`meta[${attr}="${key}"]`);
       if (!content) {
-        if (tag) tag.remove();
+        tags.forEach(t => t.remove());
         return;
       }
-      if (!tag) {
-        tag = document.createElement('meta');
+      if (tags.length > 0) {
+        tags[0].setAttribute('content', content);
+        // Remove duplicates
+        for (let i = 1; i < tags.length; i++) {
+          tags[i].remove();
+        }
+      } else {
+        const tag = document.createElement('meta');
         tag.setAttribute(attr, key);
+        tag.setAttribute('content', content);
         document.head.appendChild(tag);
       }
-      tag.setAttribute('content', content);
     };
 
-    // Helper to set or create a <link> tag
+    // Helper: set or update exactly ONE <link> tag
     const setLink = (rel: string, href: string | undefined) => {
-      let link = document.querySelector(`link[rel="${rel}"]`) as HTMLLinkElement | null;
+      const links = document.querySelectorAll(`link[rel="${rel}"]`);
       if (!href) {
-        if (link) link.remove();
+        links.forEach(l => l.remove());
         return;
       }
-      if (!link) {
-        link = document.createElement('link');
+      if (links.length > 0) {
+        links[0].setAttribute('href', href);
+        // Remove duplicates
+        for (let i = 1; i < links.length; i++) {
+          links[i].remove();
+        }
+      } else {
+        const link = document.createElement('link');
         link.setAttribute('rel', rel);
+        link.setAttribute('href', href);
         document.head.appendChild(link);
       }
-      link.setAttribute('href', href);
     };
 
-    // Helper to set JSON-LD schema script
+    // Helper: set or update JSON-LD schema
     const setSchema = (data: Record<string, unknown> | Array<Record<string, unknown>> | undefined) => {
       let script = document.getElementById('talvia-schema-jsonld') as HTMLScriptElement | null;
       if (!data) {
@@ -98,7 +126,7 @@ export default function SEO({
     setMeta('name', 'author', SITE_NAME);
     setMeta('name', 'robots', noindex ? 'noindex, nofollow' : 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1');
 
-    // Open Graph (Facebook, WhatsApp, LinkedIn)
+    // Open Graph
     setMeta('property', 'og:title', title);
     setMeta('property', 'og:description', description);
     setMeta('property', 'og:url', canonicalUrl);
@@ -116,34 +144,9 @@ export default function SEO({
     // Canonical link
     setLink('canonical', canonicalUrl);
 
-    // Schema Markup
+    // JSON-LD Schema
     setSchema(structuredData);
   }, [title, description, canonicalUrl, keywordsStr, ogType, imageUrl, noindex, structuredData]);
 
-  return (
-    <>
-      <title>{title}</title>
-      <meta name="description" content={description} />
-      {keywordsStr && <meta name="keywords" content={keywordsStr} />}
-      <meta name="author" content={SITE_NAME} />
-      <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
-      <link rel="canonical" href={canonicalUrl} />
-
-      {/* Open Graph */}
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
-      <meta property="og:url" content={canonicalUrl} />
-      <meta property="og:type" content={ogType} />
-      <meta property="og:image" content={imageUrl} />
-      <meta property="og:site_name" content={SITE_NAME} />
-      <meta property="og:locale" content="en_US" />
-
-      {/* Twitter */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={imageUrl} />
-    </>
-  );
+  return null;
 }
-
