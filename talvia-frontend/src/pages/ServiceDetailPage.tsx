@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, CheckCircle2, ChevronDown, ChevronUp, Compass, GraduationCap, BookOpen, FileCheck, ClipboardList, Heart } from 'lucide-react';
+import { ArrowLeft, CheckCircle2, ChevronDown, ChevronUp, Compass, GraduationCap, BookOpen, FileCheck, ClipboardList, Heart, Globe, Plane } from 'lucide-react';
 import { serviceService } from '../services';
 import type { Service } from '../types';
 import { PageLoader, ErrorMessage } from '../components/ui';
@@ -9,7 +9,7 @@ import SEO from '../components/SEO';
 import { ScrollReveal } from '../components/Animations';
 
 const ICON_MAP: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
-  Compass, GraduationCap, BookOpen, FileCheck, ClipboardList, Heart,
+  Compass, GraduationCap, BookOpen, FileCheck, ClipboardList, Heart, Globe, Plane,
 };
 
 function FAQItem({ question, answer }: { question: string; answer: string }) {
@@ -127,12 +127,15 @@ export default function ServiceDetailPage() {
         canonical={`https://talviastudentsgrowth.in/services/${service.slug}`}
         keywords={[
           service.title,
-          'education consultancy',
-          'admissions guidance',
-          'university counseling',
+          'TALVIA',
+          'TALVIA Consultancy',
+          'study abroad guidance',
+          'overseas education guidance',
+          'international university admissions',
+          'MBBS abroad',
+          'university selection',
+          'student visa assistance',
           'higher education advisory',
-          'student visa guidance',
-          'Talvia Consultancy',
           'Education Without Borders',
         ]}
         structuredData={serviceStructuredData}

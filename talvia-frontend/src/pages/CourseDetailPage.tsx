@@ -267,11 +267,17 @@ export default function CourseDetailPage() {
                   Admissions Services for {course.name}
                 </h4>
                 <div className="space-y-2 text-xs">
+                  <Link to="/services/study-abroad-guidance" className="block text-slate-700 hover:text-[#B48A3D] transition-colors py-1">
+                    → Study Abroad & Overseas Education Guidance
+                  </Link>
                   <Link to="/services/college-selection" className="block text-slate-700 hover:text-[#B48A3D] transition-colors py-1">
                     → University Shortlisting & Comparison
                   </Link>
                   <Link to="/services/admission-assistance" className="block text-slate-700 hover:text-[#B48A3D] transition-colors py-1">
                     → Document Apostille & Admission Support
+                  </Link>
+                  <Link to="/services/visa-support-documentation" className="block text-slate-700 hover:text-[#B48A3D] transition-colors py-1">
+                    → Student Visa & Pre-Departure Briefing
                   </Link>
                   <Link to="/services/student-counselling" className="block text-slate-700 hover:text-[#B48A3D] transition-colors py-1">
                     → One-on-One Student & Parent Counselling

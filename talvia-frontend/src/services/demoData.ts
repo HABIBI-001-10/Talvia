@@ -448,6 +448,70 @@ export const DEMO_SERVICES: Service[] = [
       { question: 'Can parents join the counselling session?', answer: 'Yes, parent involvement is highly encouraged for informed decision making.' }
     ],
     display_order: 6,
+  },
+  {
+    id: 7,
+    title: 'Study Abroad Guidance',
+    slug: 'study-abroad-guidance',
+    short_description: 'Strategic overseas education counselling for accredited universities across 25+ countries worldwide.',
+    description: 'Our Study Abroad Guidance service empowers students to pursue globally accredited undergraduate and postgraduate degrees. From evaluating eligibility for MBBS abroad in Russia, Georgia, Uzbekistan, Kazakhstan, and the Philippines, to accessing top pharmacy, tech, and management programs in the UK and Europe, we deliver transparent, end-to-end international admissions advisory under our vision: Education Without Borders.',
+    icon: 'Globe',
+    image: null,
+    benefits: [
+      'Dedicated counselling for 25+ global study destinations',
+      'Accredited international universities recognized by WHO, NMC, ECFMG, PCI & UNESCO',
+      'Transparent tuition fee structures in INR and local currencies with 0 hidden costs',
+      'Comprehensive guidance on English-medium curricula and global licensing pathways',
+    ],
+    process_steps: [
+      'Global Profile & Eligibility Assessment',
+      'Target Country & University Shortlisting',
+      'International Application & Documentation Audit',
+      'Admission Letter Issuance & Foreign Enrollment',
+    ],
+    faqs: [
+      {
+        question: 'Which study abroad destinations does TALVIA Consultancy cover?',
+        answer: 'TALVIA provides overseas education guidance across 25+ countries, including Russia, Georgia, Uzbekistan, Kazakhstan, the Philippines, the United Kingdom, and Europe, with dedicated advisory for medical, healthcare, engineering, and business faculties.',
+      },
+      {
+        question: 'Are overseas degrees recognized by Indian and global licensing bodies?',
+        answer: 'Yes, TALVIA exclusively recommends universities that comply with national education ministries and international licensing councils such as NMC, WHO, ECFMG, and FAIMER.',
+      },
+    ],
+    display_order: 7,
+  },
+  {
+    id: 8,
+    title: 'Visa & Documentation Support',
+    slug: 'visa-support-documentation',
+    short_description: 'First-to-end student visa processing, apostille / MEA attestation, and pre-departure briefings.',
+    description: 'Navigating international visa requirements and document legalisation is seamless with TALVIA. We provide complete student visa assistance, including Ministry of External Affairs (MEA) apostille, embassy attestations, financial documentation scrutiny, mock visa interviews, forex assistance, and pre-departure orientations for a confident transition to your campus abroad.',
+    icon: 'Plane',
+    image: null,
+    benefits: [
+      'Step-by-step student visa application filing with high success rates',
+      'Ministry of External Affairs (MEA) apostille and embassy legalisation assistance',
+      'One-on-one visa interview preparation and financial dossier verification',
+      'Pre-departure orientation covering travel, forex, health insurance, and campus check-in',
+    ],
+    process_steps: [
+      'Document Checklist & Academic Dossier Audit',
+      'Apostille, Notarization & Legal Translation',
+      'Visa Application Submission & Interview Preparation',
+      'Visa Approval, Forex Guidance & Pre-Departure Briefing',
+    ],
+    faqs: [
+      {
+        question: 'Does TALVIA assist with student visas for all destinations?',
+        answer: 'Yes, our visa desk manages student visa filing, embassy appointments, and document legalisation for all partner countries worldwide.',
+      },
+      {
+        question: 'What is covered during TALVIA pre-departure briefing?',
+        answer: 'We brief students and parents on air travel logistics, airport transfers, foreign currency exchange, local SIM cards, hostel accommodation, climate preparation, and university enrollment procedures.',
+      },
+    ],
+    display_order: 8,
   }
 ];
 

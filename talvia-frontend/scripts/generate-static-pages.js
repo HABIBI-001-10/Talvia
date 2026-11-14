@@ -17,13 +17,13 @@ const template = fs.readFileSync(templatePath, 'utf8');
 const SITE_URL = 'https://talviastudentsgrowth.in';
 const DEFAULT_IMAGE = `${SITE_URL}/exact-logo-raw.png`;
 
-// All 26 canonical public routes matching sitemap.xml and React Router
+// All 28 canonical public routes matching sitemap.xml and React Router
 const routes = [
   {
     path: '',
     title: 'TALVIA — Official Website | Global Education Admissions • Education Without Borders',
     description: 'The official website of TALVIA. Premier global education consultancy connecting aspiring students with top-ranked universities worldwide. First-to-end guidance for MBBS abroad, Pharmacy, Healthcare & Professional degrees under our vision: Education Without Borders.',
-    keywords: 'TALVIA, TALVIA Consultancy, TALVIA official website, TALVIA Education, TALVIA admissions, TALVIA students growth, Talvia, talviastudentsgrowth.in, Education Without Borders, global education consultancy, study abroad, MBBS abroad, medical admission guidance, B Pharm admissions, Pharm D courses, international university admissions',
+    keywords: 'TALVIA, TALVIA Consultancy, TALVIA official website, TALVIA Education, TALVIA admissions, TALVIA students growth, Talvia, talviastudentsgrowth.in, Education Without Borders, global education consultancy, study abroad, overseas education guidance, MBBS abroad, study MBBS in Russia, study MBBS in Georgia, study MBBS in Uzbekistan, international admissions, university selection, student visa assistance, medical admission guidance, B Pharm admissions, Pharm D courses, international university admissions',
     canonical: `${SITE_URL}/`,
     structuredData: {
       '@context': 'https://schema.org',
@@ -122,9 +122,9 @@ const routes = [
   },
   {
     path: 'about',
-    title: 'About Us | TALVIA Consultancy • Education Without Borders',
-    description: 'Discover TALVIA Consultancy\'s global vision for higher education without borders. Empowering students with ethical, transparent admissions guidance across 25+ countries.',
-    keywords: 'TALVIA, TALVIA Consultancy, TALVIA Students Growth, about Talvia, global education consultancy, education without borders, study abroad consultants, international university admissions, overseas medical education, ethical education advisory',
+    title: 'About Us | TALVIA Consultancy • Global Education & Study Abroad Advisory',
+    description: 'Discover TALVIA Consultancy\'s global vision for higher education without borders. Empowering students with ethical, transparent admissions guidance across 25+ countries for MBBS abroad, pharmacy, and engineering.',
+    keywords: 'TALVIA, TALVIA Consultancy, TALVIA Students Growth, about Talvia, global education consultancy, education without borders, study abroad consultants, overseas education guidance, international university admissions, MBBS abroad guidance, ethical education advisory',
     canonical: `${SITE_URL}/about`,
     structuredData: {
       '@context': 'https://schema.org',
@@ -195,9 +195,9 @@ const routes = [
   },
   {
     path: 'courses',
-    title: 'International Academic Programs & Degrees | TALVIA Consultancy',
+    title: 'International Degrees & Academic Programs | TALVIA Consultancy',
     description: 'Explore premier Medical (MBBS Abroad & India), Pharmacy (B.Pharm, Pharm.D), Healthcare, Engineering, and Professional degree programs across accredited global universities.',
-    keywords: 'MBBS admission, MBBS abroad, B Pharm colleges, Pharm D admissions, BDS dental degree, BAMS Ayurveda, nursing courses, engineering admissions, global university degrees, medical degrees abroad',
+    keywords: 'international degrees, MBBS abroad, study MBBS overseas, B Pharm admissions, Pharm D courses, BDS admissions, nursing courses, engineering degrees abroad, global education programs, TALVIA courses',
     canonical: `${SITE_URL}/courses`,
     structuredData: {
       '@context': 'https://schema.org',
@@ -206,7 +206,7 @@ const routes = [
           '@type': 'CollectionPage',
           '@id': `${SITE_URL}/courses#webpage`,
           url: `${SITE_URL}/courses`,
-          name: 'International Academic Programs & Degrees | TALVIA Consultancy',
+          name: 'International Degrees & Academic Programs | TALVIA Consultancy',
           description: 'Explore premier Medical, Pharmacy, Healthcare, Engineering, and Professional degree programs across accredited universities worldwide.',
         },
         {
@@ -314,9 +314,9 @@ const routes = [
   // Services Directory
   {
     path: 'services',
-    title: 'Global Higher Education Advisory Services | TALVIA Consultancy',
-    description: 'Comprehensive admissions advisory: career guidance, international university selection, course advisory, visa documentation, and student counselling worldwide.',
-    keywords: 'education consultancy services, career guidance, university selection, college admissions assistance, visa documentation support, student counselling, Education Without Borders',
+    title: 'Global Higher Education & Study Abroad Advisory Services | TALVIA Consultancy',
+    description: 'Comprehensive admissions advisory: study abroad guidance, international university selection, student visa support, document apostille, course advisory, and personal counselling worldwide.',
+    keywords: 'study abroad guidance, overseas education consultancy, international admissions advisory, student visa assistance, document apostille attestation, university selection, MBBS abroad advisory, Education Without Borders',
     canonical: `${SITE_URL}/services`,
     structuredData: {
       '@context': 'https://schema.org',
@@ -385,6 +385,20 @@ const routes = [
     description: 'Dedicated, confidential counselling for exam stress, parent alignment, and career anxiety. Comprehensive guidance from senior international education counsellors. Education Without Borders.',
     keywords: 'Student Counselling, admission stress, parent counselling, career guidance, confidential education counselling',
     canonical: `${SITE_URL}/services/student-counselling`,
+  },
+  {
+    path: 'services/study-abroad-guidance',
+    title: 'Study Abroad & Overseas Education Guidance | TALVIA Consultancy',
+    description: 'Expert overseas education consultancy for accredited universities across 25+ countries worldwide. Comprehensive guidance for MBBS abroad, pharmacy, and healthcare degrees under Education Without Borders.',
+    keywords: 'study abroad guidance, overseas education consultancy, study abroad consultants, MBBS abroad, international admissions, study in Russia, study in Georgia, study in Uzbekistan, study in UK, global university admissions',
+    canonical: `${SITE_URL}/services/study-abroad-guidance`,
+  },
+  {
+    path: 'services/visa-support-documentation',
+    title: 'Student Visa Support & Pre-Departure Briefing | TALVIA Consultancy',
+    description: 'First-to-end student visa processing, MEA apostille, embassy legalisation, document verification, and pre-departure orientations by TALVIA Consultancy.',
+    keywords: 'student visa assistance, visa support, apostille attestation, MEA attestation, study abroad documentation, pre departure briefing, student visa guidance, international student relocation',
+    canonical: `${SITE_URL}/services/visa-support-documentation`,
   },
   // Contact & Legal
   {

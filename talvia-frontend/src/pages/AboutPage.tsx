@@ -120,8 +120,8 @@ export default function AboutPage() {
   return (
     <>
       <SEO
-        title="About Us | TALVIA Consultancy • Education Without Borders"
-        description="Discover TALVIA Consultancy's global vision for higher education without borders. Empowering students with ethical, transparent admissions guidance across 25+ countries."
+        title="About Us | TALVIA Consultancy • Global Education & Study Abroad Advisory"
+        description="Discover TALVIA Consultancy's global vision for education without borders. Leading overseas education consultancy empowering students with ethical admissions guidance across 25+ countries."
         canonical="https://talviastudentsgrowth.in/about"
         keywords={[
           'TALVIA',
@@ -129,10 +129,11 @@ export default function AboutPage() {
           'TALVIA Students Growth',
           'about Talvia',
           'global education consultancy',
-          'education without borders',
           'study abroad consultants',
+          'overseas education guidance',
           'international university admissions',
-          'overseas medical education',
+          'MBBS abroad consultants',
+          'education without borders',
           'ethical education advisory',
         ]}
         structuredData={aboutStructuredData}
@@ -142,10 +143,10 @@ export default function AboutPage() {
       <div className="bg-gradient-to-b from-[#141824] via-[#18202E] to-[#121620] text-white py-20 border-b border-[#252E3E]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal direction="down">
-            <p className="text-[#E4C586] font-semibold text-xs uppercase tracking-[0.25em] mb-2">Who We Are</p>
+            <p className="text-[#E4C586] font-semibold text-xs uppercase tracking-[0.25em] mb-2">Global Admissions Office • Education Without Borders</p>
             <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-3">About TALVIA Consultancy</h1>
             <p className="text-slate-300 max-w-xl text-base font-light">
-              Your Education. Your Future. Our Guidance. • Education Without Borders
+              Your Education. Your Future. Our Guidance. • Premier Global Education & Study Abroad Advisory
             </p>
           </ScrollReveal>
         </div>
@@ -157,12 +158,12 @@ export default function AboutPage() {
           <div className="grid lg:grid-cols-2 gap-14 items-center">
             <ScrollReveal direction="left">
               <div>
-                <p className="section-subtitle mb-2">Our Foundation</p>
+                <p className="section-subtitle mb-2">Our Foundation & Global Reach</p>
                 <h2 className="section-title mb-6 leading-tight">
-                  A Global Vision for Higher Education
+                  A Global Vision for Study Abroad & Higher Education
                 </h2>
                 <p className="text-slate-600 leading-relaxed mb-5 text-base">
-                  <strong>TALVIA Consultancy</strong> (TALVIA Students Growth) was founded with a singular conviction: every student deserves access to unbiased, professional, and transparent higher education counselling. Guided by our vision of <strong>Education Without Borders</strong>, our senior advisors empower students to pursue world-class medical, pharmacy, healthcare, and professional degrees across recognized global universities.
+                  <strong>TALVIA Consultancy</strong> (TALVIA Students Growth) was founded with a singular conviction: every student deserves access to unbiased, professional, and transparent overseas education counselling. Guided by our vision of <strong>Education Without Borders</strong>, our senior advisors empower students to pursue world-class medical, pharmacy, healthcare, and professional degrees across recognized global universities.
                 </p>
                 <p className="text-slate-600 leading-relaxed mb-5 text-base">
                   Over the years, TALVIA has established strong advisory networks across 25+ countries — including India, Russia, Georgia, Uzbekistan, the Philippines, Kazakhstan, the UK, and Europe. We provide comprehensive first-to-end guidance from international course selection through document apostille, visa filing, quota seats, and final campus enrollment.
@@ -173,7 +174,7 @@ export default function AboutPage() {
                   </p>
                 </div>
                 <p className="text-slate-600 leading-relaxed mb-8 text-base">
-                  Explore our <Link to="/services" className="text-slate-900 font-semibold underline hover:text-[#B48A3D]">admissions advisory services</Link> and browse accredited <Link to="/courses" className="text-slate-900 font-semibold underline hover:text-[#B48A3D]">global degree programs</Link> to take the next confident step in your academic journey.
+                  Explore our <Link to="/services/study-abroad-guidance" className="text-slate-900 font-semibold underline hover:text-[#B48A3D]">study abroad guidance</Link>, learn about <Link to="/services/visa-support-documentation" className="text-slate-900 font-semibold underline hover:text-[#B48A3D]">visa & document legalisation</Link>, or browse accredited <Link to="/courses" className="text-slate-900 font-semibold underline hover:text-[#B48A3D]">global degree programs</Link> to take the next confident step in your academic journey.
                 </p>
                 <Link
                   to="/contact?counselling=true"

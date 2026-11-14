@@ -18,7 +18,7 @@ export default function TalviaLogo({
       <div className="flex items-center gap-2 group">
         <img
           src={logoRaw}
-          alt="TALVIA Education Consultancy"
+          alt="TALVIA Consultancy — Global Education & Overseas Admissions Advisory"
           className={`${className} w-auto object-contain rounded-lg transition-transform duration-200 group-hover:scale-105`}
         />
         {showTagline && (
@@ -39,7 +39,7 @@ export default function TalviaLogo({
         <div className="flex items-center">
           <img
             src={logoSrc}
-            alt="TALVIA Education Consultancy"
+            alt="TALVIA Consultancy — Global Education & Overseas Admissions Advisory"
             className={`${className} w-auto object-contain transition-transform duration-200 group-hover:scale-105`}
           />
         </div>

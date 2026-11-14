@@ -64,7 +64,9 @@ export default function CoursesPage() {
         description: 'Explore premier Medical (MBBS Abroad & India), Pharmacy (B.Pharm, Pharm.D), Healthcare, Engineering, and Professional degree disciplines.',
         publisher: {
           '@type': 'EducationalOrganization',
-          name: 'TALVIA Consultancy',
+          '@id': 'https://talviastudentsgrowth.in/#organization',
+          name: 'TALVIA',
+          legalName: 'TALVIA Educational Consultancy',
           url: 'https://talviastudentsgrowth.in',
         },
       },
@@ -95,8 +97,13 @@ export default function CoursesPage() {
         description="Explore premier Medical (MBBS Abroad & India), Pharmacy (B.Pharm, Pharm.D), Healthcare, Engineering, and Professional degree programs across accredited global universities."
         canonical="https://talviastudentsgrowth.in/courses"
         keywords={[
+          'TALVIA',
+          'TALVIA Consultancy',
           'MBBS admission',
           'MBBS abroad',
+          'study MBBS abroad',
+          'study abroad consultants',
+          'overseas education guidance',
           'B Pharm colleges',
           'Pharm D admissions',
           'BDS dental degree',
@@ -105,6 +112,7 @@ export default function CoursesPage() {
           'engineering admissions',
           'global university degrees',
           'medical degrees abroad',
+          'Education Without Borders',
         ]}
         structuredData={coursesStructuredData}
       />
@@ -113,10 +121,10 @@ export default function CoursesPage() {
       <div className="bg-gradient-to-b from-[#141824] via-[#18202E] to-[#121620] text-white py-20 border-b border-[#252E3E]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal direction="down">
-            <p className="text-[#E4C586] font-semibold text-xs uppercase tracking-[0.25em] mb-2">Global Academic Directory</p>
-            <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-3">International Degrees & Programs</h1>
+            <p className="text-[#E4C586] font-semibold text-xs uppercase tracking-[0.25em] mb-2">Global Academic Directory • Education Without Borders</p>
+            <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-3">International Degrees & Academic Programs</h1>
             <p className="text-slate-300 max-w-xl text-base font-light">
-              Explore globally recognized Medical (MBBS Abroad & India), Pharmacy (B.Pharm/Pharm.D), Healthcare, Engineering, and Professional degree programs.
+              Explore globally accredited Medical (MBBS Abroad & India), Pharmacy (B.Pharm, Pharm.D), Healthcare, Engineering, and Management degrees across top-ranked universities worldwide.
             </p>
           </ScrollReveal>
         </div>

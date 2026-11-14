@@ -63,22 +63,24 @@ export default function Footer() {
 
           {/* Consultancy Services */}
           <div>
-            <h3 className="font-semibold text-xs tracking-widest uppercase text-[#C59B4E] mb-5">Our Services</h3>
-            <ul className="space-y-2.5">
+            <h3 className="font-semibold text-xs tracking-widest uppercase text-[#C59B4E] mb-5">Admissions Services</h3>
+            <ul className="space-y-2">
               {[
-                'Career Guidance',
-                'Campus & Course Advisory',
-                'Course Selection',
-                'Admission Assistance',
-                'Application Support',
-                'Student Counselling',
-              ].map((service) => (
-                <li key={service}>
+                { label: 'Study Abroad Guidance', to: '/services/study-abroad-guidance' },
+                { label: 'University Selection', to: '/services/college-selection' },
+                { label: 'Admission Assistance', to: '/services/admission-assistance' },
+                { label: 'Visa & Documentation', to: '/services/visa-support-documentation' },
+                { label: 'Career Guidance', to: '/services/career-guidance' },
+                { label: 'Course Selection', to: '/services/course-selection' },
+                { label: 'Application Support', to: '/services/application-support' },
+                { label: 'Student Counselling', to: '/services/student-counselling' },
+              ].map(({ label, to }) => (
+                <li key={label}>
                   <Link
-                    to={`/services/${service.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`}
-                    className="text-slate-400 hover:text-white text-sm transition-colors duration-200 flex items-center gap-1.5"
+                    to={to}
+                    className="text-slate-400 hover:text-white text-xs transition-colors duration-200 flex items-center gap-1.5"
                   >
-                    <span className="text-slate-600">›</span> {service}
+                    <span className="text-slate-600">›</span> {label}
                   </Link>
                 </li>
               ))}

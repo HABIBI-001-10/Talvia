@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, BookOpen, Compass, GraduationCap, FileCheck, ClipboardList, Heart, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, BookOpen, Compass, GraduationCap, FileCheck, ClipboardList, Heart, CheckCircle2, Globe, Plane } from 'lucide-react';
 import { serviceService } from '../services';
 import type { Service } from '../types';
 import { LoadingSpinner, ErrorMessage } from '../components/ui';
@@ -9,7 +9,7 @@ import SEO from '../components/SEO';
 import { ScrollReveal, StaggerContainer, StaggerItem, HoverLiftCard } from '../components/Animations';
 
 const ICON_MAP: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
-  Compass, GraduationCap, BookOpen, FileCheck, ClipboardList, Heart,
+  Compass, GraduationCap, BookOpen, FileCheck, ClipboardList, Heart, Globe, Plane,
 };
 
 export default function ServicesPage() {
@@ -34,7 +34,9 @@ export default function ServicesPage() {
         serviceType: 'Higher Education Admissions Consulting',
         provider: {
           '@type': 'EducationalOrganization',
-          name: 'TALVIA Consultancy',
+          '@id': 'https://talviastudentsgrowth.in/#organization',
+          name: 'TALVIA',
+          legalName: 'TALVIA Educational Consultancy',
           url: 'https://talviastudentsgrowth.in',
         },
         areaServed: 'Worldwide',
@@ -63,18 +65,22 @@ export default function ServicesPage() {
   return (
     <>
       <SEO
-        title="Global Higher Education Advisory Services | TALVIA Consultancy"
-        description="Comprehensive admissions advisory: career guidance, international university selection, course advisory, visa documentation, and student counselling worldwide."
+        title="Overseas Education & Admissions Services | TALVIA Consultancy"
+        description="Explore comprehensive admissions services from TALVIA Consultancy: Study abroad guidance, university selection, MBBS abroad advisory, visa assistance, application support, and career counselling."
         canonical="https://talviastudentsgrowth.in/services"
         keywords={[
-          'education consultancy services',
-          'career guidance',
+          'TALVIA',
+          'TALVIA Consultancy',
+          'study abroad guidance',
+          'overseas education consultancy',
+          'global education consultancy',
           'university selection',
           'college admissions assistance',
           'visa documentation support',
-          'student counselling',
+          'MBBS abroad admissions',
+          'student visa assistance',
+          'career counselling',
           'Education Without Borders',
-          'Talvia Consultancy services',
         ]}
         structuredData={servicesStructuredData}
       />
@@ -83,10 +89,10 @@ export default function ServicesPage() {
       <div className="bg-gradient-to-b from-[#141824] via-[#18202E] to-[#121620] text-white py-20 border-b border-[#252E3E]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal direction="down">
-            <p className="text-[#E4C586] font-semibold text-xs uppercase tracking-[0.25em] mb-2">Global Advisory Solutions</p>
-            <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-3">Our Consultancy Services</h1>
-            <p className="text-slate-300 max-w-xl text-base font-light">
-              Comprehensive higher education guidance worldwide — Education Without Borders, dedicated to student success across domestic and international universities.
+            <p className="text-[#E4C586] font-semibold text-xs uppercase tracking-[0.25em] mb-2">Global Advisory Solutions • Education Without Borders</p>
+            <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-3">Global Education & Admissions Services</h1>
+            <p className="text-slate-300 max-w-2xl text-base font-light">
+              Comprehensive higher education guidance worldwide — expert support for study abroad, university shortlisting, documentation apostille, and student visa approvals across 25+ countries.
             </p>
           </ScrollReveal>
         </div>
@@ -100,7 +106,7 @@ export default function ServicesPage() {
         ) : error ? (
           <ErrorMessage message={error} />
         ) : (
-          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service, index) => {
               const Icon = ICON_MAP[service.icon] || BookOpen;
               return (
