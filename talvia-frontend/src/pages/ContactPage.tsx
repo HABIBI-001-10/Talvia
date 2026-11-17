@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, MessageCircle } from 'lucide-react';
-import { enquiryService, POPULAR_COUNTRIES, getStatesForCountry } from '../services';
+import { enquiryService, POPULAR_COUNTRIES, getStatesForCountry, DEFAULT_INQUIRY_MESSAGE } from '../services';
 import { ScrollReveal } from '../components/Animations';
 import SEO from '../components/SEO';
 
@@ -202,7 +202,7 @@ export default function ContactPage() {
                       </div>
                     </a>
                     <a
-                      href="https://wa.me/918943442479?text=Hello%20Talvia%20Consultancy%2C%20I%20need%20admissions%20guidance."
+                      href={`https://wa.me/918943442479?text=${encodeURIComponent(DEFAULT_INQUIRY_MESSAGE)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex gap-4 group"
@@ -426,7 +426,7 @@ export default function ContactPage() {
                         value={form.message}
                         onChange={handleChange}
                         rows={4}
-                        placeholder="Tell us about your qualifying examination, marks (NEET/Plus Two), preferences or timeline..."
+                        placeholder="Hello Talvia Team! I'm interested in university admissions and would like to know more about your services."
                         className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#181E2A] resize-none"
                       />
                     </div>

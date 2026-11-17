@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Share2, Globe, Link as LinkIcon, MessageCircle } from 'lucide-react';
 import TalviaLogo from './TalviaLogo';
+import { DEFAULT_INQUIRY_MESSAGE } from '../services';
 
 export default function Footer() {
   return (
@@ -20,7 +21,7 @@ export default function Footer() {
                 { icon: Share2, href: 'https://www.facebook.com/talviaconsultancy', label: 'TALVIA Facebook' },
                 { icon: Globe, href: 'https://www.instagram.com/talviaconsultancy', label: 'TALVIA Instagram' },
                 { icon: LinkIcon, href: 'https://www.linkedin.com/company/talviaconsultancy', label: 'TALVIA LinkedIn' },
-                { icon: MessageCircle, href: 'https://wa.me/918943442479', label: 'TALVIA WhatsApp' },
+                { icon: MessageCircle, href: `https://wa.me/918943442479?text=${encodeURIComponent(DEFAULT_INQUIRY_MESSAGE)}`, label: 'TALVIA WhatsApp' },
               ].map(({ icon: Icon, href, label }) => (
                 <a
                   key={label}
@@ -109,7 +110,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="https://wa.me/918943442479?text=Hello%20Talvia%20Consultancy%2C%20I%20need%20guidance%20on%20university%20admissions%20(Education%20Without%20Borders)."
+                  href={`https://wa.me/918943442479?text=${encodeURIComponent(DEFAULT_INQUIRY_MESSAGE)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex gap-3 text-slate-300 hover:text-white text-sm transition-colors items-center group"

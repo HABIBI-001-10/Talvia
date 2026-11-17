@@ -12,6 +12,7 @@ import {
 } from './demoData';
 
 export const WHATSAPP_PHONE = '918943442479';
+export const DEFAULT_INQUIRY_MESSAGE = "Hello Talvia Team! I'm interested in university admissions and would like to know more about your services.";
 
 export const COUNTRY_STATES_MAP: Record<string, string[]> = {
   'India': [
@@ -106,6 +107,7 @@ export function getStatesForCountry(country: string): string[] {
 export const POPULAR_STATES = COUNTRY_STATES_MAP['India'];
 
 export function createWhatsAppEnquiryUrl(data: EnquiryFormData): string {
+  const queryMessage = data.message?.trim() || DEFAULT_INQUIRY_MESSAGE;
   const lines = [
     '🎓 *New Admissions Enquiry — TALVIA Consultancy*',
     '',
@@ -116,7 +118,7 @@ export function createWhatsAppEnquiryUrl(data: EnquiryFormData): string {
     data.preferred_country ? `🌍 *Preferred Country:* ${data.preferred_country}` : null,
     (data.preferred_state || data.district) ? `📍 *Preferred State:* ${data.preferred_state || data.district}` : null,
     data.preferred_city ? `🏙️ *Preferred City:* ${data.preferred_city}` : null,
-    data.message ? `💬 *Query / Message:* ${data.message}` : null,
+    `💬 *Query / Message:* ${queryMessage}`,
   ].filter(Boolean);
 
   return `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(lines.join('\n'))}`;

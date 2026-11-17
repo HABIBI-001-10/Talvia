@@ -1,4 +1,5 @@
 import { MessageCircle } from 'lucide-react';
+import { DEFAULT_INQUIRY_MESSAGE, WHATSAPP_PHONE } from '../services';
 
 interface WhatsAppButtonProps {
   phone?: string;
@@ -6,8 +7,8 @@ interface WhatsAppButtonProps {
 }
 
 export default function WhatsAppButton({
-  phone = '918943442479',
-  message = 'Hello Talvia Consultancy, I need guidance on university admissions worldwide (Education Without Borders).',
+  phone = WHATSAPP_PHONE,
+  message = DEFAULT_INQUIRY_MESSAGE,
 }: WhatsAppButtonProps) {
   const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
   return (

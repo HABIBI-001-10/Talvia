@@ -280,7 +280,7 @@ export default function EnquiryModal({
                   value={form.message}
                   onChange={handleChange}
                   rows={3}
-                  placeholder="Tell us about your qualifying marks (NEET/Plus Two), budget or preferences..."
+                  placeholder="Hello Talvia Team! I'm interested in university admissions and would like to know more about your services."
                   className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#181E2A] resize-none"
                 />
               </div>

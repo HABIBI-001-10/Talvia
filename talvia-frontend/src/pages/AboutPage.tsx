@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { CheckCircle2, Target, Heart, Users, Building2, ArrowRight, HelpCircle } from 'lucide-react';
 import { ScrollReveal, StaggerContainer, StaggerItem, AnimatedNumber } from '../components/Animations';
 import SEO from '../components/SEO';
+import { DEFAULT_INQUIRY_MESSAGE } from '../services';
 
 export default function AboutPage() {
   const aboutStructuredData = {
@@ -352,7 +353,7 @@ export default function AboutPage() {
                 q: 'How can I connect with TALVIA admissions counsellors?',
                 a: (
                   <>
-                    You can schedule a one-on-one session via our <Link to="/contact?counselling=true" className="text-[#B48A3D] font-semibold underline">Admissions Contact Page</Link>, call us at <a href="tel:+918943442479" className="text-[#B48A3D] font-semibold underline">+91 8943442479</a>, or chat with our admissions desk directly on <a href="https://wa.me/918943442479" target="_blank" rel="noopener noreferrer" className="text-[#B48A3D] font-semibold underline">WhatsApp</a>.
+                    You can schedule a one-on-one session via our <Link to="/contact?counselling=true" className="text-[#B48A3D] font-semibold underline">Admissions Contact Page</Link>, call us at <a href="tel:+918943442479" className="text-[#B48A3D] font-semibold underline">+91 8943442479</a>, or chat with our admissions desk directly on <a href={`https://wa.me/918943442479?text=${encodeURIComponent(DEFAULT_INQUIRY_MESSAGE)}`} target="_blank" rel="noopener noreferrer" className="text-[#B48A3D] font-semibold underline">WhatsApp</a>.
                   </>
                 ),
               },
