@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Clock, BookOpen, ArrowLeft, CheckCircle2, MessageCircle, Sparkles, MapPin } from 'lucide-react';
-import { courseService } from '../services';
+import { courseService, DEMO_COURSES } from '../services';
 import type { Course } from '../types';
 import { PageLoader, ErrorMessage } from '../components/ui';
 import EnquiryModal from '../components/EnquiryModal';
@@ -10,13 +10,15 @@ import { ScrollReveal } from '../components/Animations';
 
 export default function CourseDetailPage() {
   const { slug } = useParams<{ slug: string }>();
-  const [course, setCourse] = useState<Course | null>(null);
-  const [loading, setLoading] = useState(true);
+  const initialCourse = slug ? (DEMO_COURSES.find(c => c.slug === slug) || null) : null;
+  const [course, setCourse] = useState<Course | null>(() => initialCourse);
+  const [loading, setLoading] = useState(() => !initialCourse);
   const [error, setError] = useState('');
   const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     if (!slug) return;
+    if (course && course.slug === slug) return;
     setLoading(true);
     courseService.detail(slug)
       .then(r => setCourse(r.data))

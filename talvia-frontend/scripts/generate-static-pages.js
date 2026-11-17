@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { createServer } from 'vite';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -505,33 +506,45 @@ const routes = [
   },
 ];
 
-console.log(`Generating static pages for ${routes.length} canonical routes...`);
+console.log(`Initializing Vite SSR engine for genuine static pre-rendering of ${routes.length} canonical routes...`);
+const vite = await createServer({
+  server: { middlewareMode: true },
+  appType: 'custom',
+  root: path.resolve(__dirname, '..'),
+});
+
+const { render } = await vite.ssrLoadModule('/src/entry-server.tsx');
 
 for (const route of routes) {
   let html = template;
 
-  // 1. Replace Title strictly - exactly ONE <title> tag
+  // 1. Render genuine static React HTML into <div id="root">
+  const routeUrl = route.path ? `/${route.path}` : '/';
+  const appHtml = render(routeUrl);
+  html = html.replace('<div id="root"></div>', `<div id="root">${appHtml}</div>`);
+
+  // 2. Replace Title strictly - exactly ONE <title> tag
   html = html.replace(/<title[^>]*>.*?<\/title>/is, `<title id="page-title">${route.title}</title>`);
 
-  // 2. Replace Description
+  // 3. Replace Description
   html = html.replace(
     /<meta\s+name="description"\s+content="[^"]*"\s*\/?>/i,
     `<meta name="description" content="${route.description.replace(/"/g, '&quot;')}" />`
   );
 
-  // 3. Replace Keywords
+  // 4. Replace Keywords
   html = html.replace(
     /<meta\s+name="keywords"\s+content="[^"]*"\s*\/?>/i,
     `<meta name="keywords" content="${route.keywords.replace(/"/g, '&quot;')}" />`
   );
 
-  // 4. Replace Canonical URL
+  // 5. Replace Canonical URL
   html = html.replace(
     /<link\s+rel="canonical"\s+href="[^"]*"\s*\/?>/i,
     `<link rel="canonical" href="${route.canonical}" />`
   );
 
-  // 5. Replace Open Graph Title, Description, and URL
+  // 6. Replace Open Graph Title, Description, and URL
   html = html.replace(
     /<meta\s+property="og:title"\s+content="[^"]*"\s*\/?>/i,
     `<meta property="og:title" content="${route.title.replace(/"/g, '&quot;')}" />`
@@ -545,7 +558,7 @@ for (const route of routes) {
     `<meta property="og:url" content="${route.canonical}" />`
   );
 
-  // 6. Replace Twitter Card Title and Description
+  // 7. Replace Twitter Card Title and Description
   html = html.replace(
     /<meta\s+name="twitter:title"\s+content="[^"]*"\s*\/?>/i,
     `<meta name="twitter:title" content="${route.title.replace(/"/g, '&quot;')}" />`
@@ -555,7 +568,7 @@ for (const route of routes) {
     `<meta name="twitter:description" content="${route.description.replace(/"/g, '&quot;')}" />`
   );
 
-  // 7. Inject JSON-LD Schema
+  // 8. Inject JSON-LD Schema
   let routeStructuredData = route.structuredData;
   if (!routeStructuredData && route.path.startsWith('courses/')) {
     const courseCleanName = route.title.replace(/\s+Admissions & Details\s+\|\s+TALVIA Consultancy/i, '');
@@ -629,6 +642,8 @@ for (const route of routes) {
   fs.writeFileSync(outPath, html, 'utf8');
 }
 
+await vite.close();
+
 // Generate 404.html (Fallback that still preserves SPA capability on GitHub Pages)
 const notFoundHtml = template
   .replace(/<title[^>]*>.*?<\/title>/is, '<title id="page-title">404 - Page Not Found | TALVIA Consultancy</title>')
@@ -643,5 +658,22 @@ const notFoundHtml = template
 
 fs.writeFileSync(path.join(distDir, '404.html'), notFoundHtml, 'utf8');
 
-console.log(`Successfully generated ${routes.length} static page endpoints + 404.html in dist/!`);
+// Generate static fallback redirect for legacy /colleges URL
+const collegesRedirectHtml = `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="refresh" content="0; url=/courses" />
+  <link rel="canonical" href="${SITE_URL}/courses" />
+  <title>Courses &amp; Academic Programs | TALVIA Consultancy</title>
+  <script>window.location.replace('/courses');</script>
+</head>
+<body>
+  <p>Redirecting to <a href="/courses">Courses &amp; Academic Programs</a>...</p>
+</body>
+</html>`;
+fs.mkdirSync(path.join(distDir, 'colleges'), { recursive: true });
+fs.writeFileSync(path.join(distDir, 'colleges', 'index.html'), collegesRedirectHtml, 'utf8');
+
+console.log(`Successfully generated and pre-rendered ${routes.length} static page endpoints + 404.html + legacy redirects in dist/!`);
 

@@ -1,15 +1,19 @@
 import type {
-  College, Course, Service, EnquiryFormData,
+  Course, Service, EnquiryFormData,
   ContactInfo, SiteSettings, PaginatedResponse,
-  CollegeFilters, CourseFilters, CourseCategory, District,
+  CourseFilters, CourseCategory,
 } from '../types';
 import {
-  DEMO_COLLEGES,
   DEMO_COURSES,
   DEMO_SERVICES,
-  DEMO_DISTRICTS,
   DEMO_CATEGORIES,
 } from './demoData';
+
+export {
+  DEMO_COURSES,
+  DEMO_SERVICES,
+  DEMO_CATEGORIES,
+};
 
 export const WHATSAPP_PHONE = '918943442479';
 export const DEFAULT_INQUIRY_MESSAGE = "Hello Talvia Team! I'm interested in university admissions and would like to know more about your services.";
@@ -123,45 +127,6 @@ export function createWhatsAppEnquiryUrl(data: EnquiryFormData): string {
 
   return `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(lines.join('\n'))}`;
 }
-
-// ─── Colleges (100% Static Showcase Data) ──────────────────────────────────
-export const collegeService = {
-  list: async (filters: CollegeFilters = {}): Promise<{ data: PaginatedResponse<College> }> => {
-    let list = [...DEMO_COLLEGES];
-    if (filters.district) {
-      list = list.filter(c => c.district.toLowerCase() === filters.district?.toLowerCase());
-    }
-    if (filters.search) {
-      const q = filters.search.toLowerCase();
-      list = list.filter(c =>
-        c.name.toLowerCase().includes(q) ||
-        (c.city && c.city.toLowerCase().includes(q)) ||
-        (c.affiliated_university && c.affiliated_university.toLowerCase().includes(q))
-      );
-    }
-    return {
-      data: {
-        count: list.length,
-        next: null,
-        previous: null,
-        results: list,
-      },
-    };
-  },
-
-  detail: async (slug: string): Promise<{ data: College }> => {
-    const found = DEMO_COLLEGES.find(c => c.slug === slug) || DEMO_COLLEGES[0];
-    return { data: found };
-  },
-
-  featured: async (): Promise<{ data: College[] }> => {
-    return { data: DEMO_COLLEGES.filter(c => c.is_featured) };
-  },
-
-  districts: async (): Promise<{ data: District[] }> => {
-    return { data: DEMO_DISTRICTS };
-  },
-};
 
 // ─── Courses (100% Static Showcase Data) ───────────────────────────────────
 export const courseService = {

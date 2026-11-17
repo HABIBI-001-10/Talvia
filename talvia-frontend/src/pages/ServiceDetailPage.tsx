@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, CheckCircle2, ChevronDown, ChevronUp, Compass, GraduationCap, BookOpen, FileCheck, ClipboardList, Heart, Globe, Plane } from 'lucide-react';
-import { serviceService } from '../services';
+import { serviceService, DEMO_SERVICES } from '../services';
 import type { Service } from '../types';
 import { PageLoader, ErrorMessage } from '../components/ui';
 import EnquiryModal from '../components/EnquiryModal';
@@ -34,13 +34,15 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
 
 export default function ServiceDetailPage() {
   const { slug } = useParams<{ slug: string }>();
-  const [service, setService] = useState<Service | null>(null);
-  const [loading, setLoading] = useState(true);
+  const initialService = slug ? (DEMO_SERVICES.find(s => s.slug === slug) || null) : null;
+  const [service, setService] = useState<Service | null>(() => initialService);
+  const [loading, setLoading] = useState(() => !initialService);
   const [error, setError] = useState('');
   const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     if (!slug) return;
+    if (service && service.slug === slug) return;
     setLoading(true);
     serviceService.detail(slug)
       .then(r => setService(r.data))

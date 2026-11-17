@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, BookOpen, Compass, GraduationCap, FileCheck, ClipboardList, Heart, CheckCircle2, Globe, Plane } from 'lucide-react';
-import { serviceService } from '../services';
+import { serviceService, DEMO_SERVICES } from '../services';
 import type { Service } from '../types';
 import { LoadingSpinner, ErrorMessage } from '../components/ui';
 import EnquiryModal from '../components/EnquiryModal';
@@ -13,17 +13,18 @@ const ICON_MAP: Record<string, React.ComponentType<{ size?: number; className?: 
 };
 
 export default function ServicesPage() {
-  const [services, setServices] = useState<Service[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [services, setServices] = useState<Service[]>(() => DEMO_SERVICES);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
+    if (services.length > 0) return;
     serviceService.list()
       .then(r => setServices(r.data))
       .catch(() => setError('Failed to load services.'))
       .finally(() => setLoading(false));
-  }, []);
+  }, [services.length]);
 
   const servicesStructuredData = {
     '@context': 'https://schema.org',

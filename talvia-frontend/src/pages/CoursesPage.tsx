@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Search, X } from 'lucide-react';
-import { courseService } from '../services';
+import { courseService, DEMO_COURSES, DEMO_CATEGORIES } from '../services';
 import type { Course, CourseCategory } from '../types';
 import CourseCard from '../components/CourseCard';
 import EnquiryModal from '../components/EnquiryModal';
@@ -11,17 +11,17 @@ import { ScrollReveal, StaggerContainer, StaggerItem } from '../components/Anima
 
 export default function CoursesPage() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [courses, setCourses] = useState<Course[]>([]);
-  const [categories, setCategories] = useState<CourseCategory[]>([]);
-  const [total, setTotal] = useState(0);
-  const [loading, setLoading] = useState(true);
+  const [courses, setCourses] = useState<Course[]>(() => DEMO_COURSES);
+  const [categories, setCategories] = useState<CourseCategory[]>(() => DEMO_CATEGORIES);
+  const [total, setTotal] = useState(() => DEMO_COURSES.length);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState('');
 
-  const search   = searchParams.get('search') || '';
+  const search = searchParams.get('search') || '';
   const category = searchParams.get('category') || '';
-  const page     = parseInt(searchParams.get('page') || '1');
+  const page = parseInt(searchParams.get('page') || '1');
 
   const setParam = (key: string, value: string) => {
     const p = new URLSearchParams(searchParams);
@@ -35,6 +35,9 @@ export default function CoursesPage() {
   }, []);
 
   useEffect(() => {
+    if (!search && !category && page === 1 && courses.length > 0) {
+      return;
+    }
     setLoading(true);
     setError('');
     courseService.list({ search, category, page })
@@ -136,11 +139,10 @@ export default function CoursesPage() {
           <div className="flex flex-wrap gap-2 mb-6">
             <button
               onClick={() => setParam('category', '')}
-              className={`px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider transition-all ${
-                !category
-                  ? 'bg-[#181E2A] text-white shadow-sm border border-[#2D384D]'
-                  : 'bg-white text-slate-700 border border-slate-200 hover:border-[#C59B4E]'
-              }`}
+              className={`px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider transition-all ${!category
+                ? 'bg-[#181E2A] text-white shadow-sm border border-[#2D384D]'
+                : 'bg-white text-slate-700 border border-slate-200 hover:border-[#C59B4E]'
+                }`}
             >
               All Programs
             </button>
@@ -148,11 +150,10 @@ export default function CoursesPage() {
               <button
                 key={cat.code}
                 onClick={() => setParam('category', cat.code)}
-                className={`px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider transition-all ${
-                  category === cat.code
-                    ? 'bg-[#181E2A] text-[#E8D09E] shadow-sm border border-[#C59B4E]/40 font-bold'
-                    : 'bg-white text-slate-700 border border-slate-200 hover:border-[#C59B4E]'
-                }`}
+                className={`px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider transition-all ${category === cat.code
+                  ? 'bg-[#181E2A] text-[#E8D09E] shadow-sm border border-[#C59B4E]/40 font-bold'
+                  : 'bg-white text-slate-700 border border-slate-200 hover:border-[#C59B4E]'
+                  }`}
               >
                 {cat.name} <span className="ml-1 opacity-70">({cat.count})</span>
               </button>

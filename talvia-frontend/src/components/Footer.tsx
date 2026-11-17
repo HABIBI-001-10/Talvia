@@ -11,7 +11,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="space-y-4">
             <Link to="/" className="inline-block">
-              <TalviaLogo variant="white" className="h-10 md:h-11" showTagline />
+              <TalviaLogo variant="white" className="h-10 md:h-11" showTagline loading="lazy" />
             </Link>
             <p className="text-slate-400 text-sm leading-relaxed pr-2">
               Premier global education consultancy connecting aspiring students with top-ranked universities worldwide. Education Without Borders — comprehensive guidance from first consultation to campus enrollment.

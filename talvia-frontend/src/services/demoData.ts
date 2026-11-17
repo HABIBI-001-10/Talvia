@@ -1,163 +1,6 @@
 import type {
-  College, Course, Service, CourseCategory, District,
+  Course, Service, CourseCategory,
 } from '../types';
-
-export const DEMO_COLLEGES: College[] = [
-  {
-    id: 1,
-    name: 'Bangalore Institute of Technology & Management',
-    slug: 'bangalore-institute-technology-management',
-    logo: null,
-    banner_image: null,
-    description: 'A premier educational institution located in India’s Silicon Valley, offering state-of-the-art computer science, management, and artificial intelligence programs with top national campus placements.',
-    short_description: 'Top-ranked engineering & management campus in Bangalore with 100% placement support.',
-    district: 'karnataka',
-    district_display: 'Karnataka (Bangalore)',
-    city: 'Bengaluru',
-    address: 'Electronic City, Bengaluru, Karnataka - 560100',
-    website: 'https://example.com',
-    email: 'admissions@bitm-india.edu',
-    phone: '+91 8943442479',
-    affiliated_university: 'Visvesvaraya Technological University (VTU)',
-    accreditation: 'NAAC A++ Grade / NBA Accredited',
-    established_year: 1988,
-    is_featured: true,
-    course_count: 6,
-    course_names: ['BTech Computer Science', 'BCA (Computer Applications)', 'BBA Business Administration', 'BSc Data Science'],
-    created_at: new Date().toISOString(),
-    college_courses: [
-      { id: 1, course_name: 'BTech Computer Science & Engineering', course_slug: 'btech-computer-science-engineering', course_category: 'Engineering & Technology', course_duration: '4 Years', course_degree_type: "Bachelor's Degree", fee_amount: '95000', fee_period: 'per year', eligibility_details: 'Plus Two (PCM) with 50%+', admission_open: true },
-      { id: 2, course_name: 'BCA (Bachelor of Computer Applications)', course_slug: 'bca-bachelor-of-computer-applications', course_category: 'Computer Applications', course_duration: '3 Years', course_degree_type: "Bachelor's Degree", fee_amount: '45000', fee_period: 'per year', eligibility_details: 'Plus Two with Math/Computer Science (45%+)', admission_open: true },
-      { id: 3, course_name: 'BBA (Bachelor of Business Administration)', course_slug: 'bba-bachelor-of-business-administration', course_category: 'Management', course_duration: '3 Years', course_degree_type: "Bachelor's Degree", fee_amount: '50000', fee_period: 'per year', eligibility_details: 'Plus Two any stream (45%+)', admission_open: true },
-    ]
-  },
-  {
-    id: 2,
-    name: 'St. Teresa\'s National College of Arts & Commerce',
-    slug: 'st-teresas-national-college-kochi',
-    logo: null,
-    banner_image: null,
-    description: 'A distinguished collegiate institution in Kochi offering a wide spectrum of undergraduate, postgraduate, and professional study programs with world-class faculty and heritage campus amenities.',
-    short_description: 'Premier accredited institution in Kochi with multi-stream honours degrees and career pathways.',
-    district: 'kerala',
-    district_display: 'Kerala (Kochi)',
-    city: 'Kochi',
-    address: 'Park Avenue, Kochi, Kerala - 682011',
-    website: 'https://example.com',
-    email: 'admissions@st-teresas.edu.in',
-    phone: '+91 8943442479',
-    affiliated_university: 'Mahatma Gandhi University',
-    accreditation: 'NAAC A++ Grade',
-    established_year: 1985,
-    is_featured: true,
-    course_count: 5,
-    course_names: ['BCom Commerce', 'BBA Business Administration', 'BCA (Computer Applications)', 'BSc Physics'],
-    created_at: new Date().toISOString(),
-    college_courses: [
-      { id: 4, course_name: 'BCom (Bachelor of Commerce)', course_slug: 'bcom-bachelor-of-commerce', course_category: 'Commerce & Business', course_duration: '3 Years', course_degree_type: "Bachelor's Degree", fee_amount: '32000', fee_period: 'per year', eligibility_details: 'Plus Two any stream (45%+)', admission_open: true },
-      { id: 5, course_name: 'BBA (Bachelor of Business Administration)', course_slug: 'bba-bachelor-of-business-administration', course_category: 'Management', course_duration: '3 Years', course_degree_type: "Bachelor's Degree", fee_amount: '40000', fee_period: 'per year', eligibility_details: 'Plus Two any stream (45%+)', admission_open: true },
-    ]
-  },
-  {
-    id: 3,
-    name: 'Chennai Apex Institute of Medical Sciences & Nursing',
-    slug: 'chennai-apex-institute-medical-sciences',
-    logo: null,
-    banner_image: null,
-    description: 'Renowned healthcare and paramedical institute in Tamil Nadu featuring multispeciality teaching hospitals, international nursing certifications, and clinical internship rotations.',
-    short_description: 'Leading healthcare campus in Chennai with multispeciality hospital rotations.',
-    district: 'tamil_nadu',
-    district_display: 'Tamil Nadu (Chennai)',
-    city: 'Chennai',
-    address: 'OMR Road, Chennai, Tamil Nadu - 600096',
-    website: 'https://example.com',
-    email: 'info@chennaiapexmedical.org',
-    phone: '+91 8943442479',
-    affiliated_university: 'The Tamil Nadu Dr. M.G.R. Medical University',
-    accreditation: 'NAAC A Grade / INC Recognized',
-    established_year: 1996,
-    is_featured: true,
-    course_count: 4,
-    course_names: ['BSc Nursing', 'BPT Physiotherapy', 'BPharm Pharmacy'],
-    created_at: new Date().toISOString(),
-    college_courses: [
-      { id: 6, course_name: 'BSc Nursing', course_slug: 'bsc-nursing', course_category: 'Healthcare & Medical', course_duration: '4 Years', course_degree_type: "Bachelor's Degree", fee_amount: '75000', fee_period: 'per year', eligibility_details: 'Plus Two (PCB) with 45%+', admission_open: true },
-    ]
-  },
-  {
-    id: 4,
-    name: 'Pune Institute of Pharmaceutical Sciences & Research',
-    slug: 'pune-institute-pharmaceutical-sciences',
-    logo: null,
-    banner_image: null,
-    description: 'Premier pharmaceutical and biomedical sciences research campus in Maharashtra equipped with advanced formulation laboratories, animal cell culture units, and PCI-accredited faculty.',
-    short_description: 'Elite pharmaceutical sciences, drug research, and clinical pharmacy institution in Pune.',
-    district: 'maharashtra',
-    district_display: 'Maharashtra (Pune)',
-    city: 'Pune',
-    address: 'FC Road, Shivajinagar, Pune, Maharashtra - 411004',
-    website: 'https://example.com',
-    email: 'admissions@punepharmacy.edu.in',
-    phone: '+91 8943442479',
-    affiliated_university: 'Savitribai Phule Pune University',
-    accreditation: 'NAAC A+ Grade / PCI Approved / NBA Accredited',
-    established_year: 1982,
-    is_featured: true,
-    course_count: 5,
-    course_names: ['B.Pharm (Bachelor of Pharmacy)', 'Pharm.D (Doctor of Pharmacy)', 'M.Pharm Pharmacology'],
-    created_at: new Date().toISOString(),
-    college_courses: [
-      { id: 7, course_name: 'B.Pharm (Bachelor of Pharmacy)', course_slug: 'b-pharm-bachelor-of-pharmacy', course_category: 'Pharmacy', course_duration: '4 Years', course_degree_type: "Bachelor's Degree", fee_amount: '95000', fee_period: 'per year', eligibility_details: "10+2 with PCB/PCM (min 50%)", admission_open: true },
-      { id: 8, course_name: 'Pharm.D (Doctor of Pharmacy)', course_slug: 'pharm-d-doctor-of-pharmacy', course_category: 'Pharmacy', course_duration: '6 Years', course_degree_type: "Doctoral Degree", fee_amount: '160000', fee_period: 'per year', eligibility_details: "10+2 with PCB/PCM", admission_open: true },
-    ]
-  },
-  {
-    id: 5,
-    name: 'Delhi National Academy of Design & Technology',
-    slug: 'delhi-national-academy-design-technology',
-    logo: null,
-    banner_image: null,
-    description: 'Premier northern educational hub specializing in computing systems, media arts, cloud development, and startup enterprise creation.',
-    short_description: 'Cutting-edge technology and management institution in Delhi NCR.',
-    district: 'delhi_ncr',
-    district_display: 'Delhi NCR',
-    city: 'New Delhi',
-    address: 'Connaught Place, New Delhi - 110001',
-    website: 'https://example.com',
-    email: 'contact@delhina.edu.in',
-    phone: '+91 8943442479',
-    affiliated_university: 'Guru Gobind Singh Indraprastha University',
-    accreditation: 'NAAC A Grade',
-    established_year: 2002,
-    is_featured: false,
-    course_count: 4,
-    course_names: ['BCA (Computer Applications)', 'BTech Computer Science', 'BBA Business Administration'],
-    created_at: new Date().toISOString(),
-  },
-  {
-    id: 6,
-    name: 'Malabar Academy of Science & Technology',
-    slug: 'malabar-academy-kozhikode',
-    logo: null,
-    banner_image: null,
-    description: 'Renowned for rigorous research, engineering innovation, and active campus placement drives with multinational IT employers.',
-    short_description: 'Leading technical campus in Calicut with world-class faculty and placement records.',
-    district: 'kerala',
-    district_display: 'Kerala (Kozhikode)',
-    city: 'Kozhikode',
-    address: 'Beach Road, Kozhikode, Kerala - 673001',
-    website: 'https://example.com',
-    email: 'info@malabaracademy.ac.in',
-    phone: '+91 8943442479',
-    affiliated_university: 'University of Calicut',
-    accreditation: 'NAAC A Grade',
-    established_year: 1994,
-    is_featured: false,
-    course_count: 5,
-    course_names: ['BTech Computer Science', 'BSc Nursing', 'BCA (Computer Applications)'],
-    created_at: new Date().toISOString(),
-  }
-];
 
 export const DEMO_COURSES: Course[] = [
   {
@@ -173,7 +16,6 @@ export const DEMO_COURSES: Course[] = [
     degree_type: 'professional',
     degree_type_display: 'Doctoral Medical Degree',
     college_count: 24,
-    available_colleges: [DEMO_COLLEGES[2], DEMO_COLLEGES[0]],
   },
   {
     id: 2,
@@ -188,7 +30,6 @@ export const DEMO_COURSES: Course[] = [
     degree_type: 'bachelors',
     degree_type_display: "Bachelor's Degree",
     college_count: 28,
-    available_colleges: [DEMO_COLLEGES[3], DEMO_COLLEGES[2]],
   },
   {
     id: 3,
@@ -203,7 +44,6 @@ export const DEMO_COURSES: Course[] = [
     degree_type: 'professional',
     degree_type_display: 'Doctoral Clinical Degree',
     college_count: 16,
-    available_colleges: [DEMO_COLLEGES[3], DEMO_COLLEGES[0]],
   },
   {
     id: 4,
@@ -218,7 +58,6 @@ export const DEMO_COURSES: Course[] = [
     degree_type: 'professional',
     degree_type_display: 'Doctoral Dental Degree',
     college_count: 18,
-    available_colleges: [DEMO_COLLEGES[2]],
   },
   {
     id: 5,
@@ -233,7 +72,6 @@ export const DEMO_COURSES: Course[] = [
     degree_type: 'professional',
     degree_type_display: 'Doctor of Ayurvedic Medicine',
     college_count: 15,
-    available_colleges: [DEMO_COLLEGES[2], DEMO_COLLEGES[1]],
   },
   {
     id: 6,
@@ -248,7 +86,6 @@ export const DEMO_COURSES: Course[] = [
     degree_type: 'professional',
     degree_type_display: 'Doctor of Homeopathic Medicine',
     college_count: 12,
-    available_colleges: [DEMO_COLLEGES[1], DEMO_COLLEGES[2]],
   },
   {
     id: 7,
@@ -263,7 +100,6 @@ export const DEMO_COURSES: Course[] = [
     degree_type: 'bachelors',
     degree_type_display: "Bachelor's Degree",
     college_count: 19,
-    available_colleges: [DEMO_COLLEGES[2], DEMO_COLLEGES[5]],
   },
   {
     id: 8,
@@ -278,7 +114,6 @@ export const DEMO_COURSES: Course[] = [
     degree_type: 'masters',
     degree_type_display: "Master's Degree",
     college_count: 14,
-    available_colleges: [DEMO_COLLEGES[3]],
   },
   {
     id: 9,
@@ -293,7 +128,6 @@ export const DEMO_COURSES: Course[] = [
     degree_type: 'bachelors',
     degree_type_display: "Bachelor's Degree",
     college_count: 26,
-    available_colleges: [DEMO_COLLEGES[2], DEMO_COLLEGES[5]],
   },
   {
     id: 10,
@@ -308,7 +142,6 @@ export const DEMO_COURSES: Course[] = [
     degree_type: 'bachelors',
     degree_type_display: "Bachelor's Degree",
     college_count: 18,
-    available_colleges: [DEMO_COLLEGES[0], DEMO_COLLEGES[5]],
   },
   {
     id: 11,
@@ -323,7 +156,6 @@ export const DEMO_COURSES: Course[] = [
     degree_type: 'bachelors',
     degree_type_display: "Bachelor's Degree",
     college_count: 22,
-    available_colleges: [DEMO_COLLEGES[0], DEMO_COLLEGES[1]],
   },
   {
     id: 12,
@@ -338,7 +170,6 @@ export const DEMO_COURSES: Course[] = [
     degree_type: 'bachelors',
     degree_type_display: "Bachelor's Degree",
     college_count: 20,
-    available_colleges: [DEMO_COLLEGES[0], DEMO_COLLEGES[1]],
   },
   {
     id: 13,
@@ -353,7 +184,6 @@ export const DEMO_COURSES: Course[] = [
     degree_type: 'bachelors',
     degree_type_display: "Bachelor's Degree",
     college_count: 25,
-    available_colleges: [DEMO_COLLEGES[1]],
   }
 ];
 
@@ -513,15 +343,6 @@ export const DEMO_SERVICES: Service[] = [
     ],
     display_order: 8,
   }
-];
-
-export const DEMO_DISTRICTS: District[] = [
-  { code: 'karnataka', name: 'Karnataka (Bangalore/Mangalore)', count: 8 },
-  { code: 'kerala', name: 'Kerala (Kochi/Calicut/Trivandrum)', count: 9 },
-  { code: 'tamil_nadu', name: 'Tamil Nadu (Chennai/Coimbatore)', count: 6 },
-  { code: 'maharashtra', name: 'Maharashtra (Pune/Mumbai)', count: 5 },
-  { code: 'delhi_ncr', name: 'Delhi NCR', count: 4 },
-  { code: 'telangana', name: 'Telangana (Hyderabad)', count: 3 },
 ];
 
 export const DEMO_CATEGORIES: CourseCategory[] = [

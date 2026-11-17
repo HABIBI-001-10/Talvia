@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronRight, Star, Users, Building2, BookOpen, Compass, GraduationCap, FileCheck, ClipboardList, Heart, CheckCircle2, Phone, Send, MessageCircle, Globe, Plane } from 'lucide-react';
-import { serviceService, enquiryService, POPULAR_COUNTRIES, getStatesForCountry } from '../services';
+import { serviceService, enquiryService, POPULAR_COUNTRIES, getStatesForCountry, DEMO_SERVICES } from '../services';
 import type { Service } from '../types';
 import EnquiryModal from '../components/EnquiryModal';
 import SEO from '../components/SEO';
@@ -14,9 +14,9 @@ const ICON_MAP: Record<string, React.ComponentType<{ size?: number; className?: 
 
 // ─── Home Page ─────────────────────────────────────────────────────────────
 export default function HomePage() {
-  const [services, setServices] = useState<Service[]>([]);
+  const [services, setServices] = useState<Service[]>(() => DEMO_SERVICES);
   const [modalOpen, setModalOpen] = useState(false);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   // Quick Enquiry form state
   const [form, setForm] = useState({
@@ -642,9 +642,8 @@ export default function HomePage() {
                           value={form.student_name}
                           onChange={handleFormChange}
                           placeholder="Your name"
-                          className={`w-full border rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#181E2A] ${
-                            formErrors.student_name ? 'border-red-400' : 'border-slate-200'
-                          }`}
+                          className={`w-full border rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#181E2A] ${formErrors.student_name ? 'border-red-400' : 'border-slate-200'
+                            }`}
                         />
                         {formErrors.student_name && <p className="text-red-500 text-xs mt-1">{formErrors.student_name}</p>}
                       </div>
@@ -658,9 +657,8 @@ export default function HomePage() {
                           onChange={handleFormChange}
                           placeholder="+91 8943442479"
                           type="tel"
-                          className={`w-full border rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#181E2A] ${
-                            formErrors.phone ? 'border-red-400' : 'border-slate-200'
-                          }`}
+                          className={`w-full border rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#181E2A] ${formErrors.phone ? 'border-red-400' : 'border-slate-200'
+                            }`}
                         />
                         {formErrors.phone && <p className="text-red-500 text-xs mt-1">{formErrors.phone}</p>}
                       </div>
