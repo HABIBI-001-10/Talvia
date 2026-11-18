@@ -1,16 +1,24 @@
-import logoWhiteWebp from '../assets/logo-white.webp';
-import logoWhite from '../assets/logo-white.png';
-import logoBlackWebp from '../assets/logo-black.webp';
-import logoBlack from '../assets/logo-black.png';
-import logoRawWebp from '../assets/exact-logo-raw.webp';
-import logoRaw from '../assets/exact-logo-raw.png';
-
 interface TalviaLogoProps {
   variant?: 'dark' | 'white' | 'raw' | 'auto';
   className?: string;
   showTagline?: boolean;
   loading?: 'eager' | 'lazy';
 }
+
+const LOGO_PATHS = {
+  raw: {
+    webp: '/exact-logo-raw.webp',
+    png: '/exact-logo-raw.png',
+  },
+  white: {
+    webp: '/logo-white.webp',
+    png: '/logo-white.png',
+  },
+  dark: {
+    webp: '/logo-black.webp',
+    png: '/logo-black.png',
+  },
+};
 
 export default function TalviaLogo({
   variant = 'auto',
@@ -22,9 +30,9 @@ export default function TalviaLogo({
     return (
       <div className="flex items-center gap-2 group">
         <picture>
-          <source srcSet={logoRawWebp} type="image/webp" />
+          <source srcSet={LOGO_PATHS.raw.webp} type="image/webp" />
           <img
-            src={logoRaw}
+            src={LOGO_PATHS.raw.png}
             alt="TALVIA Consultancy — Global Education & Overseas Admissions Advisory"
             className={`${className} w-auto object-contain rounded-lg transition-transform duration-200 group-hover:scale-105`}
             width={260}
@@ -43,8 +51,8 @@ export default function TalviaLogo({
   }
 
   const isWhite = variant === 'white';
-  const logoSrcWebp = isWhite ? logoWhiteWebp : logoBlackWebp;
-  const logoSrc = isWhite ? logoWhite : logoBlack;
+  const logoSrcWebp = isWhite ? LOGO_PATHS.white.webp : LOGO_PATHS.dark.webp;
+  const logoSrc = isWhite ? LOGO_PATHS.white.png : LOGO_PATHS.dark.png;
 
   return (
     <div className="flex items-center gap-2 select-none group">
@@ -65,8 +73,9 @@ export default function TalviaLogo({
         </div>
         {showTagline && (
           <span
-            className={`text-[9.5px] uppercase tracking-[0.24em] font-medium mt-0.5 ${isWhite ? 'text-slate-400' : 'text-slate-500'
-              }`}
+            className={`text-[9.5px] uppercase tracking-[0.24em] font-medium mt-0.5 ${
+              isWhite ? 'text-slate-400' : 'text-slate-500'
+            }`}
           >
             Global Education • Education Without Borders
           </span>
